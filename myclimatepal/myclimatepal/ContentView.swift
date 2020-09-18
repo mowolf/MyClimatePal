@@ -24,13 +24,13 @@ struct ContentView: View {
                 }
                 .tag(0)
             
-            AddView()
+            AddView().environmentObject(myCo2State)
                 .tabItem {
                 VStack {
                     Image(systemName: "plus")
                     Text("Add")
                 }
-            }
+            }.tag(1)
             
             Text("Second View")
                 .font(.title)
@@ -40,7 +40,7 @@ struct ContentView: View {
                         Text("List")
                     }
                 }
-                .tag(1)
+                .tag(2)
             
         }
     }

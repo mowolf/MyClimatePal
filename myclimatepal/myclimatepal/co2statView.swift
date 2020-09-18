@@ -28,7 +28,7 @@ struct co2statView: View {
                     .clipped()
                     .offset(y: CGFloat(200-co2progress*100 - 100))
             }.frame(width: 200.0, height: 200.0).shadow(radius: 15)
-                    Text(String(co2progress*100) + "% Co2")
+                    Text(String(Int(co2progress*100)) + "% Co2 used")
         }
     }
 }

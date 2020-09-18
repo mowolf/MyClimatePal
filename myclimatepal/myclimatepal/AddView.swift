@@ -10,15 +10,17 @@ import SwiftUI
 
 struct AddView: View {
     @State var searchText = ""
-    
+    @EnvironmentObject var Co2State: Co2State
+
     let iconSize: CGFloat = 150
     
     var body: some View {
         VStack {
-            SearchBar(text: $searchText)
+            SearchBar(text: $searchText).padding()
             Spacer()
             HStack {
                 Button(action: {
+                    self.Co2State.currentCo2State += 2
                     // What to perform
                 }) {
                     Image(systemName: "scribble")
@@ -55,3 +57,9 @@ struct AddView: View {
     }
 }
 
+
+struct AddView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddView()
+    }
+}
