@@ -31,6 +31,13 @@ struct ContentView: View {
                     }
                 }
                 .tag(1)
+            AddView()
+                .tabItem {
+                VStack {
+                    Image(systemName: "plus")
+                    Text("Add")
+                }
+            }
         }
     }
 }
