@@ -1,0 +1,155 @@
+Name,food counter,catergory,"Median kg CO2eq / kg produce, Litre of Bone free meat",what 1 kg of carbon dioxide equivilent emmisions buys you in produce (kg),Mean kg CO2eq per kg produce,Stdev,Deviation from mean,Min kg CO2eq per kg produce,Max kg CO2eq per kg produce,Q1 kg CO2eq per kg produce,Q3 kg CO2eq per kg produce,No. of LCA studies,No. of GWP values
+Onion,vegetables,bulbs,"0,17","5,882","0,18","0,11",60%,"0,06","0,37","0,1","0,21",7,9
+Celery,vegetables,stems of leaves,"0,18","5,556",,,,,,,,1,1
+Potatoes,vegetables,tubers,"0,18","5,556","0,2","0,08",41%,"0,08","0,36","0,16","0,26",16,25
+Carrots,vegetables,roots,"0,2",5,"0,22","0,15",65%,"0,04","0,5","0,11","0,31",10,13
+Zucchini/button squash,fruit,pepo,"0,21","4,762","0,42","0,5",121%,"0,09","1,17","0,16","0,46",3,4
+Cucumber/gherkins,fruit,pepo,"0,23","4,348","0,33","0,32",96%,"0,13","1,3","0,19","0,31",7,15
+Beetroot,vegetables,roots,"0,24","4,167","0,23","0,11",50%,"0,11","1,61","0,18","0,29",2,3
+Pumpkins,fruit,pepo,"0,25",4,"0,33","0,25",74%,"0,15","0,73","0,16","0,37",4,8
+Rockmelon/cantelope,fruit,pepo,"0,25",4,,,,,,,,1,1
+Lemons and limes,fruit,Hesperidium,"0,26","3,846","0,3","0,06",19%,"0,18","0,45","0,22","0,35",2,3
+Beans: plake,staples,legume,"0,26","3,846","0,3","0,12",38%,"0,22","0,43","0,24","0,35",1,3
+Mushrooms,vegetables,fungai,"0,27","3,704","0,27","0,29",110%,"0,06","0,48","0,16","0,37",3,2
+Guavas,fruit,true berry,"0,28","3,571",,,,,,,,1,1
+Apples,fruit,pome,"0,29","3,448","0,36","0,19",53%,"0,18","0,89","0,21","0,47",21,33
+Swedes/rutabage,vegetables,roots,"0,29","3,448",,,,,,,,1,1
+Beans: green,staples,legume,"0,31","3,226","0,51","0,47",93%,"0,24","1,55","0,26","0,46",4,7
+Pears,fruit,pome,"0,31","3,226","0,33","0,13",41%,"0,19","0,63","0,27","0,33",4,8
+Quinces,fruit,pome,"0,31","3,226","0,31","0,01",5%,"0,3","0,32","0,31","0,32",2,2
+Dates,fruit,drupe,"0,32","3,125",,,,,,,,1,1
+Watermelons,fruit,pepo,"0,32","3,125","0,32","0,09",29%,"0,25","0,38","0,28","0,35",2,2
+Orange,fruit,Hesperidium,"0,33","3,03","0,35","0,12",34%,"0,18","0,59","0,25","0,45",9,20
+Cauliflowers and broccoli,vegetables,brassica,"0,36","2,778","0,35","0,06",17%,"0,28","0,42","0,32","0,39",4,4
+Kiwi fruit,fruit,true berry,"0,36","2,778","0,47","0,26",55%,"0,15","0,88","0,29","0,68",5,9
+Grapes,fruit,true berry,"0,37","2,703","0,41","0,25",60%,"0,15","0,88","0,31","0,41",5,6
+Oats,staples,cereal,"0,38","2,632","0,44","0,12",26%,"0,38","0,67","0,38","0,45",4,6
+Rye,staples,cereal,"0,38","2,632","0,41","0,07",17%,"0,36","0,49","0,37","0,44",2,3
+Peas,staples,legume,"0,38","2,632","0,6","0,77",128%,"0,15","2,46","0,21","0,5",6,8
+Cherries,fruit,drupe,"0,39","2,564","0,48","0,4",83%,"0,26","0,88","0,31","0,56",2,4
+Beans: gigante/butter,staples,legume,"0,39","2,564","0,36","0,09",25%,"0,26","0,43","0,32","0,41",1,3
+Almond/coconut milk,dairy fridge,milk,"0,42","2,381","0,42","0,03",8%,"0,39","0,44","0,39","0,44",1,4
+Barley,staples,cereal,"0,43","2,326","0,49","0,24",49%,"0,11","0,98","0,34","0,6",7,13
+Apricot,fruit,drupe,"0,43","2,326",,,,,,,,1,1
+Peaches and Nectarines,fruit,drupe,"0,43","2,326","0,54","0,24",44%,"0,38","0,81","0,41","0,62",3,3
+Beans,staples,legume,"0,43","2,326","0,62","0,45",73%,"0,22","1,55","0,26","0,72",11,22
+Figs,fruit,multiple fruit,"0,43","2,326",,,,,,,,1,1
+Chestnuts,staples,tree nuts,"0,43","2,326",,,,,,,,1,1
+Mandarin,fruit,Hesperidium,"0,45","2,222",,,,,,,,1,1
+Tomatoes,fruit,true berry,"0,45","2,222","0,46","0,18",39%,"0,08",1,"0,35","0,55",19,56
+Maize/corn,staples,cereal,"0,47","2,128","0,63","0,38",60%,"0,4","1,38","0,42","0,61",6,6
+Fennel,vegetables,stems of leaves,"0,48","2,083",,,,,,,,1,1
+Artichokes,vegetables,tubers,"0,48","2,083",,,,,,,,1,1
+Cowpeas,staples,legume,"0,49","2,041","0,48","0,13",28%,"0,33","0,61","0,4","0,57",1,4
+Soybean,staples,legumes,"0,49","2,041","0,58","0,04",6%,"0,38","0,96","0,44","0,62",2,4
+Pineapples,fruit,multiple fruit,"0,5",2,"0,72","0,53",74%,"0,4","1,78","0,45","0,64",5,6
+Grapefruit and pomelo,fruit,Hesperidium,"0,51","1,961",,,,,,,,2,1
+Tangerines/mandarins,fruit,Hesperidium,"0,51","1,961",,,,,,,,1,1
+Melons,fruit,pepo,"0,51","1,961","0,88","0,01",2%,"0,3","1,74","0,32","1,55",4,5
+Tomatoes: passive greenhouse,greenhouse,true berry,"0,51","1,961","0,67","0,34",51%,"0,32","1,28","0,44","0,86",5,8
+Wheat,staples,flour,"0,52","1,923","0,51","0,17",33%,"0,18","1,1","0,4","0,6",20,51
+Spinach,vegetables,leaves,"0,54","1,852","0,54","0,51",95%,"0,18","0,91","0,36","0,73",2,2
+Garlic,vegetables,bulbs,"0,57","1,754",,,,,,,,1,1
+Strawberries,fruit,aggregate fruit,"0,58","1,724","0,65","0,36",55%,"0,2","1,5","0,37","0,84",15,21
+Broccoli,vegetables,brassica,"0,6","1,667","0,7","0,34",48%,"0,37","1,73","0,49","0,7",6,17
+Olives,fruit,drupe,"0,63","1,587","0,56","0,22",38%,"0,22","0,85","0,52","0,66",4,8
+Capsicums/peppers,fruit,true berry,"0,66","1,515","0,6","0,27",44%,"0,23","0,87","0,55","0,71",3,4
+Bananas,fruit,musa,"0,72","1,389","0,79","0,3",38%,"0,42","1,37","0,48","1,04",10,17
+Beans: pinto USA dried,staples,legume,"0,73","1,37",,,,,,,,1,1
+Beans: french and runner,staples,legume,"0,75","1,333","0,85","0,37",44%,"0,52","1,37","0,63","0,97",1,4
+Soy-milk,dairy fridge,milk,"0,75","1,333","0,88","0,27",31%,"0,66","1,4","0,7","0,98",2,8
+Chick peas,staples,legume,"0,77","1,299","0,67","0,19",29%,"0,45","0,8","0,61","0,79",2,3
+Peanuts,staples,legume,"0,83","1,205","0,87","0,11",13%,"0,8","1,1","0,81","0,87",3,6
+Asparagus,vegetables,stem shoots,"0,83","1,205","0,92","0,49",53%,"0,18","2,54","0,6","1,05",5,28
+Raspberries,fruit,aggregate fruit,"0,84","1,19",,,,,,,,2,1
+Currants and gooseberries,fruit,true berry,"0,84","1,19",,,,,,,,1,1
+Sesame seed,staples,seeds,"0,88","1,136",,,,,,,,1,1
+Ginger,vegetables,stem,"0,88","1,136",,,,,,,,1,1
+Cranberries/blueberries,fruit,true berry,"0,92","1,087","0,92","0,07",8%,"0,86","0,97","0,89","0,94",2,2
+Hazelnuts,staples,tree nuts,"0,97","1,031","0,97","0,76",78%,"0,43","1,5","0,7","1,23",2,2
+Ground nuts,staples,tree nuts,"0,99","1,01","0,99","0,48",49%,"0,65","1,33","0,82","1,16",2,2
+Lentils,staples,legume,"1,03","0,971","1,03","0,04",4%,1,"1,06","1,02","1,05",2,2
+Pilchard,meat,fish counter,"1,1","0,909","1,1","0,45",41%,"0,78","1,41","0,94","1,26",2,2
+Peppers: passive and heated greenhouse,greenhouse,,"1,1","0,909","1,08","0,17",16%,"0,9","1,25",1,"1,17",2,3
+Milk: AU & NZ,dairy fridge,milk,"1,14","0,877","1,19","0,15",13%,"0,94","1,4","1,11","1,32",10,10
+Quinoa,staples,cereal,"1,15","0,87","1,15","0,07",6%,"1,1","1,2","1,13","1,18",2,2
+Herring,meat,fish counter,"1,16","0,862","1,17","0,17",15%,"0,98","1,39","1,09","1,25",3,4
+Milk: Nth America,dairy fridge,milk,"1,16","0,862","1,34","0,4",30%,"0,94","2,06","1,05","1,55",11,19
+Milk: British Isles,dairy fridge,milk,"1,23","0,813","1,26","0,23",19%,"0,88","1,99","1,12","1,3",16,35
+Milk: World average,dairy fridge,milk,"1,29","0,775","1,39","0,58",41%,"0,54","7,5","1,14","1,5",77,262
+Milk: Europe,dairy fridge,milk,"1,3","0,769","1,32","0,29",22%,"0,54","2,39","1,14","1,48",52,175
+Avocados,fruit,true berry,"1,3","0,769",,,,,,,,2,1
+Yoghurt,dairy fridge,yogurt,"1,31","0,763","1,43","0,25",18%,"1,17",2,"1,28","1,48",7,11
+Eggplants (aubergines),fruit,true berry,"1,35","0,741","1,35","0,07",5%,"1,3","1,4","1,33","1,38",1,2
+Sunflower seed,staples,seeds,"1,41","0,709",,,,,,,,1,1
+Melons: passive greenhouse,greenhouse,pepo,"1,43","0,699","1,37","0,11",8%,"1,24","1,43","1,33","1,43",1,3
+Cashew nut,staples,tree nuts,"1,44","0,694","1,55","0,85",55%,"1,06","2,27","1,29","1,7",3,4
+Walnuts,staples,tree nuts,"1,51","0,662","1,62","1,13",70%,"0,5","2,94","1,32","2,54",3,4
+Pistachios,staples,tree nuts,"1,53","0,654","1,53","0,91",60%,"0,88","2,17","1,2","1,85",1,2
+Almonds,staples,tree nuts,"1,54","0,649","1,74","1,25",72%,"0,51","3,77","0,76","2,33",4,6
+Milk: Central and Sth America,dairy fridge,milk,"1,55","0,645","1,69","0,61",36%,"1,14","3,3","1,41","1,68",5,10
+Pollock,meat,fish counter,"1,6","0,625","1,65","0,47",29%,"1,2","2,14","1,4","1,87",2,3
+Strawberries: heated greenhouse,greenhouse,aggregate fruit,"1,64","0,61","2,56","2,32",91%,"0,84","5,2","1,24","3,42",3,3
+Carp,meat,fish counter,"1,76","0,568","1,8","0,11",6%,"1,73","1,93","1,74","1,84",1,3
+Zucchini: passive greenhouse,greenhouse,pepo,"1,77","0,565","1,77","0,24",13%,"1,6","1,94","1,69","1,86",1,2
+Mackerel,meat,fish counter,"1,8","0,556",2,"1,08",54%,"0,94","4,5","1,3","2,4",9,21
+Milk: Asia,dairy fridge,milk,"2,02","0,495","2,53","1,09",43%,"1,38","4,6","1,94","2,92",2,7
+Rape and mustard seed,staples,seeds,"2,09","0,478",,,,,,,,1,1
+Cucumbers and gherkins: heated greenhouse,greenhouse,pepo,"2,1","0,476","2,23","0,71",17%,"1,68","3,79","1,89","2,12",5,7
+Tuna,meat,fish counter,"2,15","0,465","2,6","1,45",56%,"1,39","6,32","1,75","2,68",4,10
+Tomatoes: heated greenhouse,staples,tree nuts,"2,2","0,455","2,69","1,36",51%,"0,92","6,12","1,86","3,65",13,33
+Milk: Africa,dairy fridge,milk,"2,5","0,4","3,34","1,9",57%,"1,02","7,5","1,98","3,7",2,5
+Rice,staples,cereal,"2,55","0,392","2,66","1,29",48%,"0,66","5,69","1,64","3,08",12,27
+Whiting,meat,fish counter,"2,66","0,376","2,66","1,59",60%,"1,54","3,79","2,1","3,22",2,2
+Duck,meat,non-ruminants,"3,09","0,324","3,09","1,44",47%,"2,07","4,1","2,58","3,59",2,2
+Sea bass,meat,fish counter,"3,27","0,306","3,55","1,63",46%,"1,91","5,76","2,68","4,14",2,4
+Haddock,meat,fish counter,"3,41","0,293","3,37","0,08",3%,"2,8","3,84","3,03","3,75",2,4
+Eggs,meat,non-ruminants,"3,46","0,289","3,39","1,21",36%,"1,3",6,"2,45","4,05",19,38
+Salmon,meat,fish counter,"3,47","0,288","3,76","1,47",39%,"2,04","8,33","2,88","4,13",9,21
+Fish: all species,meat,fish counter,"3,49","0,287","4,41","3,62",82%,"0,78","20,86","1,99","5,16",47,148
+Cod,meat,fish counter,"3,51","0,285","3,49","1,31",37%,"1,58","5,38","2,25","4,5",10,16
+Buffalo milk,dairy fridge,bufalo milk,"3,57","0,28","3,75","0,86",23%,"2,87","5,2","3,14","4,18",1,7
+Chicken,meat,non-ruminants,"3,65","0,274","4,12","1,72",42%,"1,06","9,98","2,77","5,31",29,95
+Lettuce: heated greenhouse,greenhouse,leaves,"3,7","0,27","3,15","1,64",52%,"1,3","4,73","1,5","4,51",3,5
+Eel,meat,fish counter,"3,88","0,258",,,,,,,,1,1
+Kangaroo,meat,non-ruminant,"4,1","0,244",,,,,,,,1,1
+Trout,meat,fish counter,"4,2","0,238","3,73","1,13",30%,"1,37","5,95","3,11","4,33",9,20
+Rabbit,meat,non-ruminant,"4,7","0,213","4,7","1,24",26%,"3,82","5,58","4,26","5,14",2,2
+Pork EU,meat,non-ruminants,"5,39","0,186","5,6","1,51",27%,"3,2","10,25","4,31","6,45",24,91
+Cream,dairy fridge,Cream,"5,64","0,177","5,32","1,62",31%,"2,1","7,92","3,82","7,14",3,4
+Pork world average,meat,non-ruminants,"5,74","0,174","5,85","1,63",28%,"3,2","11,86","4,5","6,6",38,129
+Pork Nth America,meat,non-ruminants,6,"0,167","6,24","1,46",23%,"4,3","8,53","4,97","7,58",6,9
+Pork UK,meat,non-ruminants,"6,11","0,164","5,57","1,13",20%,"3,5","6,92","4,54","6,34",5,13
+Ling common,meat,fish counter,"6,45","0,155","6,45","4,69",73%,"3,13","9,77","4,79","8,11",2,2
+Pomfret,meat,fish counter,"6,63","0,151","6,63","4,44",67%,"3,49","9,77","5,06","8,2",2,2
+Rock fish,meat,fish counter,"6,94","0,144",,,,,,,,1,1
+Octopus/squid/cuttlefish,meat,fish counter,"7,13","0,14","8,07","2,4",30%,"6,39","11,61","6,78","8,42",3,4
+Turkey,meat,non-ruminants,"7,17","0,139","6,04","0,66",11%,"3,34","8,49","3,82","7,83",3,7
+Pork AU,meat,non-ruminants,"7,65","0,131","7,12","1,81",25%,"3,9","9,49","5,83","8,46",3,11
+Prawns/shrimp,meat,shelfish,"7,8","0,128","14,85","12,37",83%,"5,25",38,"6,76","20,2",7,11
+Diamond fish,meat,fish counter,"8,33","0,12","8,33","3,27",39%,"6,02","10,65","7,17","9,49",2,2
+Rhombus,meat,fish counter,"8,41","0,119",,,,,,,,1,1
+Cheese,dairy fridge,Cheese,"8,55","0,117","8,86","2,07",23%,"5,33","16,35","7,79","9,58",22,38
+Butter,dairy fridge,Butter,"9,25","0,108","11,52","7,37",64%,"3,7",25,"7,28","12,41",4,8
+Mussels,meat,shelfish,"9,51","0,105","7,54","4,93",65%,"1,92","13,9","2,54","9,84",3,5
+Hake,meat,fish counter,"9,77","0,102","8,98","3,93",44%,"2,14","14,15","7,07","11,32",5,7
+Porbeagle,meat,fish counter,"11,44","0,087",,,,,,,,1,1
+Shark mako,meat,fish counter,"11,5","0,087","11,5","0,09",1%,"11,44","11,56","11,47","11,53",2,2
+Anglerfish,meat,fish counter,"12,29","0,081","12,29","2,63",21%,"10,43","14,15","11,36","13,22",2,2
+Swordfish,meat,fish counter,"12,84","0,078","12,84","1,98",15%,"11,44","14,24","12,14","13,54",2,2
+Megrim,meat,fish counter,"14,15","0,071",,,,,,,,1,1
+Turbot,meat,fish counter,"14,51","0,069","14,51","6,91",48%,"9,63","19,4","12,07","16,96",2,2
+Lamb AU & NZ,meat,ruminants,"17,63","0,057","19,01","6,57",35%,"10,05","33,49","16,3","21,06",9,19
+Sole,meat,fish counter,"20,86","0,048",,,,,,,,1,1
+Beef Australia,meat,ruminants,"22,88","0,044","23,06","4,79",21%,"14,38","34,53","21,64","25,41",8,24
+Lamb UK,meat,ruminants,"24,48","0,041","25,84","9,43",36%,"11,04","43,17","21,48","30,07",7,12
+Beef EU,meat,ruminants,"24,96","0,04","26,05","6,78",26%,"10,74","42,3","21,69","29,07",25,75
+Lamb world averagea,meat,ruminants,"25,58","0,039","27,91","11,93",43%,"10,05","56,7","17,61","33,85",22,56
+Beef UK,meat,ruminants,"26,57","0,038","25,76","6,27",24%,"12,37","37,92","21,05","29,22",12,26
+Beef: world average,meat,ruminants,"26,61","0,038","28,73","12,47",43%,"10,74","109,3","22,26","31,57",49,165
+Beef world average,meat,ruminants,"26,61","0,038","28,73","12,47",43%,"10,74","109,35","22,26","31,57",49,165
+Beef Nth America,meat,ruminants,"26,82","0,037","28,55","6,48",23%,"19,6","41,73","23,41","30,53",9,13
+Lobster,meat,shelfish,"27,8","0,036","21,74","11,7",56%,"7,62","28,3","17,71","28,05",3,2
+Lamb EU,meat,ruminants,"32,7","0,031","33,84","13,06",39%,"14,72","56,7","25,95","41,23",4,16
+Beef Sth America,meat,ruminants,"34,1","0,029","38,33","12,48",33%,22,"69,06","30,03",42,14,21
+Buffalo,meat,ruminants,"60,43","0,017","62,59","20,35",33%,"28,78","100,7","43,88","79,14",1,4
