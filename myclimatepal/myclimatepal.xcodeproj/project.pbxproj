@@ -13,6 +13,7 @@
 		CD3A2C2D25151486004DAF35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3A2C2C25151486004DAF35 /* Assets.xcassets */; };
 		CD3A2C3025151486004DAF35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3A2C2F25151486004DAF35 /* Preview Assets.xcassets */; };
 		CD3A2C3325151486004DAF35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3A2C3125151486004DAF35 /* LaunchScreen.storyboard */; };
+		CD3A2C4225151F9E004DAF35 /* co2statView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C4125151F9E004DAF35 /* co2statView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CD3A2C2F25151486004DAF35 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD3A2C3225151486004DAF35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD3A2C3425151486004DAF35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD3A2C4125151F9E004DAF35 /* co2statView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = co2statView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		CD3A2C2525151484004DAF35 /* myclimatepal */ = {
 			isa = PBXGroup;
 			children = (
+				CD3A2C4025151F83004DAF35 /* co2Views */,
 				CD3A2C2625151484004DAF35 /* AppDelegate.swift */,
 				CD3A2C2825151484004DAF35 /* SceneDelegate.swift */,
 				CD3A2C2A25151484004DAF35 /* ContentView.swift */,
@@ -73,6 +76,14 @@
 				CD3A2C2F25151486004DAF35 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CD3A2C4025151F83004DAF35 /* co2Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD3A2C4125151F9E004DAF35 /* co2statView.swift */,
+			);
+			name = co2Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 				CD3A2C2725151484004DAF35 /* AppDelegate.swift in Sources */,
 				CD3A2C2925151484004DAF35 /* SceneDelegate.swift in Sources */,
 				CD3A2C2B25151484004DAF35 /* ContentView.swift in Sources */,
+				CD3A2C4225151F9E004DAF35 /* co2statView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
