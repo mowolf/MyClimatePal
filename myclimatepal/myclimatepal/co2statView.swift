@@ -16,9 +16,11 @@ struct co2statView: View {
         get {return Double(self.Co2State.currentCo2State/self.Co2State.co2max)}
     }
     
-    
     var body: some View {
         VStack{
+            Spacer()
+            Text(String(Int(co2progress*100)) + "% Co2 used").padding().font(.title)
+            
             ZStack{
                 Image("earth-green").resizable()
                 Image("earth-burning")
@@ -28,7 +30,7 @@ struct co2statView: View {
                     .clipped()
                     .offset(y: CGFloat(200-co2progress*100 - 100))
             }.frame(width: 200.0, height: 200.0).shadow(radius: 15)
-                    Text(String(Int(co2progress*100)) + "% Co2 used")
+            Spacer()
         }
     }
 }

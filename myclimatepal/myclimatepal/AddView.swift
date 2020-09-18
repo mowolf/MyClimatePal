@@ -16,40 +16,42 @@ struct AddView: View {
     
     var body: some View {
         VStack {
-            SearchBar(text: $searchText).padding()
             Spacer()
+            Text("Update your co2 score").font(.title)
+            SearchBar(text: $searchText).padding()
+            
             HStack {
                 Button(action: {
                     self.Co2State.currentCo2State += 2
                     // What to perform
                 }) {
-                    Image(systemName: "scribble")
+                    Image("car")
                         .font(.system(size: 60))
                         .frame(width: iconSize, height: iconSize)
-                }
+                }.buttonStyle(PlainButtonStyle())
                 Button(action: {
                     // What to perform
                 }) {
-                    Image(systemName: "rosette")
+                    Image("home")
                         .font(.system(size: 60))
                         .frame(width: iconSize, height: iconSize)
-                }
+                }.buttonStyle(PlainButtonStyle())
             }
             HStack {
                 Button(action: {
                     // What to perform
                 }) {
-                    Image(systemName: "tortoise")
+                    Image("food")
                         .font(.system(size: 60))
                         .frame(width: iconSize, height: iconSize)
-                }
+                }.buttonStyle(PlainButtonStyle())
                 Button(action: {
                     // What to perform
                 }) {
-                    Image(systemName: "house")
+                    Image("jumper")
                         .font(.system(size: 60))
                         .frame(width: iconSize, height: iconSize)
-                }
+                }.buttonStyle(PlainButtonStyle())
             }
             Spacer()
         }
