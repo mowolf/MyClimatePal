@@ -16,6 +16,7 @@
 		CD3A2C3025151486004DAF35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3A2C2F25151486004DAF35 /* Preview Assets.xcassets */; };
 		CD3A2C3325151486004DAF35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3A2C3125151486004DAF35 /* LaunchScreen.storyboard */; };
 		CD3A2C4225151F9E004DAF35 /* co2statView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C4125151F9E004DAF35 /* co2statView.swift */; };
+		CD3A2C4425153F17004DAF35 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C4325153F17004DAF35 /* model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CD3A2C3225151486004DAF35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD3A2C3425151486004DAF35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD3A2C4125151F9E004DAF35 /* co2statView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = co2statView.swift; sourceTree = "<group>"; };
+		CD3A2C4325153F17004DAF35 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				CD3A2C3125151486004DAF35 /* LaunchScreen.storyboard */,
 				CD3A2C3425151486004DAF35 /* Info.plist */,
 				CD3A2C2E25151486004DAF35 /* Preview Content */,
+				CD3A2C4325153F17004DAF35 /* model.swift */,
 			);
 			path = myclimatepal;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				CD3A2C2925151484004DAF35 /* SceneDelegate.swift in Sources */,
 				CD3A2C2B25151484004DAF35 /* ContentView.swift in Sources */,
 				CD3A2C4225151F9E004DAF35 /* co2statView.swift in Sources */,
+				CD3A2C4425153F17004DAF35 /* model.swift in Sources */,
 				12CD8986251525630078261C /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
