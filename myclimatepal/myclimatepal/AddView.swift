@@ -18,8 +18,8 @@ struct AddView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Update your co2 score").font(.title)
-            SearchBar(text: $searchText).padding()
+            Text("Update your co2 score").font(.title).animation(.easeIn)
+            SearchBar(text: $searchText).padding().animation(.easeIn(duration: 0.2))
             if searchText == "" {
                 HStack {
                     Button(action: {
@@ -59,7 +59,7 @@ struct AddView: View {
                 ListView(items: Co2State.getSearchResults(query: searchText, items: co2State.foodItems))
             }
         }
-        .frame(maxHeight: .infinity, alignment: .leading)
+        .frame(maxHeight: .infinity, alignment: .leading).animation(.easeIn(duration: 0.2))
     }
 }
 

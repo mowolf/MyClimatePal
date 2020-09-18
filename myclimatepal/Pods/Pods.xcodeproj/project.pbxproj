@@ -3,23 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		10B9CAB1FE16F7A0988FD1E3276751EE /* Fuse-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C494396F73A4ED9E927EA45F7591CC3C /* Fuse-dummy.m */; };
+		1AA1C9E7F70B519DD7FEF5ACA55CD741 /* Pods-myclimatepal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9B17886E0B4FB4CCCFD8FC764F21BE /* Pods-myclimatepal-dummy.m */; };
 		34DACEF4C369E47F6B2D87FBA875C637 /* String+Fuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925556F5540EDECAF2BA3247CAF47BD9 /* String+Fuse.swift */; };
 		4284CD4FF7CD5BE5828923D9E0AF4A6F /* Fuse-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A1AB389D141287028A36DD9321D7F5 /* Fuse-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		46CA53168F3AAF98AA51B036BC25B123 /* Pods-myclimatepal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9B17886E0B4FB4CCCFD8FC764F21BE /* Pods-myclimatepal-dummy.m */; };
-		4B2AD40412390445EFD4E2D2893566BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		51A1D0C49B936D17609F0D941F07540F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		835511E4086D6751B123084FFE36EE27 /* FuseUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14AAF6AE05AD78BC426B125B2F7826 /* FuseUtilities.swift */; };
-		858FF86AFC6016E7FF5E967D2414614F /* Pods-myclimatepal-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C48FED094B78ACA5F70D773C8573DB /* Pods-myclimatepal-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F6BE1B6C68E0196BDA4E405664B121B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		A5934567039820EA35C9FB3E200D7302 /* Pods-myclimatepal-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C48FED094B78ACA5F70D773C8573DB /* Pods-myclimatepal-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E2A680C41F4344975DA7D43CC677BF55 /* Fuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB7B5A5F35FFA51231E831EEF35555 /* Fuse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		811A87CC75CC1BCCEB11FF3F61865216 /* PBXContainerItemProxy */ = {
+		17B6ADA6067D0BBEB05F0D84C825A38D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -55,11 +55,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		262566951447C241F0B1E114EBD562FD /* Frameworks */ = {
+		AD25F42F952110C7BD0BDAB3B764A5AB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B2AD40412390445EFD4E2D2893566BB /* Foundation.framework in Frameworks */,
+				8F6BE1B6C68E0196BDA4E405664B121B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,11 +173,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		14B62FCF6165E389368E08827A9CEA5D /* Headers */ = {
+		1961E2865DC15CF1D2C709B2C89E21D1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				858FF86AFC6016E7FF5E967D2414614F /* Pods-myclimatepal-umbrella.h in Headers */,
+				A5934567039820EA35C9FB3E200D7302 /* Pods-myclimatepal-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,17 +212,17 @@
 		};
 		CF98EB863C30E8DB292A53E0AD57DAF2 /* Pods-myclimatepal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2CFFFD460C928375B0DDE93A6C03913B /* Build configuration list for PBXNativeTarget "Pods-myclimatepal" */;
+			buildConfigurationList = CE65BB54AA11007F21186BFA99142BB6 /* Build configuration list for PBXNativeTarget "Pods-myclimatepal" */;
 			buildPhases = (
-				14B62FCF6165E389368E08827A9CEA5D /* Headers */,
-				205A4DCE7EEA5D188DF0CEBED0E8A7FB /* Sources */,
-				262566951447C241F0B1E114EBD562FD /* Frameworks */,
-				568A0C622477F376F6D228191B4F69E9 /* Resources */,
+				1961E2865DC15CF1D2C709B2C89E21D1 /* Headers */,
+				A6F202703B48C27EBD03AB009CD5F8BE /* Sources */,
+				AD25F42F952110C7BD0BDAB3B764A5AB /* Frameworks */,
+				5FE9FF3AEDB2EBFD147170473FC2BD51 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				57FB97D66B29927694FCD5CDA9FADCF2 /* PBXTargetDependency */,
+				8A61CDB7EB8A26970F8AD0A94D1AF349 /* PBXTargetDependency */,
 			);
 			name = "Pods-myclimatepal";
 			productName = "Pods-myclimatepal";
@@ -239,7 +239,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -265,7 +265,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		568A0C622477F376F6D228191B4F69E9 /* Resources */ = {
+		5FE9FF3AEDB2EBFD147170473FC2BD51 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -275,14 +275,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		205A4DCE7EEA5D188DF0CEBED0E8A7FB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				46CA53168F3AAF98AA51B036BC25B123 /* Pods-myclimatepal-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9D4DF1019B75C24682F85AD69FE3DB62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,18 +286,65 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6F202703B48C27EBD03AB009CD5F8BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AA1C9E7F70B519DD7FEF5ACA55CD741 /* Pods-myclimatepal-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		57FB97D66B29927694FCD5CDA9FADCF2 /* PBXTargetDependency */ = {
+		8A61CDB7EB8A26970F8AD0A94D1AF349 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Fuse;
 			target = 321DED4F241934C91121B3DBA1418D9F /* Fuse */;
-			targetProxy = 811A87CC75CC1BCCEB11FF3F61865216 /* PBXContainerItemProxy */;
+			targetProxy = 17B6ADA6067D0BBEB05F0D84C825A38D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		402B0FDB3A7DF0648359E3839A80C57B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82133A7115AD61D01C1E9BA5D2746423 /* Pods-myclimatepal.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-myclimatepal/Pods-myclimatepal-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-myclimatepal/Pods-myclimatepal.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		61FC5749665EDDB2D90E737333B3BA8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -406,45 +445,6 @@
 			};
 			name = Release;
 		};
-		C305A3D47A31FAE15D1754D16AF2F376 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82133A7115AD61D01C1E9BA5D2746423 /* Pods-myclimatepal.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-myclimatepal/Pods-myclimatepal-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-myclimatepal/Pods-myclimatepal.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		C5D9512CF9BAA93FEA9F753ED72BBADD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CB54B0146205275AA0C2D6C88BF1902 /* Fuse.debug.xcconfig */;
@@ -480,7 +480,7 @@
 			};
 			name = Debug;
 		};
-		E20C8E04308B22AFC2509080B6393DF6 /* Debug */ = {
+		DFBF5FA8838690F4F3CC15273B411AEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B3E91F876F919D27E0D732C3665358B /* Pods-myclimatepal.debug.xcconfig */;
 			buildSettings = {
@@ -581,15 +581,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2CFFFD460C928375B0DDE93A6C03913B /* Build configuration list for PBXNativeTarget "Pods-myclimatepal" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E20C8E04308B22AFC2509080B6393DF6 /* Debug */,
-				C305A3D47A31FAE15D1754D16AF2F376 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -604,6 +595,15 @@
 			buildConfigurations = (
 				C5D9512CF9BAA93FEA9F753ED72BBADD /* Debug */,
 				A3D3E49A4FAF6FA704D5803F9FC28819 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE65BB54AA11007F21186BFA99142BB6 /* Build configuration list for PBXNativeTarget "Pods-myclimatepal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFBF5FA8838690F4F3CC15273B411AEB /* Debug */,
+				402B0FDB3A7DF0648359E3839A80C57B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
