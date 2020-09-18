@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12CD8982251523DA0078261C /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD8981251523DA0078261C /* AddView.swift */; };
+		12CD8986251525630078261C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD8985251525630078261C /* SearchBar.swift */; };
 		CD3A2C2725151484004DAF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C2625151484004DAF35 /* AppDelegate.swift */; };
 		CD3A2C2925151484004DAF35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C2825151484004DAF35 /* SceneDelegate.swift */; };
 		CD3A2C2B25151484004DAF35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C2A25151484004DAF35 /* ContentView.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12CD8981251523DA0078261C /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		12CD8985251525630078261C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		CD3A2C2325151484004DAF35 /* myclimatepal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myclimatepal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3A2C2625151484004DAF35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD3A2C2825151484004DAF35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				CD3A2C2625151484004DAF35 /* AppDelegate.swift */,
 				CD3A2C2825151484004DAF35 /* SceneDelegate.swift */,
 				CD3A2C2A25151484004DAF35 /* ContentView.swift */,
+				12CD8981251523DA0078261C /* AddView.swift */,
+				12CD8985251525630078261C /* SearchBar.swift */,
 				CD3A2C2C25151486004DAF35 /* Assets.xcassets */,
 				CD3A2C3125151486004DAF35 /* LaunchScreen.storyboard */,
 				CD3A2C3425151486004DAF35 /* Info.plist */,
@@ -157,10 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12CD8982251523DA0078261C /* AddView.swift in Sources */,
 				CD3A2C2725151484004DAF35 /* AppDelegate.swift in Sources */,
 				CD3A2C2925151484004DAF35 /* SceneDelegate.swift in Sources */,
 				CD3A2C2B25151484004DAF35 /* ContentView.swift in Sources */,
 				CD3A2C4225151F9E004DAF35 /* co2statView.swift in Sources */,
+				12CD8986251525630078261C /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
