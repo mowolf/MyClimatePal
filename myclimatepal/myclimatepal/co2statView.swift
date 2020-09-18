@@ -8,16 +8,25 @@
 
 import SwiftUI
 
-
+let co2val = 70.0
+let co2max = 100.0
+let co2progress = Double(co2val/co2max)
 
 struct co2statView: View {
     var body: some View {
-        ZStack{
-            Image("earth-green").resizable()
-            Image("earth-burning").resizable().clipShape(Circle()).frame(width: 100, height: 100, alignment: .bottom)
-
-
-        }.frame(width: 200.0, height: 200.0)
+        VStack{
+            ZStack{
+                Image("earth-green").resizable()
+                Image("earth-burning")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: CGFloat(200*co2progress), alignment: .bottomLeading)
+                    
+                    .clipped()
+                    .offset(y: CGFloat(200-co2progress*100 - 100))
+            }.frame(width: 200.0, height: 200.0).shadow(radius: 15)
+                    Text(String(co2progress*100) + "% Co2")
+        }
     }
 }
 
@@ -26,3 +35,4 @@ struct co2statView_Previews: PreviewProvider {
         co2statView()
     }
 }
+    
