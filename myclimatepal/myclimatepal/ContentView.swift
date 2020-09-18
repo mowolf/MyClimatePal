@@ -17,20 +17,12 @@ struct ContentView: View {
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image("first")
-                        Text("First")
+                        Image(systemName: "person.circle.fill")
+                        Text("Today")
                     }
                 }
                 .tag(0)
-            Text("Second View")
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image("second")
-                        Text("Second")
-                    }
-                }
-                .tag(1)
+            
             AddView()
                 .tabItem {
                 VStack {
@@ -38,6 +30,17 @@ struct ContentView: View {
                     Text("Add")
                 }
             }
+            
+            Text("Second View")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "list.dash")
+                        Text("List")
+                    }
+                }
+                .tag(1)
+            
         }
     }
 }
