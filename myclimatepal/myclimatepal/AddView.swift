@@ -10,7 +10,8 @@ import SwiftUI
 
 struct AddView: View {
     @State var searchText = ""
-    @EnvironmentObject var Co2State: Co2State
+    @State var searchResults: [ListItem] = []
+    @EnvironmentObject var co2State: Co2State
 
     let iconSize: CGFloat = 150
     
@@ -54,6 +55,9 @@ struct AddView: View {
                 }.buttonStyle(PlainButtonStyle())
             }
             Spacer()
+            } else {
+                ListView(items: Co2State.getSearchResults(query: searchText, items: co2State.foodItems))
+            }
         }
         .frame(maxHeight: .infinity, alignment: .leading)
     }
