@@ -10,48 +10,53 @@ import SwiftUI
 
 struct AddView: View {
     @State var searchText = ""
-    @EnvironmentObject var Co2State: Co2State
+    @State var searchResults: [ListItem] = []
+    @EnvironmentObject var co2State: Co2State
 
     let iconSize: CGFloat = 150
     
     var body: some View {
         VStack {
             SearchBar(text: $searchText).padding()
-            Spacer()
-            HStack {
-                Button(action: {
-                    self.Co2State.currentCo2State += 2
-                    // What to perform
-                }) {
-                    Image(systemName: "scribble")
-                        .font(.system(size: 60))
-                        .frame(width: iconSize, height: iconSize)
+            if searchText == "" {
+                Spacer()
+                HStack {
+                    Button(action: {
+                        self.co2State.currentCo2State += 2
+                        // What to perform
+                    }) {
+                        Image(systemName: "scribble")
+                            .font(.system(size: 60))
+                            .frame(width: iconSize, height: iconSize)
+                    }
+                    Button(action: {
+                        // What to perform
+                    }) {
+                        Image(systemName: "rosette")
+                            .font(.system(size: 60))
+                            .frame(width: iconSize, height: iconSize)
+                    }
                 }
-                Button(action: {
-                    // What to perform
-                }) {
-                    Image(systemName: "rosette")
-                        .font(.system(size: 60))
-                        .frame(width: iconSize, height: iconSize)
+                HStack {
+                    Button(action: {
+                        // What to perform
+                    }) {
+                        Image(systemName: "tortoise")
+                            .font(.system(size: 60))
+                            .frame(width: iconSize, height: iconSize)
+                    }
+                    Button(action: {
+                        // What to perform
+                    }) {
+                        Image(systemName: "house")
+                            .font(.system(size: 60))
+                            .frame(width: iconSize, height: iconSize)
+                    }
                 }
+                Spacer()
+            } else {
+                ListView(items: Co2State.getSearchResults(query: searchText, items: co2State.foodItems))
             }
-            HStack {
-                Button(action: {
-                    // What to perform
-                }) {
-                    Image(systemName: "tortoise")
-                        .font(.system(size: 60))
-                        .frame(width: iconSize, height: iconSize)
-                }
-                Button(action: {
-                    // What to perform
-                }) {
-                    Image(systemName: "house")
-                        .font(.system(size: 60))
-                        .frame(width: iconSize, height: iconSize)
-                }
-            }
-            Spacer()
         }
         .frame(maxHeight: .infinity, alignment: .leading)
     }
