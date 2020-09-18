@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		12CD89A325154F7B0078261C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD89A225154F7B0078261C /* ListView.swift */; };
 		12CD89A7251550F90078261C /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD89A6251550F90078261C /* ListItem.swift */; };
 		684D681B195039726AFE4053 /* Pods_myclimatepal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC43D7E334DCF578EC0FBD80 /* Pods_myclimatepal.framework */; };
+		CD1B026A2515605E002C1313 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = CD1B02692515605E002C1313 /* SwiftUICharts */; };
+		CD1B026C251560D2002C1313 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1B026B251560D2002C1313 /* HistoryView.swift */; };
 		CD3A2C2725151484004DAF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C2625151484004DAF35 /* AppDelegate.swift */; };
 		CD3A2C2925151484004DAF35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C2825151484004DAF35 /* SceneDelegate.swift */; };
 		CD3A2C2B25151484004DAF35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C2A25151484004DAF35 /* ContentView.swift */; };
@@ -32,6 +34,7 @@
 		12CD89A225154F7B0078261C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		12CD89A6251550F90078261C /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		CC43D7E334DCF578EC0FBD80 /* Pods_myclimatepal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myclimatepal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD1B026B251560D2002C1313 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		CD3A2C2325151484004DAF35 /* myclimatepal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myclimatepal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3A2C2625151484004DAF35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD3A2C2825151484004DAF35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				684D681B195039726AFE4053 /* Pods_myclimatepal.framework in Frameworks */,
+				CD1B026A2515605E002C1313 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +112,7 @@
 				12CD899E25154AA10078261C /* data */,
 				CD3A2C2E25151486004DAF35 /* Preview Content */,
 				CD3A2C4325153F17004DAF35 /* model.swift */,
+				CD1B026B251560D2002C1313 /* HistoryView.swift */,
 			);
 			path = myclimatepal;
 			sourceTree = "<group>";
@@ -154,6 +159,9 @@
 			dependencies = (
 			);
 			name = myclimatepal;
+			packageProductDependencies = (
+				CD1B02692515605E002C1313 /* SwiftUICharts */,
+			);
 			productName = myclimatepal;
 			productReference = CD3A2C2325151484004DAF35 /* myclimatepal.app */;
 			productType = "com.apple.product-type.application";
@@ -182,6 +190,9 @@
 				Base,
 			);
 			mainGroup = CD3A2C1A25151484004DAF35;
+			packageReferences = (
+				CD1B02682515605E002C1313 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = CD3A2C2425151484004DAF35 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,6 +270,7 @@
 				CD3A2C2B25151484004DAF35 /* ContentView.swift in Sources */,
 				CD3A2C4225151F9E004DAF35 /* co2statView.swift in Sources */,
 				12CD89A325154F7B0078261C /* ListView.swift in Sources */,
+				CD1B026C251560D2002C1313 /* HistoryView.swift in Sources */,
 				CD3A2C4425153F17004DAF35 /* model.swift in Sources */,
 				12CD8986251525630078261C /* SearchBar.swift in Sources */,
 			);
@@ -454,6 +466,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CD1B02682515605E002C1313 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CD1B02692515605E002C1313 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD1B02682515605E002C1313 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CD3A2C1B25151484004DAF35 /* Project object */;
 }
