@@ -22,7 +22,7 @@ struct AddView: View {
     var body: some View {
         VStack {
             Text("Add Co2 Emissions")
-                    .font(.largeTitle).bold().frame(width: 400, alignment: .top).padding(.top).padding()
+                    .font(.largeTitle).bold().frame(width: 400, alignment: .top).padding(.top)
             HStack {
                 SearchBar(text: $searchText, selectedItem: $selectedItem)
                     .padding()
