@@ -92,6 +92,7 @@ struct AddView: View {
                         self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
                         self.selectedItem = nil
                         self.searchText = ""
+                        self.co2entered = ""
                     }) {
                         Text("Add")
                     }

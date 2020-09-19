@@ -16,6 +16,12 @@ struct DashboardView: View {
         get {return Double(self.Co2State.currentCo2State/self.Co2State.co2max)}
     }
     
+    var cappedCo2progress : Double {
+        get {
+            return min(co2progress, 1.0)
+        }
+    }
+    
     var body: some View {
         VStack{
             Spacer()
@@ -23,12 +29,12 @@ struct DashboardView: View {
             Spacer()
             ZStack{
                 Image("earth-green").resizable()
-                Image("earth-burning")
+                Image(co2progress >= 2 ? "death-star" : "earth-burning")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: CGFloat(200*co2progress), alignment: .bottomLeading)
+                    .frame(height: CGFloat(200*cappedCo2progress), alignment: .bottomLeading)
                     .clipped()
-                    .offset(y: CGFloat(200-co2progress*100 - 100))
+                    .offset(y: CGFloat(200-cappedCo2progress*100 - 100))
             }.frame(width: 200.0, height: 200.0).shadow(radius: 15)
             
             Text(String(Int(co2progress*100)) + "% Co2 used").padding().font(.title)
