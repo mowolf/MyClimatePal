@@ -22,24 +22,31 @@ struct AddView: View {
     var body: some View {
         VStack {
             Text("Update your co2 score").font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
-            SearchBar(text: $searchText, selectedItem: $selectedItem).padding().animation(.easeIn(duration: 0.2))
-
-            if selectedItem != nil || selectedCategory != "" || searchText != "" {
-                Button(action: {
-                    selectedCategory = ""
-                    selectedItem = nil
-                    searchText = ""
-                    co2entered = ""
-                }) {
-                    HStack {
-                        Text("back").padding(.leading)
-                        Spacer()
+            HStack {
+                SearchBar(text: $searchText, selectedItem: $selectedItem)
+                    .padding(.init(top: 10, leading: 10, bottom: 10, trailing: 0))
+                    .animation(.easeIn(duration: 0.2))
+                if selectedItem != nil || selectedCategory != "" || searchText != "" {
+                    Button(action: {
+                        selectedCategory = ""
+                        selectedItem = nil
+                        searchText = ""
+                        co2entered = ""
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }) {
+                        Text("Back")
                     }
+                    .padding(.trailing, 20)
+                    .transition(.move(edge: .trailing))
+                    .animation(.default)
+                    //.padding(.leading)
                 }
-                .padding(.leading)
-            } else {
+            }
+            
+            if !(selectedItem != nil || selectedCategory != "" || searchText != "") {
                 Spacer().frame(minHeight: 0, maxHeight: 80)
             }
+
             // MARK: show item / add screen
             if selectedItem != nil {
                     VStack {
