@@ -96,14 +96,14 @@ struct HistoryView: View {
                 }
                 }
             } else {
-                Text("Your History")
+                Text("Emission History")
                     .font(.largeTitle)
                     .bold()
                     .frame(width: 400, alignment: .top)
                     .padding(.top)
                     .padding()
                 Spacer().frame(minHeight: 20, maxHeight: 80)
-                AddedListView(items: co2State.addedItems, selectedItem: $selectedItem, co2entered: $co2entered)
+                AddedListView(items: co2State.addedItems.reversed(), selectedItem: $selectedItem, co2entered: $co2entered)
                     .environmentObject(co2State)
             }
         }

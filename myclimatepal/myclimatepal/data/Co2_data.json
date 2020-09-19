@@ -280,7 +280,7 @@
         "CO2eqkg":1.03
     },
     "🐟 Pilchard":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":1.1
     },
     "🌶 Peppers: passive and heated greenhouse":{
@@ -296,7 +296,7 @@
         "CO2eqkg":1.15
     },
     "🐟 Herring":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":1.16
     },
     "🥛 Milk: Nth America":{
@@ -356,7 +356,7 @@
         "CO2eqkg":1.55
     },
     "🐟 Pollock":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":1.6
     },
     "🍓 Strawberries: heated greenhouse":{
@@ -364,7 +364,7 @@
         "CO2eqkg":1.64
     },
     "🐟 Carp":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":1.76
     },
     "🍆 Zucchini: passive greenhouse":{
@@ -372,7 +372,7 @@
         "CO2eqkg":1.77
     },
     "🐟 Mackerel":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":1.8
     },
     "🥛Milk: Asia":{
@@ -388,7 +388,7 @@
         "CO2eqkg":2.1
     },
     "🐟 Tuna":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":2.15
     },
     "🍅 Tomatoes: heated greenhouse":{
@@ -404,7 +404,7 @@
         "CO2eqkg":2.55
     },
     "🐟 Whiting":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":2.66
     },
     "🦆 Duck":{
@@ -412,11 +412,11 @@
         "CO2eqkg":3.09
     },
     "🐟 Sea bass":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":3.27
     },
     "🐟 Haddock":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":3.41
     },
     "🥚 Eggs":{
@@ -424,15 +424,15 @@
         "CO2eqkg":3.46
     },
     "🐟 Salmon":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":3.47
     },
     "🐟 Fish: all species":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":3.49
     },
     "🐟 Cod":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":3.51
     },
     "🥛 Buffalo milk":{
@@ -448,7 +448,7 @@
         "CO2eqkg":3.7
     },
     "🐟 Eel":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":3.88
     },
     "🦘 Kangaroo":{
@@ -456,7 +456,7 @@
         "CO2eqkg":4.1
     },
     "🐟 Trout":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":4.2
     },
     "🐇Rabbit":{
@@ -484,15 +484,15 @@
         "CO2eqkg":6.11
     },
     "🐟 Ling common":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":6.45
     },
     "🐟 Pomfret":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":6.63
     },
     "🐟 Rock fish":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":6.94
     },
     "🐙 Octopus\/squid\/cuttlefish":{
@@ -512,11 +512,11 @@
         "CO2eqkg":7.8
     },
     "🐟 Diamond fish":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":8.33
     },
     "🐟 Rhombus":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":8.41
     },
     "🧀 Cheese":{
@@ -532,27 +532,27 @@
         "CO2eqkg":9.51
     },
     "🐟 Hake":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":9.77
     },
     "🐟 Porbeagle":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":11.44
     },
     "🐟 Shark mako":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":11.5
     },
     "🐟 Anglerfish":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":12.29
     },
     "🐟 Swordfish":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":12.84
     },
     "🐟 Megrim":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":14.15
     },
     "🐟 Turbot":{
@@ -564,7 +564,7 @@
         "CO2eqkg":17.63
     },
     "🐟 Sole":{
-        "category":"meat",
+        "category":"fish",
         "CO2eqkg":20.86
     },
     "🐮 Beef Australia":{
