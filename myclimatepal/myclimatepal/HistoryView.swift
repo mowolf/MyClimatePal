@@ -15,19 +15,16 @@ struct HistoryView: View {
 
     @State var selectedItem: Entry?
     @State var co2entered: String = ""
-
+    
     var body: some View {
         VStack {
             if selectedItem != nil {
                 Text("Edit Entry")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding(.top)
-                    .padding()
-                Spacer().frame(minHeight: 20, maxHeight: 80)
+                    .font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
+                Spacer().frame(minHeight: 20, maxHeight: 177)
                 // show item / add screen
                 
-                ZStack(alignment: .center){
+                ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
                         .frame(width: 300, height: 300, alignment: .center)
@@ -73,7 +70,7 @@ struct HistoryView: View {
                             self.co2entered = ""
                             co2State.update()
                         }) {
-                            Text("Update").font(.system(size: 18))
+                            Text("Save").font(.system(size: 18))
                         }
                             .frame(width: 100)
                         .padding(.all, 20)
@@ -94,7 +91,9 @@ struct HistoryView: View {
                         .padding(.all, 20)
                     }
                 }
+                    
                 }
+                Spacer()
             } else {
                 Text("Emission History")
                     .font(.largeTitle)

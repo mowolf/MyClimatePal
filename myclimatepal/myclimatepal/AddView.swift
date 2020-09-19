@@ -21,7 +21,8 @@ struct AddView: View {
 
     var body: some View {
         VStack {
-            Text("Add Co2 Emissions").font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
+            Text("Add Co2 Emissions")
+                    .font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
             HStack {
                 SearchBar(text: $searchText, selectedItem: $selectedItem)
                     .padding()
@@ -43,61 +44,65 @@ struct AddView: View {
                 }
             }
             
+            
             if !(selectedItem != nil || selectedCategory != "" || searchText != "") {
                 Spacer().frame(minHeight: 0, maxHeight: 80)
             }
 
             // MARK: show item / add screen
             if selectedItem != nil {
+                Spacer().frame(minHeight: 20, maxHeight: 100)
                 ZStack(alignment: .center){
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
                         .frame(width: 300, height: 300, alignment: .center)
                         .shadow(radius: 8)
                     VStack {
-                    Text(selectedItem!.description)
-                        .font(.title)
-                        .lineLimit(2)
-                        .frame(width: 250)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                    HStack {
-                        TextField("Amount", text: $co2entered)
-                            .keyboardType(.decimalPad)
-                            .frame(width: 200)
+                        Text(selectedItem!.description)
+                            .font(.title)
+                            .lineLimit(2)
+                            .frame(width: 250)
+                            .multilineTextAlignment(.center)
                             .padding()
-                            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
-                            .mask(RoundedRectangle(cornerRadius: 10.0))
-                            .onReceive(Just(co2entered), perform: { (newVal: String) in
-                                let parts = newVal.components(separatedBy: ".")
-                                print(parts)
-                                var val: String = ""
-                                if parts.count > 2 {
-                                    val += parts[0] + "."
-                                    for i in 1..<parts.count {
-                                        val += parts[i]
+                        HStack {
+                            TextField("Amount", text: $co2entered)
+                                .keyboardType(.decimalPad)
+                                .frame(width: 200)
+                                .padding()
+                                .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+                                .mask(RoundedRectangle(cornerRadius: 10.0))
+                                .onReceive(Just(co2entered), perform: { (newVal: String) in
+                                    let parts = newVal.components(separatedBy: ".")
+                                    print(parts)
+                                    var val: String = ""
+                                    if parts.count > 2 {
+                                        val += parts[0] + "."
+                                        for i in 1..<parts.count {
+                                            val += parts[i]
+                                        }
+                                        self.co2entered = val
                                     }
-                                    self.co2entered = val
-                                }
-                            })
+                                })
+                            
+                            Text(Co2State.unitForCategory(selectedItem!.topCategory)).font(.system(size: 18))
+                        }
+                            
+                        Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max)) %)")
+                            .font(.system(size: 15)).foregroundColor(.gray).padding()
+                            
+                        Button(action: {
+                            self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
+                            self.selectedItem = nil
+                            self.searchText = ""
+                            self.co2entered = ""
+                        }) {
+                            Text("Add").padding(.all, 20)
+                        }
                         
-                        Text(Co2State.unitForCategory(selectedItem!.topCategory)).font(.system(size: 18))
-                    }
-                        
-                    Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max)) %)")
-                        .font(.system(size: 15)).foregroundColor(.gray).padding()
-                        
-                    Button(action: {
-                        self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
-                        self.selectedItem = nil
-                        self.searchText = ""
-                        self.co2entered = ""
-                    }) {
-                        Text("Add").padding(.all, 20)
-                    }
                     }
                     .padding()
                 }
+                Spacer()
 
             } else if searchText != "" {
                 ListView(items: co2State.getSearchResults(query: self.searchText, category: self.selectedCategory), selectedItem: $selectedItem)
