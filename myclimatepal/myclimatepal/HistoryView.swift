@@ -50,7 +50,7 @@ struct HistoryView: View {
                                     self.co2entered = val
                                 }
                             })
-                        Text("kg").font(.system(size: 18))
+                        Text(Co2State.unitForCategory(co2State.listItemsDict[selectedItem!.type]!.topCategory)).font(.system(size: 18))
                     }
                     HStack {
                         Button(action: {
