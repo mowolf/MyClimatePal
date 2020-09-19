@@ -27,10 +27,9 @@ struct HistoryView: View {
                     .padding()
                 Spacer().frame(minHeight: 20, maxHeight: 80)
                 // show item / add screen
-                Spacer()
                 VStack {
                     Text(selectedItem!.type)
-                        .font(.largeTitle)
+                        .font(.title)
                         .padding()
                     HStack {
                         TextField("Amount", text: $co2entered)
@@ -51,11 +50,8 @@ struct HistoryView: View {
                                     self.co2entered = val
                                 }
                             })
-                        Text("kg")
+                        Text("kg").font(.system(size: 18))
                     }
-                    Spacer()
-//                    Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+x %)")
-                    Spacer()
                     HStack {
                         Button(action: {
                             let index = co2State.addedItems.firstIndex(of: selectedItem!)
@@ -64,15 +60,11 @@ struct HistoryView: View {
                             self.co2entered = ""
                             co2State.update()
                         }) {
-                            Text("Update")
+                            Text("Update").font(.system(size: 18))
                         }
                             .frame(width: 150)
                             .padding(.all)
-                            .background(LinearGradient(gradient: Gradient(colors:
-                                                                            [Color(red: 0.8*65/255.0, green: 0.8*76/255.0, blue: 0.8*179/255.0, opacity: 1.0),
-                                                                             Color(red: 1.1*65/255.0, green: 1.1*76/255.0, blue: 1.1*179/255.0, opacity: 1.0)]), startPoint: .leading, endPoint: .trailing))
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
+
                         Button(action: {
                             print(selectedItem!.id)
                             co2State.addedItems.removeAll { (e: Entry) -> Bool in
@@ -83,15 +75,10 @@ struct HistoryView: View {
                             co2State.update()
                             
                         }) {
-                            Text("Delete")
+                            Text("Delete").font(.system(size: 18)).foregroundColor(.red)
                         }
                             .frame(width: 150)
                             .padding(.all)
-                            .background(LinearGradient(gradient: Gradient(colors:
-                                                                            [Color(red: 0.8*165/255.0, green: 0.8*56/255.0, blue: 0.8*59/255.0, opacity: 1.0),
-                                                                             Color(red: 1.1*165/255.0, green: 1.1*56/255.0, blue: 1.1*59/255.0, opacity: 1.0)]), startPoint: .leading, endPoint: .trailing))
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
                     }
                     Spacer()
                 }
