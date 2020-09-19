@@ -53,7 +53,7 @@ struct HistoryView: View {
                         Text(Co2State.unitForCategory(co2State.listItemsDict[selectedItem!.type]!.topCategory)).font(.system(size: 18))
                     }
                     Spacer()
-                    Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg)) kg CO2 (+x %)")
+                    Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.co2max)) %)")
                     Spacer()
                     HStack {
                         Button(action: {

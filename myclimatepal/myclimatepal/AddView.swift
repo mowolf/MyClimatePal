@@ -22,24 +22,31 @@ struct AddView: View {
     var body: some View {
         VStack {
             Text("Update your co2 score").font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
-            SearchBar(text: $searchText, selectedItem: $selectedItem).padding().animation(.easeIn(duration: 0.2))
-
-            if selectedItem != nil || selectedCategory != "" || searchText != "" {
-                Button(action: {
-                    selectedCategory = ""
-                    selectedItem = nil
-                    searchText = ""
-                    co2entered = ""
-                }) {
-                    HStack {
-                        Text("back").padding(.leading)
-                        Spacer()
+            HStack {
+                SearchBar(text: $searchText, selectedItem: $selectedItem)
+                    .padding()
+                    .animation(.easeIn(duration: 0.2))
+                if selectedItem != nil || selectedCategory != "" || searchText != "" {
+                    Button(action: {
+                        selectedCategory = ""
+                        selectedItem = nil
+                        searchText = ""
+                        co2entered = ""
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }) {
+                        Text("Back")
                     }
+                    .offset(x: -20)
+                    //.padding(.trailing, 20)
+                    .transition(.move(edge: .trailing))
+                    .animation(.default)
                 }
-                .padding(.leading)
-            } else {
+            }
+            
+            if !(selectedItem != nil || selectedCategory != "" || searchText != "") {
                 Spacer().frame(minHeight: 0, maxHeight: 80)
             }
+
             // MARK: show item / add screen
             if selectedItem != nil {
                 ZStack(alignment: .center){
@@ -73,7 +80,7 @@ struct AddView: View {
                         Text(Co2State.unitForCategory(selectedItem!.topCategory))
                     }
                     Spacer().frame(minHeight: 20, maxHeight: 40 )
-                    Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+x %)")
+                        Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max)) %)")
                     Spacer().frame(minHeight: 20, maxHeight: 40 )
                     Button(action: {
                         self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
