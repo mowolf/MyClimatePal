@@ -23,6 +23,8 @@
 		CD3A2C3325151486004DAF35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3A2C3125151486004DAF35 /* LaunchScreen.storyboard */; };
 		CD3A2C4225151F9E004DAF35 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C4125151F9E004DAF35 /* DashboardView.swift */; };
 		CD3A2C4425153F17004DAF35 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C4325153F17004DAF35 /* model.swift */; };
+		DEF2BA362516052900D81833 /* AddedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF2BA352516052900D81833 /* AddedItem.swift */; };
+		DEF2BA39251605F600D81833 /* AddedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF2BA38251605F600D81833 /* AddedListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		CD3A2C3425151486004DAF35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD3A2C4125151F9E004DAF35 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		CD3A2C4325153F17004DAF35 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		DEF2BA352516052900D81833 /* AddedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedItem.swift; sourceTree = "<group>"; };
+		DEF2BA38251605F600D81833 /* AddedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 				12CD8981251523DA0078261C /* AddView.swift */,
 				CD1B026B251560D2002C1313 /* HistoryView.swift */,
 				CD3A2C4125151F9E004DAF35 /* DashboardView.swift */,
+				DEF2BA352516052900D81833 /* AddedItem.swift */,
+				DEF2BA38251605F600D81833 /* AddedListView.swift */,
 			);
 			name = TabBarViews;
 			sourceTree = "<group>";
@@ -282,9 +288,11 @@
 				12CD8982251523DA0078261C /* AddView.swift in Sources */,
 				CD3A2C2725151484004DAF35 /* AppDelegate.swift in Sources */,
 				CD3A2C2925151484004DAF35 /* SceneDelegate.swift in Sources */,
+				DEF2BA362516052900D81833 /* AddedItem.swift in Sources */,
 				12CD89A7251550F90078261C /* ListItem.swift in Sources */,
 				CD3A2C2B25151484004DAF35 /* ContentView.swift in Sources */,
 				CD3A2C4225151F9E004DAF35 /* DashboardView.swift in Sources */,
+				DEF2BA39251605F600D81833 /* AddedListView.swift in Sources */,
 				12CD89A325154F7B0078261C /* ListView.swift in Sources */,
 				CD1B026C251560D2002C1313 /* HistoryView.swift in Sources */,
 				CD3A2C4425153F17004DAF35 /* model.swift in Sources */,

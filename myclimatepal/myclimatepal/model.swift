@@ -13,12 +13,12 @@ import Fuse
 //let co2val = 70.0
 //currentCo2State = co2val/co2max
 
-struct Entry {
-    var category: String
-    var type: String
-    var amount: Double
-    var dateAdded: Date
-}
+//struct Entry {
+//    var category: String
+//    var type: String
+//    var amount: Double
+//    var dateAdded: Date
+//}
 
 final class Co2State: ObservableObject {
     // MARK: Co2
@@ -28,7 +28,7 @@ final class Co2State: ObservableObject {
     
     var co2data: [String: Any]
     var foodItems: [ListItem] = []
-    var addedItems: [Entry] = []
+    @Published var addedItems: [AddedItem] = []
     
     init(currentCo2State: Double = 0.0) {
         self.currentCo2State = currentCo2State
@@ -53,7 +53,7 @@ final class Co2State: ObservableObject {
     }
     
     func addEntry(item: ListItem, amount: Double) {
-        let entry = Entry(category: item.category, type: item.description, amount: amount, dateAdded: Date())
+        let entry = AddedItem(category: item.category, type: item.description, amount: amount, dateAdded: Date())
         addedItems.append(entry)
         
         print(addedItems)
