@@ -48,9 +48,34 @@ final class Co2State: ObservableObject {
         let value = UserDefaults.standard.object(forKey: "addedItems") as? Data
         if value != nil {
             addedItems = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(value!) as? [Entry] ?? []
+        } else {
+            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 32, dateAdded: Date().addingTimeInterval(-0*24*60*60)))
+
+            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 30, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "Car", amount: 30, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+
+            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 20, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "Car", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+
+            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 40, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "Train", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+
+            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 50, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "Plane", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+
+            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 25, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
+
+            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 66, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
+
+            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 12, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
+
+            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 2, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
+
+            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 44, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
         }
         
         update()
+        print(getCo2PerDay())
     }
     
     func update() {
@@ -62,11 +87,23 @@ final class Co2State: ObservableObject {
         var co2: Double = 0
         for item in addedItems {
             if Calendar.current.dateComponents([.day], from: item.dateAdded, to: Date()).day == 0 {
-                print(item.type)
                 co2 += listItemsDict[item.type]!.CO2eqkg * item.amount
             }
         }
         currentCo2State = co2
+    }
+    
+    func getCo2PerDay(category: String = "", n_days: Int = 10) -> [Double] {
+        var co2Stats: [Int: Double] = [:]
+        for item in addedItems {
+            let daysDiff = Calendar.current.dateComponents([.day], from: item.dateAdded, to: Date()).day ?? 0
+            co2Stats[daysDiff] = listItemsDict[item.type]!.CO2eqkg * item.amount + (co2Stats[daysDiff] ?? 0)
+        }
+        var result: [Double] = []
+        for i in 0..<n_days {
+            result.append(co2Stats[n_days - i - 1] ?? 0)
+        }
+        return result
     }
     
     func saveEntries() {
