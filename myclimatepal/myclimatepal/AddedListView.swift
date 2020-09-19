@@ -34,8 +34,8 @@ struct AddedListView: View {
                                 Spacer()
                                 VStack(alignment: .trailing) {
                                     Text(item.amount.description + " \(Co2State.unitForCategory(co2State.listItemsDict[item.type]!.topCategory))")
-                                        .foregroundColor(Color.orange)
                                     Text(String(format: "%.2f", item.amount * co2State.listItemsDict[item.type]!.CO2eqkg) + " kg Co2")
+                                        .foregroundColor(co2State.getColorForEntry(entry: item))
                                 }.font(.system(size: 18))
                             }
                         }

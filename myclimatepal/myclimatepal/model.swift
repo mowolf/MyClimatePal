@@ -101,7 +101,7 @@ final class Co2State: ObservableObject {
     }
     
     func getColorForItem(item: ListItem) -> Color {
-        let colors = [Color.green, Color.yellow, Color.orange, Color.red, Color(red: 0.7, green: 0, blue: 0)]
+        let colors = [Color.green, Color.green, Color.yellow, Color.orange, Color.red, Color(red: 0.85, green: 0, blue: 0)]
         let catItems = listItems.filter { (listItem) -> Bool in
             return listItem.topCategory == item.topCategory
         }.map { (listItem) -> Double in
@@ -118,6 +118,13 @@ final class Co2State: ObservableObject {
             }
         }
         let score = 1 - n_higher / Double(catItems.count)
+        let i = Int(min(score, 0.99) * Double(colors.count))
+        return colors[i]
+    }
+    
+    func getColorForEntry(entry: Entry) -> Color {
+        let colors = [Color.green, Color.yellow, Color.orange, Color.red, Color(red: 0.85, green: 0, blue: 0), Color(red: 0.7, green: 0, blue: 0)]
+        let score = min(entry.amount * listItemsDict[entry.type]!.CO2eqkg / co2max, 1)
         let i = Int(min(score, 0.99) * Double(colors.count))
         return colors[i]
     }
