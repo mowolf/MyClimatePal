@@ -186,7 +186,7 @@ struct AddView: View {
                 Spacer()
             }
         }
-        .frame(maxHeight: .infinity, alignment: .leading).animation(.easeIn(duration: 0.2))
+        .frame(maxHeight: .infinity, alignment: .leading)
     }
 }
 
