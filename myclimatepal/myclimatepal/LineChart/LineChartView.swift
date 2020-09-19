@@ -91,9 +91,12 @@ public struct LineChartView: View {
                 }else{
                     HStack{
                         Spacer()
-                        Text("\(self.currentValue, specifier: self.valueSpecifier)")
-                            .font(.system(size: 41, weight: .bold, design: .default))
-                            .offset(x: 0, y: 30)
+                        VStack {
+                            Text("\(self.currentValue, specifier: self.valueSpecifier)")
+                                .font(.system(size: 41, weight: .bold, design: .default))
+                                .offset(x: 0, y: 30)
+                            Text("kg CO2").font(.system(size: 18)).offset(x: 130, y: -50).foregroundColor(.gray)
+                        }
                         Spacer()
                     }
                     .transition(.scale)

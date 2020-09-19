@@ -19,6 +19,7 @@ final class Co2State: ObservableObject {
     @Published var currentCo2State: Double = 0.0
     @Published var co2max = 11.0
     @Published var co2HistoryData: [Double] = []//[8, 23, 54, 32, 12, 37, 7, 23, 43]
+    @Published var co2categoryTotal: [String: Double] = ["Transport": 8, "Food" :23]
 
     var co2data: [String: Any]
     var listItems: [ListItem] = []
@@ -57,7 +58,6 @@ final class Co2State: ObservableObject {
             addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
             addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 50, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "✈️ Plane", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-            
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 30, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
             addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 20, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 10, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
