@@ -18,7 +18,7 @@ struct ContentView: View {
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image("graph")
+                        Image(systemName: "chart.pie")
                         Text("Today")
                     }
                 }
@@ -27,8 +27,8 @@ struct ContentView: View {
             AddView().environmentObject(myCo2State)
                 .tabItem {
                 VStack {
-                    Image("co2-plus")
-                    Text("Add")
+                    Image(systemName: "plus.circle.fill")
+                    Text("Add Co2")
                 }
             }.tag(1)
             
@@ -36,8 +36,8 @@ struct ContentView: View {
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image("history").resizable()
-                        Text("List")
+                        Image(systemName: "tray.full").resizable()
+                        Text("History")
                     }
                 }
                 .tag(2)
