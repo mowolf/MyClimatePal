@@ -33,7 +33,7 @@ struct ContentView: View {
             }.tag(1)
 
             HistoryView().environmentObject(myCo2State)
-                .font(.title)
+                //.font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "tray.full").resizable()
