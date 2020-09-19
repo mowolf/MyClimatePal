@@ -25,7 +25,7 @@ struct DashboardView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Co2 Stats")
+                Text("My Co2 Emissions")
                     .font(.largeTitle)
                     .bold()
                     .frame(width: 400, alignment: .top)

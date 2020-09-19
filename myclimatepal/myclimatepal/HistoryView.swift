@@ -87,7 +87,7 @@ struct HistoryView: View {
                 }
                 Spacer()
             } else {
-                Text("Your History")
+                Text("Emission History")
                     .font(.largeTitle)
                     .bold()
                     .frame(width: 400, alignment: .top)
