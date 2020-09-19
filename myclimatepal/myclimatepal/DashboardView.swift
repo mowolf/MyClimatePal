@@ -68,4 +68,3 @@ struct co2statView_Previews: PreviewProvider {
         DashboardView().environmentObject(Co2State(currentCo2State: 50))
     }
 }
-

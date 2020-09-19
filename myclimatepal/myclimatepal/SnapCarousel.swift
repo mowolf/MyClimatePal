@@ -59,7 +59,7 @@ public class UIStateModel: ObservableObject {
     @Published var screenDrag: Float = 0.0
 }
 
-struct Carousel<Items : View>: View {
+struct Carousel<Items: View>: View {
     let items: Items
     let numberOfItems: CGFloat //= 8
     let spacing: CGFloat //= 16
@@ -126,7 +126,7 @@ struct Carousel<Items : View>: View {
     }
 }
 
-struct Canvas<Content : View>: View {
+struct Canvas<Content: View>: View {
     let content: Content
     @EnvironmentObject var UIState: UIStateModel
 

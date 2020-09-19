@@ -175,6 +175,8 @@ final class Co2State: ObservableObject {
     }
 
     static func unitForCategory(_ category: String) -> String {
+        print("unitForCategory")
+        print(category)
         if category == "Food" {
             return "kg"
         }
