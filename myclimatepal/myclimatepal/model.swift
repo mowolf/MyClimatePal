@@ -47,6 +47,24 @@ final class Co2State: ObservableObject {
         
         
     }
+    
+    func addEntry(item: ListItem, amount: Double) {
+        
+    }
+    
+    static func strToDouble(_ s: String) -> Double {
+        var str = s
+        let parts = s.split(separator: ".")
+        var val: String = ""
+        if parts.count > 2 {
+            val += parts[0] + "."
+            for i in 1..<parts.count {
+                val += parts[i]
+            }
+            str = val
+        }
+        return Double(str) ?? 0
+    }
 
     static func readJSONFromFile(fileName: String) -> Any? {
         var json: Any?
