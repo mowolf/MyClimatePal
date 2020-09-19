@@ -43,8 +43,7 @@ struct AddView: View {
                     .animation(.default)
                 }
             }
-            
-            
+
             if !(selectedItem != nil || selectedCategory != "" || searchText != "") {
                 Spacer().frame(minHeight: 0, maxHeight: 80)
             }
@@ -52,7 +51,7 @@ struct AddView: View {
             // MARK: show item / add screen
             if selectedItem != nil {
                 Spacer().frame(minHeight: 20, maxHeight: 100)
-                ZStack(alignment: .center){
+                ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
                         .frame(width: 300, height: 300, alignment: .center)
@@ -83,13 +82,13 @@ struct AddView: View {
                                         self.co2entered = val
                                     }
                                 })
-                            
+
                             Text(Co2State.unitForCategory(selectedItem!.topCategory)).font(.system(size: 18))
                         }
-                            
+
                         Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max)) %)")
                             .font(.system(size: 15)).foregroundColor(.gray).padding()
-                            
+
                         Button(action: {
                             self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
                             self.selectedItem = nil
@@ -98,7 +97,7 @@ struct AddView: View {
                         }) {
                             Text("Add").padding(.all, 20)
                         }
-                        
+
                     }
                     .padding()
                 }

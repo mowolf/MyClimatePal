@@ -15,7 +15,7 @@ struct HistoryView: View {
 
     @State var selectedItem: Entry?
     @State var co2entered: String = ""
-    
+
     var body: some View {
         VStack {
             if selectedItem != nil {
@@ -23,13 +23,13 @@ struct HistoryView: View {
                     .font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
                 Spacer().frame(minHeight: 20, maxHeight: 177)
                 // show item / add screen
-                
+
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
                         .frame(width: 300, height: 300, alignment: .center)
                         .shadow(radius: 8)
-                    
+
                 VStack {
                     Text(selectedItem!.type)
                         .font(.title)
@@ -91,7 +91,7 @@ struct HistoryView: View {
                         .padding(.all, 20)
                     }
                 }
-                    
+
                 }
                 Spacer()
             } else {
