@@ -13,7 +13,7 @@ import SwiftUICharts
 struct HistoryView: View {
     @EnvironmentObject var co2State: Co2State
 
-    @State var selectedItem: AddedItem?
+    @State var selectedItem: Entry?
     @State var selectedItem2: ListItem?
     
     var body: some View {

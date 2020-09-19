@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct AddedListView: View {
-    var items: [AddedItem]
-    @Binding var selectedItem: AddedItem?
+    var items: [Entry]
+    @Binding var selectedItem: Entry?
     
     var body: some View {
         List(items) { item in

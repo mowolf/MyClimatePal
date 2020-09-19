@@ -13,35 +13,6 @@ import Fuse
 //let co2val = 70.0
 //currentCo2State = co2val/co2max
 
-class Entry: NSObject, Identifiable, ObservableObject, NSCoding {
-    var category: String
-    var type: String
-    var amount: Double
-    var dateAdded: Date
-    
-    init(category: String, type: String, amount: Double, dateAdded: Date) {
-        self.category = category
-        self.type = type
-        self.amount = amount
-        self.dateAdded = dateAdded
-    }
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(category, forKey: "category")
-        coder.encode(type, forKey: "type")
-        coder.encode(amount, forKey: "amount")
-        coder.encode(dateAdded, forKey: "dateAdded")
-    }
-
-    required init(coder: NSCoder) {
-        category = coder.decodeObject(forKey: "category") as! String
-        type = coder.decodeObject(forKey: "type") as! String
-        amount = coder.decodeDouble(forKey: "amount")
-        dateAdded = coder.decodeObject(forKey: "dateAdded") as! Date
-    }
-
-}
-
 final class Co2State: ObservableObject {
     // MARK: Co2
     @Published var currentCo2State: Double = 0
@@ -51,7 +22,7 @@ final class Co2State: ObservableObject {
     var co2data: [String: Any]
     var foodItems: [ListItem] = []
     var foodItemsDict: [String: ListItem] = [:]
-    @Published var addedItems: [AddedItem] = []
+    @Published var addedItems: [Entry] = []
     
     init(currentCo2State: Double = 0.0) {
         self.currentCo2State = currentCo2State
@@ -97,7 +68,7 @@ final class Co2State: ObservableObject {
     }
     
     func addEntry(item: ListItem, amount: Double) {
-        let entry = AddedItem(category: item.category, type: item.description, amount: amount, dateAdded: Date())
+        let entry = Entry(category: item.category, type: item.description, amount: amount, dateAdded: Date())
         addedItems.append(entry)
         update()
     }
