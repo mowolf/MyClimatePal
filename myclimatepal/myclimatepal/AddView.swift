@@ -23,10 +23,9 @@ struct AddView: View {
         VStack {
 
             Text("Update your co2 score").font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
-            
-            
             SearchBar(text: $searchText, selectedItem: $selectedItem).padding().animation(.easeIn(duration: 0.2))
             Spacer().frame(minHeight: 20, maxHeight: 80)
+
             if selectedItem != nil {
                 // show item / add screen
                 Spacer()
@@ -80,18 +79,20 @@ struct AddView: View {
             } else if searchText != "" {
                 ListView(items: co2State.getSearchResults(query: self.searchText, category: self.selectedCategory), selectedItem: $selectedItem)
                     .environmentObject(co2State)
+            } else if selectedCategory != "" {
+                ListView(items: co2State.getSearchResults(query: nil, category: self.selectedCategory), selectedItem: $selectedItem)
+                    .environmentObject(co2State)
             } else {
                 HStack {
                     Button(action: {
-                        self.co2State.currentCo2State += 2
-                        // What to perform
+                        self.selectedCategory = "transport"
                     }) {
                         Image("car")
                             .font(.system(size: 60))
                             .frame(width: iconSize, height: iconSize)
                     }.buttonStyle(PlainButtonStyle())
                     Button(action: {
-                        // What to perform
+                        self.selectedCategory = "home"
                     }) {
                         Image("home")
                             .font(.system(size: 60))
@@ -100,14 +101,14 @@ struct AddView: View {
                 }
                 HStack {
                     Button(action: {
-                        // What to perform
+                        self.selectedCategory = "food"
                     }) {
                         Image("food")
                             .font(.system(size: 60))
                             .frame(width: iconSize, height: iconSize)
                     }.buttonStyle(PlainButtonStyle())
                     Button(action: {
-                        // What to perform
+                        self.selectedCategory = "clothing"
                     }) {
                         Image("jumper")
                             .font(.system(size: 60))
