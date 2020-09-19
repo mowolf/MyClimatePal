@@ -13,11 +13,33 @@ import Fuse
 //let co2val = 70.0
 //currentCo2State = co2val/co2max
 
-struct Entry {
+class Entry: NSObject, Identifiable, ObservableObject, NSCoding {
     var category: String
     var type: String
     var amount: Double
     var dateAdded: Date
+    
+    init(category: String, type: String, amount: Double, dateAdded: Date) {
+        self.category = category
+        self.type = type
+        self.amount = amount
+        self.dateAdded = dateAdded
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(category, forKey: "category")
+        coder.encode(type, forKey: "type")
+        coder.encode(amount, forKey: "amount")
+        coder.encode(dateAdded, forKey: "dateAdded")
+    }
+
+    required init(coder: NSCoder) {
+        category = coder.decodeObject(forKey: "category") as! String
+        type = coder.decodeObject(forKey: "type") as! String
+        amount = coder.decodeDouble(forKey: "amount")
+        dateAdded = coder.decodeObject(forKey: "dateAdded") as! Date
+    }
+
 }
 
 final class Co2State: ObservableObject {
@@ -28,35 +50,56 @@ final class Co2State: ObservableObject {
     
     var co2data: [String: Any]
     var foodItems: [ListItem] = []
+    var foodItemsDict: [String: ListItem] = [:]
     var addedItems: [Entry] = []
     
     init(currentCo2State: Double = 0.0) {
         self.currentCo2State = currentCo2State
         
         co2data = Co2State.readJSONFromFile(fileName: "Co2_data") as? [String: Any] ?? [:]
-        print(co2data)
         for x in co2data {
-            //print(x.key)
-            //print(x.value as? [String: Any])
-            
             // i has no idea what is happening here but it works
             let category: String = (x.value as! [String: Any])["category"] as! String
             let CO2eqkg: NSNumber = (x.value as! [String: Any])["CO2eqkg"]! as! NSNumber
-            
-            //print(category)
-            //print(CO2eqkg.floatValue)
             foodItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue))
         }
-        //foodItems
+        for item in foodItems {
+            foodItemsDict[item.description] = item
+        }
         
+        let value = UserDefaults.standard.object(forKey: "addedItems") as? Data
+        if value != nil {
+            addedItems = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(value!) as? [Entry] ?? []
+        }
         
+        update()
+    }
+    
+    func update() {
+        updateCurrentCo2()
+        saveEntries()
+    }
+    
+    func updateCurrentCo2() {
+        var co2: Double = 0
+        for item in addedItems {
+            if Calendar.current.dateComponents([.day], from: item.dateAdded, to: Date()).day == 0 {
+                print(item.type)
+                co2 += foodItemsDict[item.type]!.CO2eqkg * item.amount
+            }
+        }
+        currentCo2State = co2
+    }
+    
+    func saveEntries() {
+        let encodedData = try! NSKeyedArchiver.archivedData(withRootObject: addedItems, requiringSecureCoding: false)
+        UserDefaults.standard.set(encodedData, forKey: "addedItems")
     }
     
     func addEntry(item: ListItem, amount: Double) {
         let entry = Entry(category: item.category, type: item.description, amount: amount, dateAdded: Date())
         addedItems.append(entry)
-        
-        print(addedItems)
+        update()
     }
     
     static func strToDouble(_ s: String) -> Double {
