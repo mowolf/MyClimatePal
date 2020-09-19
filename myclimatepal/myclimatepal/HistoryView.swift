@@ -94,7 +94,7 @@ struct HistoryView: View {
                     .padding(.top)
                     .padding()
                 Spacer().frame(minHeight: 20, maxHeight: 80)
-                AddedListView(items: co2State.addedItems, selectedItem: $selectedItem, co2entered: $co2entered)
+                AddedListView(items: co2State.addedItems.reversed(), selectedItem: $selectedItem, co2entered: $co2entered)
                     .environmentObject(co2State)
             }
         }
