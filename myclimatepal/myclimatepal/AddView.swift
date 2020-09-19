@@ -24,7 +24,7 @@ struct AddView: View {
             Text("Update your co2 score").font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
             HStack {
                 SearchBar(text: $searchText, selectedItem: $selectedItem)
-                    .padding(.init(top: 10, leading: 10, bottom: 10, trailing: 0))
+                    .padding()
                     .animation(.easeIn(duration: 0.2))
                 if selectedItem != nil || selectedCategory != "" || searchText != "" {
                     Button(action: {
@@ -36,10 +36,10 @@ struct AddView: View {
                     }) {
                         Text("Back")
                     }
-                    .padding(.trailing, 20)
+                    .offset(x: -20)
+                    //.padding(.trailing, 20)
                     .transition(.move(edge: .trailing))
                     .animation(.default)
-                    //.padding(.leading)
                 }
             }
             
@@ -75,7 +75,7 @@ struct AddView: View {
                         Text(Co2State.unitForCategory(selectedItem!.topCategory))
                     }
                     Spacer().frame(minHeight: 20, maxHeight: 40 )
-                    Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+x %)")
+                        Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max)) %)")
                     Spacer().frame(minHeight: 20, maxHeight: 40 )
                     Button(action: {
                         self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
