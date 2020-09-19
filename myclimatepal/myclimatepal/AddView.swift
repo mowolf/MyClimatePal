@@ -14,6 +14,7 @@ struct AddView: View {
     @State var searchResults: [ListItem] = []
     @State var selectedItem: ListItem?
     @State var co2entered: String = ""
+    @State var selectedCategory: String = ""
     @EnvironmentObject var co2State: Co2State
 
     let iconSize: CGFloat = 150
@@ -23,42 +24,8 @@ struct AddView: View {
             Spacer()
             Text("Update your co2 score").font(.largeTitle).bold().animation(.easeIn)
             SearchBar(text: $searchText, selectedItem: $selectedItem).padding().animation(.easeIn(duration: 0.2))
-            if searchText == "" {
-                HStack {
-                    Button(action: {
-                        self.co2State.currentCo2State += 2
-                        // What to perform
-                    }) {
-                        Image("car")
-                            .font(.system(size: 60))
-                            .frame(width: iconSize, height: iconSize)
-                    }.buttonStyle(PlainButtonStyle())
-                    Button(action: {
-                        // What to perform
-                    }) {
-                        Image("home")
-                            .font(.system(size: 60))
-                            .frame(width: iconSize, height: iconSize)
-                    }.buttonStyle(PlainButtonStyle())
-                }
-                HStack {
-                    Button(action: {
-                        // What to perform
-                    }) {
-                        Image("food")
-                            .font(.system(size: 60))
-                            .frame(width: iconSize, height: iconSize)
-                    }.buttonStyle(PlainButtonStyle())
-                    Button(action: {
-                        // What to perform
-                    }) {
-                        Image("jumper")
-                            .font(.system(size: 60))
-                            .frame(width: iconSize, height: iconSize)
-                    }.buttonStyle(PlainButtonStyle())
-                }
-                Spacer()
-            } else if selectedItem != nil {
+            if selectedItem != nil {
+                // show item / add screen
                 Spacer()
                 VStack {
                     Text(selectedItem!.description)
@@ -107,9 +74,44 @@ struct AddView: View {
                     Spacer()
                 }
                 Spacer()
-            } else {
-                ListView(items: Co2State.getSearchResults(query: searchText, items: co2State.foodItems), selectedItem: $selectedItem)
+            } else if searchText != "" {
+                ListView(items: co2State.getSearchResults(query: self.searchText, category: self.selectedCategory), selectedItem: $selectedItem)
                     .environmentObject(co2State)
+            } else {
+                HStack {
+                    Button(action: {
+                        self.co2State.currentCo2State += 2
+                        // What to perform
+                    }) {
+                        Image("car")
+                            .font(.system(size: 60))
+                            .frame(width: iconSize, height: iconSize)
+                    }.buttonStyle(PlainButtonStyle())
+                    Button(action: {
+                        // What to perform
+                    }) {
+                        Image("home")
+                            .font(.system(size: 60))
+                            .frame(width: iconSize, height: iconSize)
+                    }.buttonStyle(PlainButtonStyle())
+                }
+                HStack {
+                    Button(action: {
+                        // What to perform
+                    }) {
+                        Image("food")
+                            .font(.system(size: 60))
+                            .frame(width: iconSize, height: iconSize)
+                    }.buttonStyle(PlainButtonStyle())
+                    Button(action: {
+                        // What to perform
+                    }) {
+                        Image("jumper")
+                            .font(.system(size: 60))
+                            .frame(width: iconSize, height: iconSize)
+                    }.buttonStyle(PlainButtonStyle())
+                }
+                Spacer()
             }
         }
         .frame(maxHeight: .infinity, alignment: .leading).animation(.easeIn(duration: 0.2))
