@@ -17,11 +17,13 @@ struct AddedListView: View {
             Button(action: {
                 self.selectedItem = item
             }) {
-                Text(item.type)
-                Text(item.category)
-                    .foregroundColor(Color.gray)
-                    .multilineTextAlignment(.trailing)
-                Text(item.amount.description).foregroundColor(Color.orange).multilineTextAlignment(.trailing)
+                VStack(alignment: .leading) {
+                    Text(item.type)
+                    Text(item.category)
+                        .foregroundColor(Color.gray)
+                        .multilineTextAlignment(.trailing)
+                    Text(item.amount.description).foregroundColor(Color.orange).multilineTextAlignment(.trailing)
+                }
             }
         }
     }
