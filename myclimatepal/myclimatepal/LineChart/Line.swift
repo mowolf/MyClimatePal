@@ -17,21 +17,21 @@ public struct Line: View {
     @Binding var maxDataValue: Double?
     @State private var showFull: Bool = false
     @State var showBackground: Bool = true
-    
+
     var maxDataVal: CGFloat {
         get {
-            return CGFloat(self.data.points.map{$0.1}.max()!)
+            return CGFloat(self.data.points.map {$0.1}.max()!)
         }
     }
     var minDataVal: CGFloat {
         get {
-            return CGFloat(self.data.points.map{$0.1}.min()!)
+            return CGFloat(self.data.points.map {$0.1}.min()!)
         }
     }
-    
+
     var gradient: GradientColor = GradientColor(start: Colors.GradientPurple, end: Colors.GradientNeonBlue)
-    var index:Int = 0
-    let padding:CGFloat = 30
+    var index: Int = 0
+    let padding: CGFloat = 30
     var curvedLines: Bool = true
     var stepWidth: CGFloat {
         if data.points.count < 2 {
@@ -46,16 +46,16 @@ public struct Line: View {
         if minDataValue != nil && maxDataValue != nil {
             min = minDataValue!
             max = maxDataValue!
-        }else if let minPoint = points.min(), let maxPoint = points.max(), minPoint != maxPoint {
+        } else if let minPoint = points.min(), let maxPoint = points.max(), minPoint != maxPoint {
             min = minPoint
             max = maxPoint
-        }else {
+        } else {
             return 0
         }
         if let min = min, let max = max, min != max {
-            if (min <= 0){
+            if min <= 0 {
                 return (frame.size.height-padding) / CGFloat(max - min)
-            }else{
+            } else {
                 return (frame.size.height-padding) / CGFloat(max - min)
             }
         }
@@ -69,10 +69,10 @@ public struct Line: View {
         let points = self.data.onlyPoints()
         return curvedLines ? Path.quadClosedCurvedPathWithPoints(points: points, step: CGPoint(x: stepWidth, y: stepHeight), globalOffset: minDataValue) : Path.closedLinePathWithPoints(points: points, step: CGPoint(x: stepWidth, y: stepHeight))
     }
-    
+
     public var body: some View {
         ZStack {
-            if(self.showFull && self.showBackground){
+            if self.showFull && self.showBackground {
                 self.closedPath
                     .fill(LinearGradient(gradient: Gradient(colors: [Colors.GradientUpperBlue, .white]), startPoint: .bottom, endPoint: .top))
                     .rotationEffect(.degrees(180), anchor: .center)
@@ -82,11 +82,11 @@ public struct Line: View {
             }
             self.path
                 .trim(from: 0, to: self.showFull ? 1:0)
-                
+
                 .stroke(LinearGradient(gradient: Gradient(colors: [Color.green, Color.yellow, Color.orange, Color.red, Color.black]),
                                        startPoint: UnitPoint(x: 0,
                                                              y: (minDataVal)/15),
-                                       endPoint: UnitPoint(x: 0, y:  15/maxDataVal)),
+                                       endPoint: UnitPoint(x: 0, y: 15/maxDataVal)),
                         style: StrokeStyle(lineWidth: 3, lineJoin: .round))
                 .rotationEffect(.degrees(180), anchor: .center)
                 .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
@@ -98,7 +98,7 @@ public struct Line: View {
                 self.showFull = false
             }
             .drawingGroup()
-            if(self.showIndicator) {
+            if self.showIndicator {
                 IndicatorPoint()
                     .position(self.getClosestPointOnPath(touchLocation: self.touchLocation))
                     .rotationEffect(.degrees(180), anchor: .center)
@@ -106,18 +106,18 @@ public struct Line: View {
             }
         }
     }
-    
+
     func getClosestPointOnPath(touchLocation: CGPoint) -> CGPoint {
         let closest = self.path.point(to: touchLocation.x)
         return closest
     }
-    
+
 }
 
 struct Line_Previews: PreviewProvider {
     static var previews: some View {
-        GeometryReader{ geometry in
-            Line(data: ChartData(points: [12,-230,10,54]), frame: .constant(geometry.frame(in: .local)), touchLocation: .constant(CGPoint(x: 100, y: 12)), showIndicator: .constant(true), minDataValue: .constant(nil), maxDataValue: .constant(nil))
+        GeometryReader { geometry in
+            Line(data: ChartData(points: [12, -230, 10, 54]), frame: .constant(geometry.frame(in: .local)), touchLocation: .constant(CGPoint(x: 100, y: 12)), showIndicator: .constant(true), minDataValue: .constant(nil), maxDataValue: .constant(nil))
         }.frame(width: 320, height: 160)
     }
 }

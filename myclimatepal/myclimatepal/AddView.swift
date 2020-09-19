@@ -17,7 +17,7 @@ struct AddView: View {
     @State var selectedCategory: String = ""
     @EnvironmentObject var co2State: Co2State
 
-    let iconSize: CGFloat = 150
+    let iconSize: CGFloat = 100
 
     var body: some View {
         VStack {
@@ -86,7 +86,7 @@ struct AddView: View {
 
                         Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max * 100)) %)")
                             .font(.system(size: 15)).foregroundColor(.gray).padding()
-                        
+
                         HStack {
                             Button(action: {
                                 self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
@@ -96,7 +96,7 @@ struct AddView: View {
                             }) {
                                 Text("Add").padding(.all, 20)
                             }.frame(width: 100).padding(.all, 20)
-                            
+
                             Button(action: {
                                 self.selectedItem = nil
                                 self.searchText = ""
@@ -122,33 +122,66 @@ struct AddView: View {
                     Button(action: {
                         self.selectedCategory = "Transport"
                     }) {
-                        Image("car")
-                            .font(.system(size: 60))
-                            .frame(width: iconSize, height: iconSize)
-                    }.buttonStyle(PlainButtonStyle())
+                        ZStack(alignment: .center) {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color.white)
+                                .frame(width: 160, height: 160, alignment: .center)
+                                .shadow(radius: 8)
+                            VStack {
+                                Image("car").frame(width: iconSize, height: iconSize)
+                                Text("Transportation").bold()
+                                }
+                            }
+
+                        }.buttonStyle(PlainButtonStyle()).padding()
                     Button(action: {
                         self.selectedCategory = "Home"
                     }) {
-                        Image("home")
-                            .font(.system(size: 60))
-                            .frame(width: iconSize, height: iconSize)
-                    }.buttonStyle(PlainButtonStyle())
+                        ZStack(alignment: .center) {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color.white)
+                                .frame(width: 160, height: 160, alignment: .center)
+                                .shadow(radius: 8)
+
+                            VStack {
+                                Image("home").frame(width: iconSize, height: iconSize)
+                                Text("Home").bold()
+                                }
+                        }
+                    }.buttonStyle(PlainButtonStyle()).padding()
                 }
                 HStack {
                     Button(action: {
                         self.selectedCategory = "Food"
                     }) {
-                        Image("food")
-                            .font(.system(size: 60))
-                            .frame(width: iconSize, height: iconSize)
-                    }.buttonStyle(PlainButtonStyle())
+                        ZStack(alignment: .center) {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color.white)
+                                .frame(width: 160, height: 160, alignment: .center)
+                                .shadow(radius: 8)
+
+                            VStack {
+                                Image("food").frame(width: iconSize, height: iconSize)
+                                Text("Food").bold()
+                            }
+                        }
+                    }.buttonStyle(PlainButtonStyle()).padding()
+
                     Button(action: {
                         self.selectedCategory = "Clothing"
                     }) {
-                        Image("jumper")
-                            .font(.system(size: 60))
-                            .frame(width: iconSize, height: iconSize)
-                    }.buttonStyle(PlainButtonStyle())
+                        ZStack(alignment: .center) {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color.white)
+                                .frame(width: 160, height: 160, alignment: .center)
+                                .shadow(radius: 8)
+
+                            VStack {
+                                Image("jumper").frame(width: iconSize, height: iconSize)
+                                Text("Clothing").bold()
+                            }
+                        }
+                    }.buttonStyle(PlainButtonStyle()).padding()
                 }
                 Spacer()
             }

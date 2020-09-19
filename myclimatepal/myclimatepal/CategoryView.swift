@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CategoryView: View {
     @EnvironmentObject var co2State: Co2State
-    
-    
+
     var body: some View {
         let cats = ["Food", "Transport", "Clothing", "Home"]
         let data = cats.map { (cat) -> Double in

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct UsedPercentage: View {
     @EnvironmentObject var co2State: Co2State
-    
+
     var co2progress: Double {
         get {return Double(self.co2State.currentCo2State/self.co2State.co2max)}
     }
@@ -20,9 +20,9 @@ struct UsedPercentage: View {
             return min(co2progress, 1.0)
         }
     }
-        
+
     var body: some View {
-        ZStack() {
+        ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.white)
                 .frame(width: 360, height: 400, alignment: .center)
