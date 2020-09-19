@@ -17,15 +17,17 @@ struct AddedListView: View {
     
     var body: some View {
         List(items) { item in
-            
             Button(action: {
                 self.selectedItem = item
                 self.co2entered = item.amount.description
             }) {
-                VStack(alignment: .leading) {
+                HStack {
                     Text(item.type)
-                    Text(item.amount.description + " kg").foregroundColor(Color.orange).multilineTextAlignment(.trailing)
-                    Text(String(format: "%.2f",item.amount * co2State.foodItemsDict[item.type]!.CO2eqkg) + " kg Co2").multilineTextAlignment(.trailing)
+                    Spacer()
+                    VStack(alignment: .trailing) {
+                        Text(item.amount.description + " kg").foregroundColor(Color.orange)
+                        Text(String(format: "%.2f",item.amount * co2State.listItemsDict[item.type]!.CO2eqkg) + " kg Co2")
+                    }
                 }
             }
         }
