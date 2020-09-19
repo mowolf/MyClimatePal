@@ -14,22 +14,73 @@ struct AddedListView: View {
     @Binding var co2entered: String
 
     @EnvironmentObject var co2State: Co2State
+    
+    
 
     var body: some View {
-        List(items) { item in
-            Button(action: {
-                self.selectedItem = item
-                self.co2entered = item.amount.description
-            }) {
-                HStack {
-                    Text(item.type).font(.system(size: 18))
-                    Spacer()
-                    VStack(alignment: .trailing) {
-                        Text(item.amount.description + " \(Co2State.unitForCategory(co2State.listItemsDict[item.type]!.topCategory))").foregroundColor(Color.orange)
-                        Text(String(format: "%.2f", item.amount * co2State.listItemsDict[item.type]!.CO2eqkg) + " kg Co2")
-                    }.font(.system(size: 18))
+        List {
+            let groupedItems = Dictionary(grouping: items, by: { Date.getFormattedDate(date: $0.dateAdded, formatter: "YYYYMMdd") }).map { ($0.key, $0.value) }.sorted(by: {$0.0 > $1.0})
+
+            ForEach(groupedItems, id: \.self.0) { group in
+                Section(header: ListHeader(date: group.1[0].dateAdded)) { //footer: ListFooter()
+                    ForEach(group.1) { item in
+//                        Text(item.amount.description)
+                        Button(action: {
+                            self.selectedItem = item
+                            self.co2entered = item.amount.description
+                        }) {
+                            HStack {
+                                Text(item.type).font(.system(size: 18))
+                                Spacer()
+                                VStack(alignment: .trailing) {
+                                    Text(item.amount.description + " \(Co2State.unitForCategory(co2State.listItemsDict[item.type]!.topCategory))").foregroundColor(Color.orange)
+                                    Text(String(format: "%.2f", item.amount * co2State.listItemsDict[item.type]!.CO2eqkg) + " kg Co2")
+                                }.font(.system(size: 18))
+                            }
+                        }
+                    }
                 }
+
             }
+            
+            
+            
         }
+    }
+}
+
+struct ListHeader: View {
+    
+    
+    var date: Date
+    var body: some View {
+        HStack {
+            Text(Date.getFormattedDate(date: date, formatter:"MMMM dd"))
+        }
+    }
+}
+
+struct ListFooter: View {
+//    @EnvironmentObject var co2State: Co2State
+    
+//    var items: [Entry]
+    
+    var body: some View {
+//        var sum: Double = 0.0
+//
+//        ForEach(items) { item in
+//            sum += item.amount * co2State.listItemsDict[item.type]!.CO2eqkg
+//        }
+//
+        Text("Do we want a footer here?")
+    }
+}
+
+extension Date {
+    static func getFormattedDate(date: Date , formatter:String) -> String{
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = formatter
+        return dateFormatterPrint.string(from: date);
     }
 }
