@@ -23,16 +23,14 @@ struct DashboardView: View {
                     .padding()
                 
                 // MARK: Earth
-                UsedPercentage().environmentObject(co2State)
+                UsedPercentage()
                 
                 // MARK: History Grapth
                 DayGraph()
-                    .environmentObject(co2State)
                     .frame(height: 270, alignment: .center)
                 
                 // MARK: Categories
                 CategoryView()
-                    .environmentObject(co2State)
                 
                 // MARK: Trees
                 TreeView()
