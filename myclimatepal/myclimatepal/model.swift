@@ -23,7 +23,7 @@ final class Co2State: ObservableObject {
     
     struct foodEntry {
         var type: String
-        var amount: Float
+        var amount: Double
     }
     
     init(currentCo2State: Double = 0.0) {
@@ -41,7 +41,7 @@ final class Co2State: ObservableObject {
             
             //print(category)
             //print(CO2eqkg.floatValue)
-            foodItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.floatValue))
+            foodItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue))
         }
         //foodItems
         
@@ -63,6 +63,8 @@ final class Co2State: ObservableObject {
             }
             str = val
         }
+        print(str)
+        print(Double(str))
         return Double(str) ?? 0
     }
 
