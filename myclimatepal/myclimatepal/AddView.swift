@@ -65,14 +65,15 @@ struct AddView: View {
                         .font(.largeTitle)
                         .padding()
                     HStack {
-                        TextField("Amount", value: $co2entered, formatter: NumberFormatter())
+                        TextField("Amount", text: $co2entered)
                             .keyboardType(.decimalPad)
                             .frame(width: 200)
                             .padding(.all)
                             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                             .mask(RoundedRectangle(cornerRadius: 10.0))
                             .onReceive(Just(co2entered), perform: { (newVal: String) in
-                                let parts = newVal.split(separator: ".")
+                                let parts = newVal.components(separatedBy: ".")
+                                print(parts)
                                 var val: String = ""
                                 if parts.count > 2 {
                                     val += parts[0] + "."
@@ -84,6 +85,8 @@ struct AddView: View {
                             })
                         Text("kg")
                     }
+                    Spacer()
+                    Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+x %)")
                     Spacer()
                     Button(action: {
                         self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
