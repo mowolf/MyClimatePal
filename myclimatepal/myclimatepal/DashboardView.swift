@@ -30,14 +30,11 @@ struct DashboardView: View {
                     .bold()
                     .frame(width: 400, alignment: .top)
                     .padding(.top)
-//                    .padding()
-                
                 
                 ZStack() {
-                    
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
-                        .frame(width: 400, height: 400, alignment: .center)
+                        .frame(width: 360, height: 400, alignment: .center)
                         .shadow(radius: 8)
                     VStack {
                         Text("Today").bold().font(.title)
@@ -68,8 +65,11 @@ struct DashboardView: View {
                 }
                 
 
-                DayGraph().environmentObject(co2State).frame(height: 600, alignment: .center).offset(x:10)
+                DayGraph().environmentObject(co2State).frame(height: 270, alignment: .center).offset(x:10)
                 
+                CategoryView()
+                
+                TreeView()
             
             }
         }
