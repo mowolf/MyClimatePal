@@ -23,7 +23,7 @@ struct AddedListView: View {
                         .foregroundColor(Color.gray)
                         .multilineTextAlignment(.trailing)
                     Text(item.amount.description).foregroundColor(Color.orange).multilineTextAlignment(.trailing)
-                }
+                }.font(.system(size: 18))
             }
         }
     }

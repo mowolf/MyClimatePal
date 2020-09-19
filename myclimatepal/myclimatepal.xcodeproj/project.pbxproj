@@ -13,6 +13,8 @@
 		12CD89A325154F7B0078261C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD89A225154F7B0078261C /* ListView.swift */; };
 		12CD89A7251550F90078261C /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD89A6251550F90078261C /* ListItem.swift */; };
 		684D681B195039726AFE4053 /* Pods_myclimatepal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC43D7E334DCF578EC0FBD80 /* Pods_myclimatepal.framework */; };
+		CD132744251618450027345A /* DayGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD132743251618450027345A /* DayGraph.swift */; };
+		CD13274725161B670027345A /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD13274625161B670027345A /* SnapCarousel.swift */; };
 		CD1B026A2515605E002C1313 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = CD1B02692515605E002C1313 /* SwiftUICharts */; };
 		CD1B026C251560D2002C1313 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1B026B251560D2002C1313 /* HistoryView.swift */; };
 		CD3A2C2725151484004DAF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C2625151484004DAF35 /* AppDelegate.swift */; };
@@ -36,6 +38,8 @@
 		12CD89A225154F7B0078261C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		12CD89A6251550F90078261C /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		CC43D7E334DCF578EC0FBD80 /* Pods_myclimatepal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myclimatepal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD132743251618450027345A /* DayGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGraph.swift; sourceTree = "<group>"; };
+		CD13274625161B670027345A /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		CD1B026B251560D2002C1313 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		CD3A2C2325151484004DAF35 /* myclimatepal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myclimatepal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3A2C2625151484004DAF35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,15 @@
 				09B929453A3146953A0A45EC /* Pods-myclimatepal.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CD13274925161C8A0027345A /* Graphs */ = {
+			isa = PBXGroup;
+			children = (
+				CD13274625161B670027345A /* SnapCarousel.swift */,
+				CD132743251618450027345A /* DayGraph.swift */,
+			);
+			name = Graphs;
 			sourceTree = "<group>";
 		};
 		CD3A2C1A25151484004DAF35 = {
@@ -128,6 +141,7 @@
 		CD3A2C4025151F83004DAF35 /* TabBarViews */ = {
 			isa = PBXGroup;
 			children = (
+				CD13274925161C8A0027345A /* Graphs */,
 				12CD8981251523DA0078261C /* AddView.swift */,
 				CD1B026B251560D2002C1313 /* HistoryView.swift */,
 				CD3A2C4125151F9E004DAF35 /* DashboardView.swift */,
@@ -286,7 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				12CD8982251523DA0078261C /* AddView.swift in Sources */,
+				CD13274725161B670027345A /* SnapCarousel.swift in Sources */,
 				CD3A2C2725151484004DAF35 /* AppDelegate.swift in Sources */,
+				CD132744251618450027345A /* DayGraph.swift in Sources */,
 				CD3A2C2925151484004DAF35 /* SceneDelegate.swift in Sources */,
 				DEF2BA362516052900D81833 /* Entry.swift in Sources */,
 				12CD89A7251550F90078261C /* ListItem.swift in Sources */,

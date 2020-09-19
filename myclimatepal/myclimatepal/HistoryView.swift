@@ -24,7 +24,7 @@ struct HistoryView: View {
                 .frame(width: 400, alignment: .top)
                 .padding(.top)
                 .padding()
-            Spacer().frame(minHeight: 20, maxHeight: 80)
+            Spacer().frame(minHeight: 40, maxHeight: 60)
 
 //            ListView(items: Co2State.getSearchResults(query: "Garlic", items: co2State.foodItems), selectedItem: $selectedItem2)
 //                .environmentObject(co2State)
