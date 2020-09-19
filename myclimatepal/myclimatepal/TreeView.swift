@@ -12,24 +12,26 @@ struct TreeView: View {
     @EnvironmentObject var co2State: Co2State
 
     var body: some View {
-        ZStack() {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.white)
-                .frame(width: 360, height: 400, alignment: .center)
-                .shadow(radius: 8)
         
-            VStack {
-                ForEach((1...10).reversed(), id: \.self) {
-                    Text(String($0))
-//                    Image("tree-" + String(Int.random(in: 0..<4))).offset(x: CGFloat(Int.random(in: -20...20)))
-                    }
-//                ForEach((1...Int(co2State.currentCo2State)), id: \.self) {
-//                        Image("tree-0") //+ String(Int.random(in: 0..<4))).offset(x: CGFloat(Int.random(in: -20...20)))
-//                    }
-            }
+            ZStack() {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.white)
+                    .frame(width: 360, height: 240, alignment: .center)
+                    .shadow(radius: 8)
+                VStack {
+                    Text(String(co2State.trees) + " trees needed to offset your emissions").font(.title).bold().frame(width: 300).offset(x: -20, y: -5)
 
-            
-        }
+                    ZStack {
+                        ForEach((0...Int(100*co2State.currentCo2State/co2State.co2max+1)), id: \.self) {
+                            Text(String($0)).opacity(0.0)
+                            if ($0 > 0) {
+                                Image("tree-" + String(Int.random(in: 0...(($0 > 3) ? 4 : 3))))
+                                .offset(x: CGFloat(Int.random(in: -130...130)), y: CGFloat(Int.random(in: 0...30)))
+                            }
+                        }
+                    }
+            }
+        }.padding(.bottom)
     }
 }
 
