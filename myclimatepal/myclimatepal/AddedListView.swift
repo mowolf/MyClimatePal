@@ -14,8 +14,6 @@ struct AddedListView: View {
     @Binding var co2entered: String
 
     @EnvironmentObject var co2State: Co2State
-    
-    
 
     var body: some View {
         List {
@@ -43,29 +41,26 @@ struct AddedListView: View {
                 }
 
             }
-            
-            
-            
+
         }
     }
 }
 
 struct ListHeader: View {
-    
-    
+
     var date: Date
     var body: some View {
         HStack {
-            Text(Date.getFormattedDate(date: date, formatter:"MMMM dd"))
+            Text(Date.getFormattedDate(date: date, formatter: "MMMM dd"))
         }
     }
 }
 
 struct ListFooter: View {
 //    @EnvironmentObject var co2State: Co2State
-    
+
 //    var items: [Entry]
-    
+
     var body: some View {
 //        var sum: Double = 0.0
 //
@@ -78,10 +73,10 @@ struct ListFooter: View {
 }
 
 extension Date {
-    static func getFormattedDate(date: Date , formatter:String) -> String{
+    static func getFormattedDate(date: Date, formatter: String) -> String {
 
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = formatter
-        return dateFormatterPrint.string(from: date);
+        return dateFormatterPrint.string(from: date)
     }
 }

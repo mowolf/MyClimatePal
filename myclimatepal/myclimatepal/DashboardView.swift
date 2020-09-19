@@ -21,17 +21,17 @@ struct DashboardView: View {
                     .bold()
                     .frame(width: 400, alignment: .top)
                     .padding()
-                
+
                 // MARK: Earth
                 UsedPercentage()
-                
+
                 // MARK: History Grapth
                 DayGraph()
                     .frame(height: 270, alignment: .center)
-                
+
                 // MARK: Categories
                 CategoryView()
-                
+
                 // MARK: Trees
                 TreeView()
             }

@@ -21,7 +21,7 @@ struct HistoryView: View {
                 Text("Edit Entry")
                     .font(.largeTitle).bold().frame(width: 400, alignment: .top).padding(.top)
                 Spacer().frame(minHeight: 20, maxHeight: 177)
-                
+
                 // show item / add screen
 
                 ZStack(alignment: .center) {
@@ -55,7 +55,7 @@ struct HistoryView: View {
                                     self.co2entered = val
                                 }
                             })
-                        Text(Co2State.unitForCategory(co2State.listItemsDict[selectedItem!.type]!.topCategory,co2State.listItemsDict[selectedItem!.type]!.category)).font(.system(size: 18))
+                        Text(Co2State.unitForCategory(co2State.listItemsDict[selectedItem!.type]!.topCategory, co2State.listItemsDict[selectedItem!.type]!.category)).font(.system(size: 18))
                     }
 
                     Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.co2max * 100)) %)")

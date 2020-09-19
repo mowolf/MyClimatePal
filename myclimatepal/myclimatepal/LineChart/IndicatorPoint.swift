@@ -10,7 +10,7 @@ import SwiftUI
 
 struct IndicatorPoint: View {
     var body: some View {
-        ZStack{
+        ZStack {
             Circle()
                 .fill(Colors.IndicatorKnob)
             Circle()

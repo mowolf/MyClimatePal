@@ -86,7 +86,7 @@ struct AddView: View {
 
                         Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max * 100)) %)")
                             .font(.system(size: 15)).foregroundColor(.gray).padding()
-                        
+
                         HStack {
                             Button(action: {
                                 self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
@@ -96,7 +96,7 @@ struct AddView: View {
                             }) {
                                 Text("Add").padding(.all, 20)
                             }.frame(width: 100).padding(.all, 20)
-                            
+
                             Button(action: {
                                 self.selectedItem = nil
                                 self.searchText = ""
@@ -132,7 +132,7 @@ struct AddView: View {
                                 Text("Transportation").bold()
                                 }
                             }
-                        
+
                         }.buttonStyle(PlainButtonStyle()).padding()
                     Button(action: {
                         self.selectedCategory = "Home"
@@ -166,7 +166,7 @@ struct AddView: View {
                             }
                         }
                     }.buttonStyle(PlainButtonStyle()).padding()
-                    
+
                     Button(action: {
                         self.selectedCategory = "Clothing"
                     }) {

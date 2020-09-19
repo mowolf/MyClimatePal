@@ -8,19 +8,19 @@
 
 import SwiftUI
 
-public struct PieChartRow : View {
+public struct PieChartRow: View {
     var labels: [String]
     var data: [Double]
     var backgroundColor: Color
     var accentColor: Color
     var colors: [Color] = []
     var slices: [PieSlice] {
-        var tempSlices:[PieSlice] = []
-        var lastEndDeg:Double = 0
+        var tempSlices: [PieSlice] = []
+        var lastEndDeg: Double = 0
         let maxValue = data.reduce(0, +)
         var i = 0
         for slice in data {
-            let normalized:Double = Double(slice)/Double(maxValue)
+            let normalized: Double = Double(slice)/Double(maxValue)
             let startDeg = lastEndDeg
             let endDeg = lastEndDeg + (normalized * 360)
             lastEndDeg = endDeg
@@ -31,7 +31,7 @@ public struct PieChartRow : View {
         }
         return tempSlices
     }
-    
+
     @Binding var showValue: Bool
     @Binding var currentValue: Double
     @Binding var currentLabel: String
@@ -45,12 +45,12 @@ public struct PieChartRow : View {
             }
         }
     }
-    
+
     public var body: some View {
         GeometryReader { geometry in
-            ZStack{
-                ForEach(0..<self.slices.count){ i in
-                    PieChartCell(rect: geometry.frame(in: .local), startDeg: self.slices[i].startDeg, endDeg: self.slices[i].endDeg, index: i, backgroundColor: self.backgroundColor,accentColor: self.slices[i].color) // self.accentColor
+            ZStack {
+                ForEach(0..<self.slices.count) { i in
+                    PieChartCell(rect: geometry.frame(in: .local), startDeg: self.slices[i].startDeg, endDeg: self.slices[i].endDeg, index: i, backgroundColor: self.backgroundColor, accentColor: self.slices[i].color) // self.accentColor
                         .scaleEffect(self.currentTouchedIndex == i ? 1.1 : 1)
                         .animation(Animation.spring())
                 }
@@ -66,7 +66,7 @@ public struct PieChartRow : View {
                                 self.currentTouchedIndex = -1
                             }
                         })
-                        .onEnded({ value in
+                        .onEnded({ _ in
                             self.currentTouchedIndex = -1
                         }))
         }
@@ -74,7 +74,7 @@ public struct PieChartRow : View {
 }
 
 #if DEBUG
-struct PieChartRow_Previews : PreviewProvider {
+struct PieChartRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             /*PieChartRow(data:[8,23,54,32,12,37,7,23,43], backgroundColor: Color(red: 252.0/255.0, green: 236.0/255.0, blue: 234.0/255.0), accentColor: Color(red: 225.0/255.0, green: 97.0/255.0, blue: 76.0/255.0), showValue: Binding.constant(false), currentValue: Binding.constant(0))

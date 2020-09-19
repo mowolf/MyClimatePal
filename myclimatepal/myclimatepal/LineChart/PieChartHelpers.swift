@@ -21,12 +21,12 @@ func degree(for point: CGPoint, inCircleRect circleRect: CGRect) -> Double {
     let dx = point.x - center.x
     let dy = point.y - center.y
     let acuteDegree = Double(atan(dy / dx)) * (180 / .pi)
-    
+
     let isInBottomRight = dx >= 0 && dy >= 0
     let isInBottomLeft = dx <= 0 && dy >= 0
     let isInTopLeft = dx <= 0 && dy <= 0
     let isInTopRight = dx >= 0 && dy <= 0
-    
+
     if isInBottomRight {
         return acuteDegree
     } else if isInBottomLeft {
@@ -36,6 +36,6 @@ func degree(for point: CGPoint, inCircleRect circleRect: CGRect) -> Double {
     } else if isInTopRight {
         return 360 - abs(acuteDegree)
     }
-    
+
     return 0
 }

@@ -11,7 +11,6 @@ import Foundation
 import Fuse
 import SwiftUI
 
-
 final class Co2State: ObservableObject {
     // MARK: Co2
     @Published var treeOffsetNum: Int = 0
@@ -35,7 +34,7 @@ final class Co2State: ObservableObject {
             let CO2eqkg: NSNumber = (x.value as! [String: Any])["CO2eqkg"]! as! NSNumber
             listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food"))
         }
-        
+
         // MARK: New Items to add to our Data
         // MARK: TRANSPORT
         listItems.append(ListItem(description: "🚗 Car", category: "Transport", CO2eqkg: 0.130, topCategory: "Transport"))
@@ -51,7 +50,7 @@ final class Co2State: ObservableObject {
         listItems.append(ListItem(description: "⚡️🇦🇹 Ö Electricity", category: "Power", CO2eqkg: 0.166, topCategory: "Home"))
         listItems.append(ListItem(description: "⚡️🇫🇷 FR Electricity", category: "Power", CO2eqkg: 0.064, topCategory: "Home"))
         listItems.append(ListItem(description: "⚡️🇮🇹 IT Electricity", category: "Power", CO2eqkg: 0.350, topCategory: "Home"))
-        
+
         // MARK: Clothing
         listItems.append(ListItem(description: "👕  Polyester T-shirt", category: "Clothing", CO2eqkg: 20, topCategory: "Clothing"))
         listItems.append(ListItem(description: "👕  Cotton T-shirt", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
@@ -62,8 +61,6 @@ final class Co2State: ObservableObject {
         listItems.append(ListItem(description: "🩳  Short Polyester Pants", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing"))
         listItems.append(ListItem(description: "👖  Jeans", category: "Clothing", CO2eqkg: 34, topCategory: "Clothing"))
 
-        
-        
         for item in listItems {
             listItemsDict[item.description] = item
         }
@@ -81,7 +78,7 @@ final class Co2State: ObservableObject {
                     addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
                 }
             }
-            
+
             // MARK: Items show up in History
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 70, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
@@ -135,15 +132,15 @@ final class Co2State: ObservableObject {
         co2categoryTotal = getCo2CategoryTotal()
         treeOffsetNum = updateTreeOffsetNum()
     }
-    
+
     func updateTreeOffsetNum() -> Int {
         var neededTreesToday: Int = 0
-        
+
         neededTreesToday = Int(currentCo2State / 0.0617) // 22kgCO2 is accumulated per tree per year
-        
+
         return neededTreesToday
     }
-    
+
     func getCo2CategoryTotal() -> [String: Double] {
         var catTotal: [String: Double] = [:]
         for entry in addedItems {
@@ -176,7 +173,7 @@ final class Co2State: ObservableObject {
         }
         return result
     }
-    
+
     func getColorForItem(item: ListItem) -> Color {
         let colors = [Color.green, Color.green, Color.yellow, Color.orange, Color.red, Color(red: 0.85, green: 0, blue: 0)]
         let catItems = listItems.filter { (listItem) -> Bool in
@@ -198,7 +195,7 @@ final class Co2State: ObservableObject {
         let i = Int(min(score, 0.99) * Double(colors.count))
         return colors[i]
     }
-    
+
     func getColorForEntry(entry: Entry) -> Color {
         let colors = [Color.green, Color.yellow, Color.orange, Color.red, Color(red: 0.85, green: 0, blue: 0), Color(red: 0.7, green: 0, blue: 0)]
         let score = min(entry.amount * listItemsDict[entry.type]!.CO2eqkg / co2max, 1)
@@ -284,7 +281,7 @@ final class Co2State: ObservableObject {
         if category == "Clothing" {
             return "item"
         }
-        
+
         if subcategory == "Power" {
             return "kwH"
         }
