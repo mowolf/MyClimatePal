@@ -28,7 +28,7 @@ struct UsedPercentage: View {
                 .frame(width: 360, height: 400, alignment: .center)
                 .shadow(radius: 8)
             VStack {
-                Text("Todays Emissions").bold().font(.title)
+                Text("Todays Footprint").bold().font(.title)
                 ZStack {
                     Image("earth-green").resizable()
                     Image(co2progress >= 2 ? "death-star" : "earth-burning")
