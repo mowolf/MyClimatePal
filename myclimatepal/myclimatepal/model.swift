@@ -53,7 +53,7 @@ final class Co2State: ObservableObject {
     }
     
     func addEntry(item: ListItem, amount: Double) {
-        let entry = Entry(type: item.description, amount: amount)
+        let entry = Entry(category: item.category, type: item.description, amount: amount, dateAdded: Date())
         addedItems.append(entry)
         
         print(addedItems)
