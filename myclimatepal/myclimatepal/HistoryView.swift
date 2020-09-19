@@ -46,7 +46,6 @@ struct HistoryView: View {
                             .mask(RoundedRectangle(cornerRadius: 10.0))
                             .onReceive(Just(co2entered), perform: { (newVal: String) in
                                 let parts = newVal.components(separatedBy: ".")
-                                print(parts)
                                 var val: String = ""
                                 if parts.count > 2 {
                                     val += parts[0] + "."
@@ -76,7 +75,6 @@ struct HistoryView: View {
                         .padding(.all, 20)
 
                         Button(action: {
-                            print(selectedItem!.id)
                             co2State.addedItems.removeAll { (e: Entry) -> Bool in
                                 return selectedItem!.id == e.id
                             }

@@ -71,7 +71,6 @@ struct AddView: View {
                                 .mask(RoundedRectangle(cornerRadius: 10.0))
                                 .onReceive(Just(co2entered), perform: { (newVal: String) in
                                     let parts = newVal.components(separatedBy: ".")
-                                    print(parts)
                                     var val: String = ""
                                     if parts.count > 2 {
                                         val += parts[0] + "."

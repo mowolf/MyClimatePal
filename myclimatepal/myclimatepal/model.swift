@@ -115,7 +115,6 @@ final class Co2State: ObservableObject {
         var co2: Double = 0
         for item in addedItems {
             if Calendar.current.dateComponents([.day], from: item.dateAdded, to: Date()).day == 0 {
-                print(item.type)
                 co2 += listItemsDict[item.type]!.CO2eqkg * item.amount
             }
         }
@@ -233,8 +232,6 @@ final class Co2State: ObservableObject {
     }
 
     static func unitForCategory(_ category: String) -> String {
-        print("unitForCategory")
-        print(category)
         if category == "Food" {
             return "kg"
         }
