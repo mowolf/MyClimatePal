@@ -68,6 +68,7 @@ struct DashboardView: View {
                 DayGraph().environmentObject(co2State).frame(height: 270, alignment: .center).offset(x:10)
                 
                 CategoryView()
+                    .environmentObject(co2State)
                 
                 TreeView()
             

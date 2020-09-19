@@ -9,6 +9,7 @@
 import SwiftUI
 
 public struct PieChartView : View {
+    public var labels: [String]
     public var data: [Double]
     public var title: String
     public var legend: String?
@@ -25,8 +26,10 @@ public struct PieChartView : View {
             }
         }
     }
+    @State private var currentLabel: String = ""
     
-    public init(data: [Double], title: String, legend: String? = nil, style: ChartStyle = Styles.pieChartStyleOne, form: CGSize? = ChartForm.medium, dropShadow: Bool? = true, valueSpecifier: String? = "%.1f"){
+    public init(labels: [String], data: [Double], title: String, legend: String? = nil, style: ChartStyle = Styles.pieChartStyleOne, form: CGSize? = ChartForm.medium, dropShadow: Bool? = true, valueSpecifier: String? = "%.1f"){
+        self.labels = labels
         self.data = data
         self.title = title
         self.legend = legend
@@ -51,8 +54,9 @@ public struct PieChartView : View {
                         Text(self.title)
                             .font(.headline)
                             .foregroundColor(self.style.textColor)
-                    }else{
-                        Text("\(self.currentValue, specifier: self.valueSpecifier)")
+                    } else {
+                        //Text("\(self.currentValue, specifier: self.valueSpecifier)")
+                        Text(self.currentLabel)
                             .font(.headline)
                             .foregroundColor(self.style.textColor)
                     }
@@ -61,7 +65,7 @@ public struct PieChartView : View {
                         .imageScale(.large)
                         .foregroundColor(self.style.legendTextColor)
                 }.padding()
-                PieChartRow(data: data, backgroundColor: self.style.backgroundColor, accentColor: self.style.accentColor, showValue: $showValue, currentValue: $currentValue)
+                PieChartRow(labels: labels, data: data, backgroundColor: self.style.backgroundColor, accentColor: self.style.accentColor, showValue: $showValue, currentValue: $currentValue, currentLabel: $currentLabel)
                     .foregroundColor(self.style.accentColor).padding(self.legend != nil ? 0 : 12).offset(y:self.legend != nil ? 0 : -10)
                 if(self.legend != nil) {
                     Text(self.legend!)
@@ -78,7 +82,7 @@ public struct PieChartView : View {
 #if DEBUG
 struct PieChartView_Previews : PreviewProvider {
     static var previews: some View {
-        PieChartView(data:[56,78,53,65,54], title: "Title", legend: "Legend")
+        PieChartView(labels: ["56","78","53","65","54"], data:[56,78,53,65,54], title: "Title", legend: "Legend")
     }
 }
 #endif

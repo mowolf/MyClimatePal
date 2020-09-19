@@ -115,7 +115,7 @@ public struct Styles {
     
     public static let pieChartStyleOne = ChartStyle(
         backgroundColor: Color.white,
-        accentColor: Colors.OrangeEnd,
+        accentColor: Colors.DarkPurple,
         secondGradientColor: Colors.OrangeStart,
         textColor: Color.black,
         legendTextColor: Color.gray,

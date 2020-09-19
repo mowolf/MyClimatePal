@@ -19,7 +19,7 @@ final class Co2State: ObservableObject {
     @Published var currentCo2State: Double = 0.0
     @Published var co2max = 11.0
     @Published var co2HistoryData: [Double] = []//[8, 23, 54, 32, 12, 37, 7, 23, 43]
-    @Published var co2categoryTotal: [String: Double] = ["Transport": 8, "Food" :23]
+    @Published var co2categoryTotal: [String: Double] = [:]//["Transport": 8, "Food" :23]
 
     var co2data: [String: Any]
     var listItems: [ListItem] = []
@@ -109,6 +109,17 @@ final class Co2State: ObservableObject {
         saveEntries()
         updateCurrentCo2()
         co2HistoryData = getCo2PerDay()
+        co2categoryTotal = getCo2CategoryTotal()
+    }
+    
+    func getCo2CategoryTotal() -> [String: Double] {
+        var catTotal: [String: Double] = [:]
+        for entry in addedItems {
+            let item = listItemsDict[entry.type]!
+            let cat = item.topCategory
+            catTotal[cat] = entry.amount * item.CO2eqkg + (catTotal[cat] ?? 0)
+        }
+        return catTotal
     }
 
     func updateCurrentCo2() {
