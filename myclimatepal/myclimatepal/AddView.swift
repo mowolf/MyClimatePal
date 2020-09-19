@@ -40,13 +40,11 @@ struct AddView: View {
             } else {
                 Spacer().frame(minHeight: 0, maxHeight: 80)
             }
-
+            // MARK: show item / add screen
             if selectedItem != nil {
-                // show item / add screen
-                Spacer()
-                VStack {
+                    VStack {
                     Text(selectedItem!.description)
-                        .font(.largeTitle)
+                        .font(.title)
                         .padding()
                     HStack {
                         TextField("Amount", text: $co2entered)
@@ -69,9 +67,9 @@ struct AddView: View {
                             })
                         Text(Co2State.unitForCategory(selectedItem!.topCategory))
                     }
-                    Spacer()
-                    Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+x %)")
-                    Spacer()
+                    Spacer().frame(minHeight: 20, maxHeight: 40 )
+                    Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+x %)")
+                    Spacer().frame(minHeight: 20, maxHeight: 40 )
                     Button(action: {
                         self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
                         self.selectedItem = nil
@@ -82,15 +80,10 @@ struct AddView: View {
                     }
                         .frame(width: 200)
                         .padding(.all)
-                        //.background(Color(red: 65/255.0, green: 76/255.0, blue: 179/255.0, opacity: 1.0))
-                        .background(LinearGradient(gradient: Gradient(colors:
-                                                                        [Color(red: 0.8*65/255.0, green: 0.8*76/255.0, blue: 0.8*179/255.0, opacity: 1.0),
-                                                                         Color(red: 1.1*65/255.0, green: 1.1*76/255.0, blue: 1.1*179/255.0, opacity: 1.0)]), startPoint: .leading, endPoint: .trailing))
-                        .cornerRadius(40)
-                        .foregroundColor(.white)
                     Spacer()
                 }
                 Spacer()
+                
             } else if searchText != "" {
                 ListView(items: co2State.getSearchResults(query: self.searchText, category: self.selectedCategory), selectedItem: $selectedItem)
                     .environmentObject(co2State)
