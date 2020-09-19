@@ -21,9 +21,12 @@ struct AddView: View {
     
     var body: some View {
         VStack {
-            Spacer()
-            Text("Update your co2 score").font(.largeTitle).bold().animation(.easeIn)
+
+            Text("Update your co2 score").font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
+            
+            
             SearchBar(text: $searchText, selectedItem: $selectedItem).padding().animation(.easeIn(duration: 0.2))
+            Spacer().frame(minHeight: 20, maxHeight: 80)
             if selectedItem != nil {
                 // show item / add screen
                 Spacer()

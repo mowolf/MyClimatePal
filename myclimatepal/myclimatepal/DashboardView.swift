@@ -24,9 +24,13 @@ struct DashboardView: View {
     
     var body: some View {
         VStack{
-            Spacer()
-            Text("Co2 Stats").font(.largeTitle).bold()
-            Spacer()
+            Text("Co2 Stats")
+                .font(.largeTitle)
+                .bold()
+                .frame(width: 400, alignment: .top)
+                .padding(.top)
+                .padding()
+            Spacer().frame(minHeight: 20, maxHeight: 80)
             ZStack{
                 Image("earth-green").resizable()
                 Image(co2progress >= 2 ? "death-star" : "earth-burning")
@@ -36,8 +40,19 @@ struct DashboardView: View {
                     .clipped()
                     .offset(y: CGFloat(200-cappedCo2progress*100 - 100))
             }.frame(width: 200.0, height: 200.0).shadow(radius: 15)
+            Spacer().frame(minHeight: 20, maxHeight: 80)
+            HStack{
+                Text(String(Int(co2progress*100)) + " %")
+                ZStack {
+                    Image(systemName: "cloud.fill").font(.system(size: 60)).offset(y: -5)
+                    Text("Co2").colorInvert()
+                }
+                Text("used")
+                
+            }
+            .padding()
+            .font(.title)
             
-            Text(String(Int(co2progress*100)) + "% Co2 used").padding().font(.title)
             Spacer()
         }
     }
