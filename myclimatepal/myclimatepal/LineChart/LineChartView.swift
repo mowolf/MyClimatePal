@@ -42,7 +42,10 @@ public struct LineChartView: View {
                 dropShadow: Bool? = true,
                 valueSpecifier: String? = "%.1f") {
         
-        self.data = ChartData(points: data)
+
+        var mockdata = data
+        mockdata.append(data[data.count-1])
+        self.data = ChartData(points: mockdata )
         self.title = title
         self.legend = legend
         self.style = style
@@ -76,12 +79,12 @@ public struct LineChartView: View {
                             
                             if (self.rateValue ?? 0 != 0)
                             {
-                                if (self.rateValue ?? 0 >= 0){
-                                    Image(systemName: "arrow.up")
-                                }else{
-                                    Image(systemName: "arrow.down")
-                                }
-                                Text("\(self.rateValue!)%")
+//                                if (self.rateValue ?? 0 >= 0){
+//                                    Image(systemName: "arrow.up")
+//                                }else{
+//                                    Image(systemName: "arrow.down")
+//                                }
+                                Text("\(self.rateValue!) kg CO2 today").font(.system(.callout)).foregroundColor(.gray)
                             }
                         }
                     }
@@ -92,10 +95,9 @@ public struct LineChartView: View {
                     HStack{
                         Spacer()
                         VStack {
-                            Text("\(self.currentValue, specifier: self.valueSpecifier)")
+                            Text("\(self.currentValue, specifier: self.valueSpecifier) kg Co2")
                                 .font(.system(size: 41, weight: .bold, design: .default))
                                 .offset(x: 0, y: 30)
-                            Text("kg CO2").font(.system(size: 18)).offset(x: 130, y: -50).foregroundColor(.gray)
                         }
                         Spacer()
                     }
@@ -114,6 +116,15 @@ public struct LineChartView: View {
                 .frame(width: frame.width, height: frame.height + 30)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .offset(x: 0, y: 0)
+                
+                // X AXIS
+                
+                ZStack {
+                    Text("last week").offset(x: -70).frame(width: frame.width)
+                    Text("yesteray").offset(x: 95).frame(width: frame.width)
+                    Text("today").offset(x: 150).frame(width: frame.width)
+                }.font(.system(size: 12)).foregroundColor(.gray)
+                
             }.frame(width: self.formSize.width, height: self.formSize.height)
         }
         .gesture(DragGesture()
