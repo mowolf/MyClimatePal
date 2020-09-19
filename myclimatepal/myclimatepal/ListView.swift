@@ -10,13 +10,19 @@ import SwiftUI
 
 struct ListView: View {
     var items: [ListItem]
+    @Binding var selectedItem: ListItem?
     
     var body: some View {
         List(items) { item in
-            Text(item.description)
+            Button(action: {
+                selectedItem = item
+            }) {
+                Text(item.description)
+            }
         }
     }
 }
+
 /*
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {

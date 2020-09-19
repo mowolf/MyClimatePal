@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SearchBar: View {
     @Binding var text: String
+    @Binding var selectedItem: ListItem?
 
     @State private var isEditing = false
         
@@ -41,7 +42,7 @@ struct SearchBar: View {
                 Button(action: {
                     self.isEditing = false
                     self.text = ""
-                    
+                    self.selectedItem = nil
                     // Dismiss the keyboard
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }) {
