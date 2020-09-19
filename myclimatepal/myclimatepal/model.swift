@@ -72,10 +72,25 @@ final class Co2State: ObservableObject {
             let foodItems = listItems.filter { (item) -> Bool in
                 return item.topCategory == "Food"
             }
+            let clothingItems = listItems.filter { (item) -> Bool in
+                return item.topCategory == "Clothing"
+            }
+            let homeItems = listItems.filter { (item) -> Bool in
+                return item.topCategory == "Home"
+            }
+            let homeItem = homeItems[Int.random(in: 0..<homeItems.count)]
             for i in 0..<15 {
                 for _ in 0..<Int.random(in: 3..<6) {
                     let item = foodItems[Int.random(in: 0..<foodItems.count)]
                     addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
+                }
+                for _ in 0..<Int.random(in: 1..<3) {
+                    let item = clothingItems[Int.random(in: 0..<clothingItems.count)]
+                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
+                }
+                for _ in 0..<Int.random(in: 1..<2) {
+                    let item = homeItem
+                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 10..<40)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
                 }
             }
 
