@@ -17,6 +17,18 @@ public struct Line: View {
     @Binding var maxDataValue: Double?
     @State private var showFull: Bool = false
     @State var showBackground: Bool = true
+    
+    var maxDataVal: CGFloat {
+        get {
+            return CGFloat(self.data.points.map{$0.1}.max()!)
+        }
+    }
+    var minDataVal: CGFloat {
+        get {
+            return CGFloat(self.data.points.map{$0.1}.min()!)
+        }
+    }
+    
     var gradient: GradientColor = GradientColor(start: Colors.GradientPurple, end: Colors.GradientNeonBlue)
     var index:Int = 0
     let padding:CGFloat = 30
@@ -70,7 +82,12 @@ public struct Line: View {
             }
             self.path
                 .trim(from: 0, to: self.showFull ? 1:0)
-                .stroke(LinearGradient(gradient: gradient.getGradient(), startPoint: .leading, endPoint: .trailing) ,style: StrokeStyle(lineWidth: 3, lineJoin: .round))
+                
+                .stroke(LinearGradient(gradient: Gradient(colors: [Color.green, Color.yellow, Color.orange, Color.red, Color.black]),
+                                       startPoint: UnitPoint(x: 0,
+                                                             y: minDataVal*(minDataVal-maxDataVal)),
+                                       endPoint: UnitPoint(x: 0, y:  15/maxDataVal)),
+                        style: StrokeStyle(lineWidth: 3, lineJoin: .round))
                 .rotationEffect(.degrees(180), anchor: .center)
                 .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                 .animation(Animation.easeOut(duration: 1.2).delay(Double(self.index)*0.4))

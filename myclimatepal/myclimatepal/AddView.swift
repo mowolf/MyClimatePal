@@ -22,11 +22,10 @@ struct AddView: View {
     var body: some View {
         VStack {
             Text("Add Co2 Emissions")
-                    .font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
+                    .font(.largeTitle).bold().frame(width: 400, alignment: .top).padding(.top).padding()
             HStack {
                 SearchBar(text: $searchText, selectedItem: $selectedItem)
                     .padding()
-                    .animation(.easeIn(duration: 0.2))
                 if selectedItem != nil || selectedCategory != "" || searchText != "" {
                     Button(action: {
                         selectedCategory = ""

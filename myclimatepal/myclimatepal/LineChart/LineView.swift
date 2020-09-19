@@ -90,11 +90,9 @@ public struct LineView: View {
                         // X AXIS
                         
                         ZStack {
-
                             Text("last week").offset(x: -112, y: 230).frame(width: geometry.size.width)
                             Text("yesteray").offset(x: 135, y: 230).frame(width: geometry.size.width)
-                            Text("today").offset(x: 190, y: 230).frame(width: geometry.size.width)
-                                                    
+                            Text("today").offset(x: 190, y: 230).frame(width: geometry.size.width)            
                         }.font(.system(size: 12)).foregroundColor(.gray)
                     }
                     .frame(width: geometry.frame(in: .local).size.width, height: 240)

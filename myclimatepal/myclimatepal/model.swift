@@ -56,6 +56,14 @@ final class Co2State: ObservableObject {
             addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
             addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 50, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "✈️ Plane", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+            
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 30, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 20, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 10, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 40, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 10, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 50, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "✈️ Plane", amount: 10, dateAdded: Date().addingTimeInterval(-10*24*60*60)))
 
         }
 
