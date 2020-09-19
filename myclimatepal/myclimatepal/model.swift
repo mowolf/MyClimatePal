@@ -51,15 +51,16 @@ final class Co2State: ObservableObject {
         listItems.append(ListItem(description: "⚡️🇦🇹 Ö Electricity", category: "Power", CO2eqkg: 0.166, topCategory: "Home"))
         listItems.append(ListItem(description: "⚡️🇫🇷 FR Electricity", category: "Power", CO2eqkg: 0.064, topCategory: "Home"))
         listItems.append(ListItem(description: "⚡️🇮🇹 IT Electricity", category: "Power", CO2eqkg: 0.350, topCategory: "Home"))
+        
         // MARK: Clothing
-        listItems.append(ListItem(description: "👕  polyester t-shirt", category: "Clothing", CO2eqkg: 20, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "👕  cotton t-shirt", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "👕  organic cotton t-shirt", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "👟  sport shoe", category: "Clothing", CO2eqkg: 15, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "👞  shoe", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "🩳  short cotton pants", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "🩳  short polyester pants", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "👖  jeans", category: "Clothing", CO2eqkg: 34, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👕  Polyester T-shirt", category: "Clothing", CO2eqkg: 20, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👕  Cotton T-shirt", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👕  Organic Cotton T-shirt", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👟  Sport Shoe", category: "Clothing", CO2eqkg: 15, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👞  Shoe", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "🩳  Short Cotton Pants", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "🩳  Short Polyester Pants", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👖  Jeans", category: "Clothing", CO2eqkg: 34, topCategory: "Clothing"))
 
         
         
