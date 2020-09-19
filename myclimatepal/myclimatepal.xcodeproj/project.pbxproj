@@ -13,6 +13,7 @@
 		12CD89A325154F7B0078261C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD89A225154F7B0078261C /* ListView.swift */; };
 		12CD89A7251550F90078261C /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD89A6251550F90078261C /* ListItem.swift */; };
 		684D681B195039726AFE4053 /* Pods_myclimatepal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC43D7E334DCF578EC0FBD80 /* Pods_myclimatepal.framework */; };
+		CD1056F425168BD200779892 /* UsedPercentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1056F325168BD200779892 /* UsedPercentage.swift */; };
 		CD132744251618450027345A /* DayGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD132743251618450027345A /* DayGraph.swift */; };
 		CD13274725161B670027345A /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD13274625161B670027345A /* SnapCarousel.swift */; };
 		CD1B026C251560D2002C1313 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1B026B251560D2002C1313 /* HistoryView.swift */; };
@@ -56,6 +57,7 @@
 		12CD89A225154F7B0078261C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		12CD89A6251550F90078261C /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		CC43D7E334DCF578EC0FBD80 /* Pods_myclimatepal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myclimatepal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD1056F325168BD200779892 /* UsedPercentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedPercentage.swift; sourceTree = "<group>"; };
 		CD132743251618450027345A /* DayGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGraph.swift; sourceTree = "<group>"; };
 		CD13274625161B670027345A /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		CD1B026B251560D2002C1313 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				CD132743251618450027345A /* DayGraph.swift */,
 				CD75FDF22516717C00C9FDCB /* TreeView.swift */,
 				CD75FDF5251671BF00C9FDCB /* CategoryView.swift */,
+				CD1056F325168BD200779892 /* UsedPercentage.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				CD7004A92516480E00D41896 /* BarChartRow.swift in Sources */,
 				DEF2BA362516052900D81833 /* Entry.swift in Sources */,
 				12CD89A7251550F90078261C /* ListItem.swift in Sources */,
+				CD1056F425168BD200779892 /* UsedPercentage.swift in Sources */,
 				CD700494251647C800D41896 /* Line.swift in Sources */,
 				CD3A2C2B25151484004DAF35 /* ContentView.swift in Sources */,
 				CD700493251647C800D41896 /* MultiLineChartView.swift in Sources */,

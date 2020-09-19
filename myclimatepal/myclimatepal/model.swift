@@ -14,7 +14,7 @@ import SwiftUI
 
 final class Co2State: ObservableObject {
     // MARK: Co2
-    @Published var trees: Int = 0
+    @Published var treeOffsetNum: Int = 0
     @Published var currentCo2State: Double = 0.0
     @Published var co2max = 11.0
     @Published var co2HistoryData: [Double] = []//[8, 23, 54, 32, 12, 37, 7, 23, 43]
@@ -109,6 +109,15 @@ final class Co2State: ObservableObject {
         updateCurrentCo2()
         co2HistoryData = getCo2PerDay()
         co2categoryTotal = getCo2CategoryTotal()
+        treeOffsetNum = updateTreeOffsetNum()
+    }
+    
+    func updateTreeOffsetNum() -> Int {
+        var neededTreesToday: Int = 0
+        
+        neededTreesToday = Int(currentCo2State / 0.0617) // 22kgCO2 is accumulated per tree per year
+        
+        return neededTreesToday
     }
     
     func getCo2CategoryTotal() -> [String: Double] {
