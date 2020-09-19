@@ -18,11 +18,11 @@ struct ListView: View {
                 self.selectedItem = item
             }) {
                 VStack(alignment: .leading) {
-                Text(item.description)
-                Text(item.category)
-                    .foregroundColor(Color.gray)
-                    .multilineTextAlignment(.trailing)
-                Text(item.CO2eqkg.description).foregroundColor(Color.orange).multilineTextAlignment(.trailing)
+                    Text(item.description)
+                    Text(item.category)
+                        .foregroundColor(Color.gray)
+                        .multilineTextAlignment(.trailing)
+                    Text("\(item.CO2eqkg.description) kgCo2/\(Co2State.unitForCategory(item.topCategory))").foregroundColor(Color.orange).multilineTextAlignment(.trailing)
                 }
             }
         }
