@@ -102,15 +102,19 @@ final class Co2State: ObservableObject {
         return json
     }
     
-    func getSearchResults(query: String, category: String) -> [ListItem] {
+    func getSearchResults(query: String?, category: String) -> [ListItem] {
         var items: [ListItem] = []
         if category == "food" {
             items = foodItems
         }
-        items = foodItems
+        
+        if query == nil {
+            return items
+        }
+        
         let fuse = Fuse()
         for item in items {
-            let result = fuse.search(query, in: item.description)
+            let result = fuse.search(query!, in: item.description)
             item.searchScore = result?.score ?? 2
         }
         
