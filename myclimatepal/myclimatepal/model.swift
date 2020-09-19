@@ -35,11 +35,11 @@ final class Co2State: ObservableObject {
             listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food"))
         }
 
-        listItems.append(ListItem(description: "Car", category: "Transport", CO2eqkg: 0.050, topCategory: "Transport"))
-        listItems.append(ListItem(description: "Bus", category: "Transport", CO2eqkg: 0.068, topCategory: "Transport"))
-        listItems.append(ListItem(description: "Train", category: "Transport", CO2eqkg: 0.014, topCategory: "Transport"))
-        listItems.append(ListItem(description: "Plane", category: "Transport", CO2eqkg: 0.285, topCategory: "Transport"))
-        listItems.append(ListItem(description: "Ship", category: "Transport", CO2eqkg: 0.245, topCategory: "Transport"))
+        listItems.append(ListItem(description: "🚗 Car", category: "Transport", CO2eqkg: 0.050, topCategory: "Transport"))
+        listItems.append(ListItem(description: "🚌 Bus", category: "Transport", CO2eqkg: 0.068, topCategory: "Transport"))
+        listItems.append(ListItem(description: "🚂 Train", category: "Transport", CO2eqkg: 0.014, topCategory: "Transport"))
+        listItems.append(ListItem(description: "✈️ Plane", category: "Transport", CO2eqkg: 0.285, topCategory: "Transport"))
+        listItems.append(ListItem(description: "🛳 Ship", category: "Transport", CO2eqkg: 0.245, topCategory: "Transport"))
 
         for item in listItems {
             listItemsDict[item.description] = item
@@ -49,29 +49,29 @@ final class Co2State: ObservableObject {
         if value != nil {
             addedItems = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(value!) as? [Entry] ?? []
         } else {
-            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 32, dateAdded: Date().addingTimeInterval(-0*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 32, dateAdded: Date().addingTimeInterval(-0*24*60*60)))
 
-            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 30, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "Car", amount: 30, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 30, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 30, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
 
-            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 20, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "Car", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 20, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
 
-            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 40, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "Train", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 40, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
 
-            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 50, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "Plane", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 50, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "✈️ Plane", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
 
-            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 25, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 25, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
 
-            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 66, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 66, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
 
-            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 12, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 12, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
 
-            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 2, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 2, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
 
-            addedItems.append(Entry(category: "Food", type: "Garlic", amount: 44, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 44, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
         }
 
         update()

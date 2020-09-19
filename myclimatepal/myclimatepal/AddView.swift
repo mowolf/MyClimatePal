@@ -42,10 +42,15 @@ struct AddView: View {
             }
             // MARK: show item / add screen
             if selectedItem != nil {
+                ZStack(alignment: .center){
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.white)
+                        .frame(width: 300, height: 300, alignment: .center)
+                        .shadow(radius: 8)
                     VStack {
                     Text(selectedItem!.description)
                         .font(.title)
-                        .padding()
+                        .padding(.top, 40).padding(.bottom, 40)
                     HStack {
                         TextField("Amount", text: $co2entered)
                             .keyboardType(.decimalPad)
@@ -76,13 +81,10 @@ struct AddView: View {
                         self.searchText = ""
                         self.co2entered = ""
                     }) {
-                        Text("Add")
+                        Text("Add").padding(.bottom, 40)
                     }
-                        .frame(width: 200)
-                        .padding(.all)
-                    Spacer()
+                    }.padding()
                 }
-                Spacer()
 
             } else if searchText != "" {
                 ListView(items: co2State.getSearchResults(query: self.searchText, category: self.selectedCategory), selectedItem: $selectedItem)
