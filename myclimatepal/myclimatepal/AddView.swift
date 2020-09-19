@@ -68,7 +68,7 @@ struct AddView: View {
                                     self.co2entered = val
                                 }
                             })
-                        Text("kg")
+                        Text(Co2State.unitForCategory(selectedItem!.topCategory))
                     }
                     Spacer()
                     Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+x %)")
@@ -101,14 +101,14 @@ struct AddView: View {
             } else {
                 HStack {
                     Button(action: {
-                        self.selectedCategory = "transport"
+                        self.selectedCategory = "Transport"
                     }) {
                         Image("car")
                             .font(.system(size: 60))
                             .frame(width: iconSize, height: iconSize)
                     }.buttonStyle(PlainButtonStyle())
                     Button(action: {
-                        self.selectedCategory = "home"
+                        self.selectedCategory = "Home"
                     }) {
                         Image("home")
                             .font(.system(size: 60))
@@ -117,14 +117,14 @@ struct AddView: View {
                 }
                 HStack {
                     Button(action: {
-                        self.selectedCategory = "food"
+                        self.selectedCategory = "Food"
                     }) {
                         Image("food")
                             .font(.system(size: 60))
                             .frame(width: iconSize, height: iconSize)
                     }.buttonStyle(PlainButtonStyle())
                     Button(action: {
-                        self.selectedCategory = "clothing"
+                        self.selectedCategory = "Clothing"
                     }) {
                         Image("jumper")
                             .font(.system(size: 60))

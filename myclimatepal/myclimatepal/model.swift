@@ -32,12 +32,15 @@ final class Co2State: ObservableObject {
             // i has no idea what is happening here but it works
             let category: String = (x.value as! [String: Any])["category"] as! String
             let CO2eqkg: NSNumber = (x.value as! [String: Any])["CO2eqkg"]! as! NSNumber
-            listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "food"))
+            listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food"))
         }
         
-        listItems.append(ListItem(description: "car", category: "", CO2eqkg: 50, topCategory: "transport"))
-        listItems.append(ListItem(description: "bus", category: "", CO2eqkg: 68, topCategory: "transport"))
-        
+        listItems.append(ListItem(description: "Car", category: "Transport", CO2eqkg: 0.050, topCategory: "Transport"))
+        listItems.append(ListItem(description: "Bus", category: "Transport", CO2eqkg: 0.068, topCategory: "Transport"))
+        listItems.append(ListItem(description: "Train", category: "Transport", CO2eqkg: 0.014, topCategory: "Transport"))
+        listItems.append(ListItem(description: "Plane", category: "Transport", CO2eqkg: 0.285, topCategory: "Transport"))
+        listItems.append(ListItem(description: "Ship", category: "Transport", CO2eqkg: 0.245, topCategory: "Transport"))
+
         for item in listItems {
             listItemsDict[item.description] = item
         }
@@ -132,6 +135,16 @@ final class Co2State: ObservableObject {
         return results.filter { (item) -> Bool in
             return item.searchScore <= 0.5
         }
+    }
+    
+    static func unitForCategory(_ category: String) -> String {
+        if category == "Food" {
+            return "kg"
+        }
+        if category == "Transport" {
+            return "km"
+        }
+        return ""
     }
 }
 

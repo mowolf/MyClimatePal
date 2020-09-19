@@ -22,7 +22,7 @@ struct AddedListView: View {
                     Text(item.category)
                         .foregroundColor(Color.gray)
                         .multilineTextAlignment(.trailing)
-                    Text(item.amount.description).foregroundColor(Color.orange).multilineTextAlignment(.trailing)
+                    Text("\(item.amount.description) kgCo2").foregroundColor(Color.orange).multilineTextAlignment(.trailing)
                 }
             }
         }
