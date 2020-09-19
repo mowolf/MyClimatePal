@@ -11,17 +11,22 @@ import SwiftUI
 struct AddedListView: View {
     var items: [Entry]
     @Binding var selectedItem: Entry?
+    @EnvironmentObject var co2State: Co2State
     
     var body: some View {
         List(items) { item in
+            
             Button(action: {
                 self.selectedItem = item
             }) {
-                Text(item.type)
-                Text(item.category)
-                    .foregroundColor(Color.gray)
-                    .multilineTextAlignment(.trailing)
-                Text(item.amount.description).foregroundColor(Color.orange).multilineTextAlignment(.trailing)
+                VStack {
+                    Text(item.type)
+                    Text(item.category)
+                        .foregroundColor(Color.gray)
+                        .multilineTextAlignment(.trailing)
+                    Text(item.amount.description + " kg").foregroundColor(Color.orange).multilineTextAlignment(.trailing)
+                    Text(String(format: "%.2f",item.amount * co2State.foodItemsDict[item.type]!.CO2eqkg) + " kg Co2").multilineTextAlignment(.trailing)
+                }
             }
         }
     }
