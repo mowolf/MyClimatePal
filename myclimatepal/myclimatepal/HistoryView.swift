@@ -19,8 +19,9 @@ struct HistoryView: View {
         VStack {
             if selectedItem != nil {
                 Text("Edit Entry")
-                    .font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
+                    .font(.largeTitle).bold().frame(width: 400, alignment: .top).padding(.top)
                 Spacer().frame(minHeight: 20, maxHeight: 177)
+                
                 // show item / add screen
 
                 ZStack(alignment: .center) {
@@ -99,8 +100,7 @@ struct HistoryView: View {
                     .bold()
                     .frame(width: 400, alignment: .top)
                     .padding(.top)
-                    .padding()
-                Spacer().frame(minHeight: 20, maxHeight: 80)
+                Spacer().frame(minHeight: 20, maxHeight: 20)
                 AddedListView(items: co2State.addedItems.reversed(), selectedItem: $selectedItem, co2entered: $co2entered)
                     .environmentObject(co2State)
             }

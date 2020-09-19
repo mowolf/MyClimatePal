@@ -30,7 +30,9 @@ struct DashboardView: View {
                     .bold()
                     .frame(width: 400, alignment: .top)
                     .padding(.top)
-                    .padding()
+//                    .padding()
+                Divider().frame(height: 1).background(Color.black).shadow(radius: 5.0).blur(radius:0.5)
+                Text("Today").bold().font(.title)
                 Spacer().frame(minHeight: 20, maxHeight: 80)
 
                 ZStack {
@@ -51,11 +53,14 @@ struct DashboardView: View {
                         Image(systemName: "cloud.fill").font(.system(size: 60)).offset(y: -5)
                         Text("Co2").colorInvert()
                     }
-                    Text("used")
+                    Text("of daily limit")
 
                 }
                 .padding()
                 .font(.title)
+                
+                Divider().frame(height: 1).background(Color.black).shadow(radius: 5.0).blur(radius:0.5)
+                Text("Past emmissions").bold().font(.title)
 
                 DayGraph().environmentObject(co2State)
             }
