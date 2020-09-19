@@ -18,6 +18,10 @@ struct ListView: View {
                 selectedItem = item
             }) {
                 Text(item.description)
+                Text(item.category)
+                    .foregroundColor(Color.gray)
+                    .multilineTextAlignment(.trailing)
+                Text(item.CO2eqkg.description).foregroundColor(Color.orange).multilineTextAlignment(.trailing)
             }
         }
     }

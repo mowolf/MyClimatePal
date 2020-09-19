@@ -13,6 +13,10 @@ import Fuse
 //let co2val = 70.0
 //currentCo2State = co2val/co2max
 
+struct foodEntry {
+    var type: String
+    var amount: Double
+}
 
 final class Co2State: ObservableObject {
     // MARK: Co2
@@ -20,11 +24,7 @@ final class Co2State: ObservableObject {
     @Published var co2max = 100.0
     var co2data: [String: Any]
     var foodItems: [ListItem] = []
-    
-    struct foodEntry {
-        var type: String
-        var amount: Float
-    }
+    var addedItems: [foodEntry] = []
     
     init(currentCo2State: Double = 0.0) {
         self.currentCo2State = currentCo2State
@@ -41,7 +41,7 @@ final class Co2State: ObservableObject {
             
             //print(category)
             //print(CO2eqkg.floatValue)
-            foodItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.floatValue))
+            foodItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue))
         }
         //foodItems
         
@@ -49,7 +49,10 @@ final class Co2State: ObservableObject {
     }
     
     func addEntry(item: ListItem, amount: Double) {
+        let entry = foodEntry(type: item.description, amount: amount)
+        addedItems.append(entry)
         
+        print(addedItems)
     }
     
     static func strToDouble(_ s: String) -> Double {
