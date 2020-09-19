@@ -57,7 +57,7 @@ struct DashboardView: View {
                 .padding()
                 .font(.title)
 
-                DayGraph().environmentObject(co2State).frame(height: 800)
+                DayGraph().environmentObject(co2State)
             }
         }
     }

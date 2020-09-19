@@ -31,14 +31,14 @@ struct DayGraph: View {
         GeometryReader { geometry in
             VStack {
                 LineView(data: co2State.co2HistoryData, style: Styles.lineChartStyleOne).frame(width: geometry.size.width+20, height: 300).offset(x: -20)
-                Spacer()
-                ScrollView(.horizontal) {
-                    HStack {
-                        PieChartView(data: [8, 23, 54, 32], title: "Co2 Category", legend: "kg co2").frame(width: geometry.size.width, height: 300)
-                        // ADD MORE?
-                        // PieChartView(data: [8,23,54,32], title: "Title", legend: "Legendary").frame(width: geometry.size.width, height: 300).offset(x: -geometry.size.width/2-5)
-                    }
-                }
+//                Spacer()
+//                ScrollView(.horizontal) {
+//                    HStack {
+//                        PieChartView(data: [8, 23, 54, 32], title: "Co2 Category", legend: "kg co2").frame(width: geometry.size.width, height: 300)
+//                        // ADD MORE?
+//                        // PieChartView(data: [8,23,54,32], title: "Title", legend: "Legendary").frame(width: geometry.size.width, height: 300).offset(x: -geometry.size.width/2-5)
+//                    }
+//                }
             }
         }
     }
