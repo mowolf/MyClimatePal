@@ -21,7 +21,6 @@ struct AddView: View {
     
     var body: some View {
         VStack {
-
             Text("Update your co2 score").font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
             SearchBar(text: $searchText, selectedItem: $selectedItem).padding().animation(.easeIn(duration: 0.2))
             
@@ -33,7 +32,7 @@ struct AddView: View {
                     co2entered = ""
                 }) {
                     HStack {
-                        Text("< back")
+                        Text("back").padding(.leading)
                         Spacer()
                     }
                 }

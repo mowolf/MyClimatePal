@@ -25,7 +25,7 @@ struct ListView: View {
                     Text("\(item.CO2eqkg.description) kgCo2/\(Co2State.unitForCategory(item.topCategory))").foregroundColor(Color.orange).multilineTextAlignment(.trailing)
                 }
             }
-        }
+        }.padding()
     }
 }
 
