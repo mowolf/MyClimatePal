@@ -21,6 +21,11 @@ final class Co2State: ObservableObject {
     var co2data: [String: Any]
     var foodItems: [ListItem] = []
     
+    struct foodEntry {
+        var type: String
+        var amount: Float
+    }
+    
     init(currentCo2State: Double = 0.0) {
         self.currentCo2State = currentCo2State
         
@@ -29,9 +34,18 @@ final class Co2State: ObservableObject {
         for x in co2data {
             //print(x.key)
             //print(x.value as? [String: Any])
-            foodItems.append(ListItem(description: x.key))
+            
+            // i has no idea what is happening here but it works
+            let category: String = (x.value as! [String: Any])["category"] as! String
+            let CO2eqkg: NSNumber = (x.value as! [String: Any])["CO2eqkg"]! as! NSNumber
+            
+            //print(category)
+            //print(CO2eqkg.floatValue)
+            foodItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.floatValue))
         }
         //foodItems
+        
+        
     }
 
     static func readJSONFromFile(fileName: String) -> Any? {
