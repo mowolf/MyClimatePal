@@ -15,6 +15,7 @@ struct PieSlice: Identifiable {
     var value: Double
     var label: String
     var normalizedValue: Double
+    var color: Color
 }
 
 public struct PieChartCell : View {

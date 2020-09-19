@@ -13,6 +13,7 @@ public struct PieChartRow : View {
     var data: [Double]
     var backgroundColor: Color
     var accentColor: Color
+    var colors: [Color] = []
     var slices: [PieSlice] {
         var tempSlices:[PieSlice] = []
         var lastEndDeg:Double = 0
@@ -23,7 +24,9 @@ public struct PieChartRow : View {
             let startDeg = lastEndDeg
             let endDeg = lastEndDeg + (normalized * 360)
             lastEndDeg = endDeg
-            tempSlices.append(PieSlice(startDeg: startDeg, endDeg: endDeg, value: slice, label: labels[i], normalizedValue: normalized))
+            let label = labels[i]
+            let color = label == "Food" ? colors[0] : label == "Transport" ? colors[1] : label == "Clothing" ? colors[2] : label == "House" ? colors[3] : self.accentColor
+            tempSlices.append(PieSlice(startDeg: startDeg, endDeg: endDeg, value: slice, label: labels[i], normalizedValue: normalized, color: color))
             i += 1
         }
         return tempSlices
@@ -47,7 +50,7 @@ public struct PieChartRow : View {
         GeometryReader { geometry in
             ZStack{
                 ForEach(0..<self.slices.count){ i in
-                    PieChartCell(rect: geometry.frame(in: .local), startDeg: self.slices[i].startDeg, endDeg: self.slices[i].endDeg, index: i, backgroundColor: self.backgroundColor,accentColor: self.accentColor)
+                    PieChartCell(rect: geometry.frame(in: .local), startDeg: self.slices[i].startDeg, endDeg: self.slices[i].endDeg, index: i, backgroundColor: self.backgroundColor,accentColor: self.slices[i].color) // self.accentColor
                         .scaleEffect(self.currentTouchedIndex == i ? 1.1 : 1)
                         .animation(Animation.spring())
                 }
