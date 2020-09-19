@@ -35,13 +35,34 @@ final class Co2State: ObservableObject {
             let CO2eqkg: NSNumber = (x.value as! [String: Any])["CO2eqkg"]! as! NSNumber
             listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food"))
         }
-
+        
+        // MARK: New Items to add to our Data
+        // MARK: TRANSPORT
         listItems.append(ListItem(description: "🚗 Car", category: "Transport", CO2eqkg: 0.130, topCategory: "Transport"))
         listItems.append(ListItem(description: "🚌 Bus", category: "Transport", CO2eqkg: 0.068, topCategory: "Transport"))
         listItems.append(ListItem(description: "🚂 Train", category: "Transport", CO2eqkg: 0.014, topCategory: "Transport"))
         listItems.append(ListItem(description: "✈️ Plane", category: "Transport", CO2eqkg: 0.285, topCategory: "Transport"))
         listItems.append(ListItem(description: "🛳 Ship", category: "Transport", CO2eqkg: 0.245, topCategory: "Transport"))
+        // MARK: HOME https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5#tab-googlechartid_chart_11_filters=%7B%22rowFilters%22%3A%7B%7D%3B%22columnFilters%22%3A%7B%22pre_config_ugeo%22%3A%5B%22European%20Union%20(current%20composition)%22%5D%7D%7D
+        listItems.append(ListItem(description: "⚡️🇪🇺 EU Electricity", category: "Power", CO2eqkg: 0.300, topCategory: "Home"))
+        listItems.append(ListItem(description: "⚡️🇨🇭 CH Electricity", category: "Power", CO2eqkg: 0.024, topCategory: "Home"))
+        listItems.append(ListItem(description: "⚡️🇩🇪 DE Electricity", category: "Power", CO2eqkg: 0.480, topCategory: "Home"))
+        listItems.append(ListItem(description: "⚡️🇳🇴 N Electricity", category: "Power", CO2eqkg: 0.008, topCategory: "Home"))
+        listItems.append(ListItem(description: "⚡️🇦🇹 Ö Electricity", category: "Power", CO2eqkg: 0.166, topCategory: "Home"))
+        listItems.append(ListItem(description: "⚡️🇫🇷 FR Electricity", category: "Power", CO2eqkg: 0.064, topCategory: "Home"))
+        listItems.append(ListItem(description: "⚡️🇮🇹 IT Electricity", category: "Power", CO2eqkg: 0.350, topCategory: "Home"))
+        // MARK: Clothing
+        listItems.append(ListItem(description: "👕  polyester t-shirt", category: "Clothing", CO2eqkg: 20, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👕  cotton t-shirt", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👕  organic cotton t-shirt", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👟  sport shoe", category: "Clothing", CO2eqkg: 15, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👞  shoe", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "🩳  short cotton pants", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "🩳  short polyester pants", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👖  jeans", category: "Clothing", CO2eqkg: 34, topCategory: "Clothing"))
 
+        
+        
         for item in listItems {
             listItemsDict[item.description] = item
         }
@@ -59,6 +80,8 @@ final class Co2State: ObservableObject {
                     addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
                 }
             }
+            
+            // MARK: Items show up in History
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 70, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 110, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
@@ -250,12 +273,19 @@ final class Co2State: ObservableObject {
         }
     }
 
-    static func unitForCategory(_ category: String) -> String {
+    static func unitForCategory(_ category: String, _ subcategory: String?) -> String {
         if category == "Food" {
             return "kg"
         }
         if category == "Transport" {
             return "km"
+        }
+        if category == "Clothing" {
+            return "item"
+        }
+        
+        if subcategory == "Power" {
+            return "kwH"
         }
         return ""
     }
