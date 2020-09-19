@@ -68,8 +68,6 @@ final class Co2State: ObservableObject {
             }
             str = val
         }
-        print(str)
-        print(Double(str))
         return Double(str) ?? 0
     }
 
