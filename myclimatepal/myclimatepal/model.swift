@@ -49,29 +49,14 @@ final class Co2State: ObservableObject {
         if value != nil {
             addedItems = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(value!) as? [Entry] ?? []
         } else {
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 32, dateAdded: Date().addingTimeInterval(-0*24*60*60)))
-
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 30, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 30, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-
             addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 20, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-
             addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 40, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-
             addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 50, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "✈️ Plane", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
 
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 25, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
-
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 66, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
-
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 12, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
-
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 2, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
-
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 44, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
         }
 
         update()

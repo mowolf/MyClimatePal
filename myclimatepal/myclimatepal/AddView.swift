@@ -57,12 +57,15 @@ struct AddView: View {
                     VStack {
                     Text(selectedItem!.description)
                         .font(.title)
-                        .padding(.top, 40).padding(.bottom, 40)
+                        .lineLimit(2)
+                        .frame(width: 250)
+                        .multilineTextAlignment(.center)
+                        .padding()
                     HStack {
                         TextField("Amount", text: $co2entered)
                             .keyboardType(.decimalPad)
                             .frame(width: 200)
-                            .padding(.all)
+                            .padding()
                             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                             .mask(RoundedRectangle(cornerRadius: 10.0))
                             .onReceive(Just(co2entered), perform: { (newVal: String) in
@@ -77,20 +80,23 @@ struct AddView: View {
                                     self.co2entered = val
                                 }
                             })
-                        Text(Co2State.unitForCategory(selectedItem!.topCategory))
+                        
+                        Text(Co2State.unitForCategory(selectedItem!.topCategory)).font(.system(size: 18))
                     }
-                    Spacer().frame(minHeight: 20, maxHeight: 40 )
-                        Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max)) %)")
-                    Spacer().frame(minHeight: 20, maxHeight: 40 )
+                        
+                    Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max)) %)")
+                        .font(.system(size: 15)).foregroundColor(.gray).padding()
+                        
                     Button(action: {
                         self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
                         self.selectedItem = nil
                         self.searchText = ""
                         self.co2entered = ""
                     }) {
-                        Text("Add").padding(.bottom, 40)
+                        Text("Add").padding(.all, 20)
                     }
-                    }.padding()
+                    }
+                    .padding()
                 }
 
             } else if searchText != "" {

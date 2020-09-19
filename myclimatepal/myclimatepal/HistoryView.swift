@@ -22,20 +22,29 @@ struct HistoryView: View {
                 Text("Edit Entry")
                     .font(.largeTitle)
                     .bold()
-                    .frame(width: 400, alignment: .top)
                     .padding(.top)
                     .padding()
                 Spacer().frame(minHeight: 20, maxHeight: 80)
                 // show item / add screen
+                
+                ZStack(alignment: .center){
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.white)
+                        .frame(width: 300, height: 300, alignment: .center)
+                        .shadow(radius: 8)
+                    
                 VStack {
                     Text(selectedItem!.type)
                         .font(.title)
+                        .lineLimit(2)
+                        .frame(width: 250)
+                        .multilineTextAlignment(.center)
                         .padding()
                     HStack {
                         TextField("Amount", text: $co2entered)
                             .keyboardType(.decimalPad)
                             .frame(width: 200)
-                            .padding(.all)
+                            .padding()
                             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                             .mask(RoundedRectangle(cornerRadius: 10.0))
                             .onReceive(Just(co2entered), perform: { (newVal: String) in
@@ -52,9 +61,10 @@ struct HistoryView: View {
                             })
                         Text(Co2State.unitForCategory(co2State.listItemsDict[selectedItem!.type]!.topCategory)).font(.system(size: 18))
                     }
-                    Spacer()
+
                     Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.co2max)) %)")
-                    Spacer()
+                        .font(.system(size: 15)).foregroundColor(.gray).padding()
+
                     HStack {
                         Button(action: {
                             let index = co2State.addedItems.firstIndex(of: selectedItem!)
@@ -65,8 +75,8 @@ struct HistoryView: View {
                         }) {
                             Text("Update").font(.system(size: 18))
                         }
-                            .frame(width: 150)
-                            .padding(.all)
+                            .frame(width: 100)
+                        .padding(.all, 20)
 
                         Button(action: {
                             print(selectedItem!.id)
@@ -80,12 +90,11 @@ struct HistoryView: View {
                         }) {
                             Text("Delete").font(.system(size: 18)).foregroundColor(.red)
                         }
-                            .frame(width: 150)
-                            .padding(.all)
+                            .frame(width: 100)
+                        .padding(.all, 20)
                     }
-                    Spacer()
                 }
-                Spacer()
+                }
             } else {
                 Text("Your History")
                     .font(.largeTitle)
