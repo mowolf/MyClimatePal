@@ -50,6 +50,30 @@ final class Co2State: ObservableObject {
         if value != nil {
             addedItems = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(value!) as? [Entry] ?? []
         } else {
+            let foodItems = listItems.filter { (item) -> Bool in
+                return item.topCategory == "Food"
+            }
+            for i in 0..<15 {
+                for _ in 0..<Int.random(in: 3..<6) {
+                    let item = foodItems[Int.random(in: 0..<foodItems.count)]
+                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
+                }
+            }
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 70, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 110, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 155, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 35, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 20, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 64, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 134, dateAdded: Date().addingTimeInterval(-10*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-11*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-12*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-13*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-14*24*60*60)))
+            /*
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 30, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
             addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 20, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
@@ -63,9 +87,19 @@ final class Co2State: ObservableObject {
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 10, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
             addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 40, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 10, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 50, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🐷 Pork EU", amount: 50, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "✈️ Plane", amount: 10, dateAdded: Date().addingTimeInterval(-10*24*60*60)))
 
+            
+            addedItems.append(Entry(category: "Food", type: "🐷 Pork EU", amount: 0.2, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🥔 Potatoes", amount: 0.5, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🌾 Oats", amount: 0.12, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
+            addedItems.append(Entry(category: "Food", type: "🥛 Yoghurt", amount: 0.25, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
+
+            addedItems.append(Entry(category: "Transport", type: "✈️ Plane", amount: 10, dateAdded: Date().addingTimeInterval(-10*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 10, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
+            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 10, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
+             */
         }
 
         update()
@@ -81,6 +115,7 @@ final class Co2State: ObservableObject {
         var co2: Double = 0
         for item in addedItems {
             if Calendar.current.dateComponents([.day], from: item.dateAdded, to: Date()).day == 0 {
+                print(item.type)
                 co2 += listItemsDict[item.type]!.CO2eqkg * item.amount
             }
         }
