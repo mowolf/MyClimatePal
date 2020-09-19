@@ -40,7 +40,7 @@ public struct PieChartCell: View {
         path
             .fill()
             .foregroundColor(self.accentColor)
-            .overlay(path.stroke(self.backgroundColor, lineWidth: 2))
+            .overlay(path.stroke(self.backgroundColor, lineWidth: 1))
             .scaleEffect(self.show ? 1 : 0)
             .animation(Animation.spring().delay(Double(self.index) * 0.04))
             .onAppear {
