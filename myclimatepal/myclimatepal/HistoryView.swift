@@ -15,9 +15,9 @@ struct HistoryView: View {
 
     @State var selectedItem: Entry?
     @State var co2entered: String = ""
-    
+
     var body: some View {
-        VStack{
+        VStack {
             if selectedItem != nil {
                 Text("Edit Entry")
                     .font(.largeTitle)
@@ -73,7 +73,7 @@ struct HistoryView: View {
                             selectedItem = nil
                             self.co2entered = ""
                             co2State.update()
-                            
+
                         }) {
                             Text("Delete").font(.system(size: 18)).foregroundColor(.red)
                         }

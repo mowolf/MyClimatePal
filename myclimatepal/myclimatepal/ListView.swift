@@ -11,7 +11,7 @@ import SwiftUI
 struct ListView: View {
     var items: [ListItem]
     @Binding var selectedItem: ListItem?
-    
+
     var body: some View {
         List(items) { item in
             Button(action: {

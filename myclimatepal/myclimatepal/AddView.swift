@@ -18,12 +18,12 @@ struct AddView: View {
     @EnvironmentObject var co2State: Co2State
 
     let iconSize: CGFloat = 150
-    
+
     var body: some View {
         VStack {
             Text("Update your co2 score").font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
             SearchBar(text: $searchText, selectedItem: $selectedItem).padding().animation(.easeIn(duration: 0.2))
-            
+
             if selectedItem != nil || selectedCategory != "" || searchText != "" {
                 Button(action: {
                     selectedCategory = ""
@@ -83,7 +83,7 @@ struct AddView: View {
                     Spacer()
                 }
                 Spacer()
-                
+
             } else if searchText != "" {
                 ListView(items: co2State.getSearchResults(query: self.searchText, category: self.selectedCategory), selectedItem: $selectedItem)
                     .environmentObject(co2State)
@@ -129,7 +129,6 @@ struct AddView: View {
         .frame(maxHeight: .infinity, alignment: .leading).animation(.easeIn(duration: 0.2))
     }
 }
-
 
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {

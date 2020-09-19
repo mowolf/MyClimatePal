@@ -15,7 +15,7 @@ class ListItem: Identifiable {
     let topCategory: String
     let CO2eqkg: Double
     var searchScore: Double = 0
-    
+
     init(description: String, category: String, CO2eqkg: Double, topCategory: String) {
         self.description = description
         self.category = category

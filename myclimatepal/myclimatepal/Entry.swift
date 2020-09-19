@@ -14,14 +14,14 @@ class Entry: NSObject, Identifiable, ObservableObject, NSCoding {
     var type: String
     var amount: Double
     var dateAdded: Date
-    
+
     init(category: String, type: String, amount: Double, dateAdded: Date) {
         self.category = category
         self.type = type
         self.amount = amount
         self.dateAdded = dateAdded
     }
-    
+
     func encode(with coder: NSCoder) {
         coder.encode(category, forKey: "category")
         coder.encode(type, forKey: "type")

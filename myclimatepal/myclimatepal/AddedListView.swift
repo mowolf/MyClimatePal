@@ -14,7 +14,7 @@ struct AddedListView: View {
     @Binding var co2entered: String
 
     @EnvironmentObject var co2State: Co2State
-    
+
     var body: some View {
         List(items) { item in
             Button(action: {
@@ -26,7 +26,7 @@ struct AddedListView: View {
                     Spacer()
                     VStack(alignment: .trailing) {
                         Text(item.amount.description + " kg").foregroundColor(Color.orange)
-                        Text(String(format: "%.2f",item.amount * co2State.listItemsDict[item.type]!.CO2eqkg) + " kg Co2")
+                        Text(String(format: "%.2f", item.amount * co2State.listItemsDict[item.type]!.CO2eqkg) + " kg Co2")
                     }.font(.system(size: 18))
                 }
             }

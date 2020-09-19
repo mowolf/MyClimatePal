@@ -11,9 +11,9 @@ import SwiftUI
 struct ContentView: View {
     @State private var selection = 0
     var myCo2State: Co2State = Co2State(currentCo2State: 20.0)
- 
+
     var body: some View {
-        TabView(selection: $selection){
+        TabView(selection: $selection) {
             DashboardView().environmentObject(myCo2State)
                 .font(.title)
                 .tabItem {
@@ -23,7 +23,7 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
-            
+
             AddView().environmentObject(myCo2State)
                 .tabItem {
                 VStack {
@@ -31,7 +31,7 @@ struct ContentView: View {
                     Text("Add Co2")
                 }
             }.tag(1)
-            
+
             HistoryView().environmentObject(myCo2State)
                 .font(.title)
                 .tabItem {
@@ -41,7 +41,7 @@ struct ContentView: View {
                     }
                 }
                 .tag(2)
-            
+
         }
     }
 }
