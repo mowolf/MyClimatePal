@@ -30,14 +30,14 @@ public struct LineChartView: View {
             
         }
     }
-    var frame = CGSize(width: 180, height: 120)
+    var frame = CGSize(width: 400, height: 400)
     private var rateValue: Int?
     
     public init(data: [Double],
                 title: String,
                 legend: String? = nil,
                 style: ChartStyle = Styles.lineChartStyleOne,
-                form: CGSize? = ChartForm.medium,
+                form: CGSize? = ChartForm.large,
                 rateValue: Int? = 14,
                 dropShadow: Bool? = true,
                 valueSpecifier: String? = "%.1f") {

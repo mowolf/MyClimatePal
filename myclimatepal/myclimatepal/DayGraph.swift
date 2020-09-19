@@ -29,7 +29,7 @@ struct DayGraph: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                LineView(data: co2State.co2HistoryData, style: Styles.lineChartStyleOne).frame(width: geometry.size.width+20, height: 300).offset(x: -20)
+                LineChartView(data: co2State.co2HistoryData, title: "This Week", style: Styles.lineChartStyleOne).frame(width: geometry.size.width+20, height: 300).offset(x: -20)
 //                Spacer()
 //                ScrollView(.horizontal) {
 //                    HStack {
