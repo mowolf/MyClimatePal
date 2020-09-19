@@ -17,6 +17,7 @@ public struct PieChartView : View {
     public var formSize:CGSize
     public var dropShadow: Bool
     public var valueSpecifier:String
+    public var colors: [Color] = [Color(hexString: "F2B705"), Color(hexString: "025E73"), Color(hexString: "037F8C"), Color(hexString: "F2762E")]
     
     @State private var showValue = false
     @State private var currentValue: Double = 0 {
@@ -52,26 +53,54 @@ public struct PieChartView : View {
                 HStack{
                     if(!showValue){
                         Text(self.title)
-                            .font(.headline)
+                            .font(.title)
+                            .bold()
                             .foregroundColor(self.style.textColor)
                     } else {
                         //Text("\(self.currentValue, specifier: self.valueSpecifier)")
-                        Text(self.currentLabel)
-                            .font(.headline)
+                        Text("\(self.currentLabel): \(Int(round(self.currentValue))) kgCo2")
+                            .font(.title)
+                            .bold()
                             .foregroundColor(self.style.textColor)
                     }
-                    Spacer()
-                    Image(systemName: "chart.pie.fill")
+                    //Spacer()
+                    
+                    /*Image(systemName: "chart.pie.fill")
                         .imageScale(.large)
-                        .foregroundColor(self.style.legendTextColor)
+                        .foregroundColor(self.style.legendTextColor)*/
                 }.padding()
-                PieChartRow(labels: labels, data: data, backgroundColor: self.style.backgroundColor, accentColor: self.style.accentColor, showValue: $showValue, currentValue: $currentValue, currentLabel: $currentLabel)
-                    .foregroundColor(self.style.accentColor).padding(self.legend != nil ? 0 : 12).offset(y:self.legend != nil ? 0 : -10)
+                HStack {
+                    Spacer()
+                    PieChartRow(labels: labels, data: data, backgroundColor: self.style.backgroundColor, accentColor: self.style.accentColor, colors: colors, showValue: $showValue, currentValue: $currentValue, currentLabel: $currentLabel)
+                        .foregroundColor(self.style.accentColor)
+                        .frame(width: 130, height: 130)
+                        //.padding(.trailing)
+                        //.offset(y:-15)//padding(12).
+                    Spacer()
+                    VStack(alignment: .leading) {
+                        ForEach((0..<data.count), id: \.self) {
+                            let x = $0
+                            let size: CGFloat = 15
+                            HStack {
+                                Circle()
+                                    .foregroundColor(colors[x])
+                                    .frame(width: size, height: size)
+                                Text("\(labels[x]) (\(Int(round(data[x] / data.reduce(0, +) * 100)))%)")
+                                    .font(.system(size: size))
+                            }
+                        }
+                    }
+                    Spacer()
+                    //.padding()
+                }
+                Spacer()
+
                 if(self.legend != nil) {
-                    Text(self.legend!)
+                    /*Text(self.legend!)
                         .font(.headline)
                         .foregroundColor(self.style.legendTextColor)
-                        .padding()
+                        //.padding()
+                        .opacity(0)*/
                 }
                 
             }
