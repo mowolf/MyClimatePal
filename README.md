@@ -24,7 +24,12 @@ Further, we would like to cooperate with NGOs focussing on carbon offseting, to 
 [1] Clune, Stephen, Enda Crossin, and Karli Verghese. "Systematic review of greenhouse gas emissions for different fresh food categories." Journal of Cleaner Production 140 (2017): 766-783.
 [2]
 [3]
-
+  author={S. Clune and E. Crossin and Karli Verghese},
+  journal={Journal of Cleaner Production},
+  year={2017},
+  volume={140},
+  pages={766-783}
+}
 
 ## Credit
 
