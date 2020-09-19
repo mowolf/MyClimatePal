@@ -15,7 +15,7 @@ struct ListView: View {
     var body: some View {
         List(items) { item in
             Button(action: {
-                selectedItem = item
+                self.selectedItem = item
             }) {
                 Text(item.description)
             }

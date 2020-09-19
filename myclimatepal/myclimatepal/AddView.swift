@@ -21,7 +21,7 @@ struct AddView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Update your co2 score").font(.title).animation(.easeIn)
+            Text("Update your co2 score").font(.largeTitle).bold().animation(.easeIn)
             SearchBar(text: $searchText, selectedItem: $selectedItem).padding().animation(.easeIn(duration: 0.2))
             if searchText == "" {
                 HStack {
@@ -86,9 +86,9 @@ struct AddView: View {
                     }
                     Spacer()
                     Button(action: {
-                        co2State.addEntry(item: selectedItem!, amount: Co2State.strToDouble(co2entered))
-                        selectedItem = nil
-                        searchText = ""
+                        self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
+                        self.selectedItem = nil
+                        self.searchText = ""
                     }) {
                         Text("Add")
                     }

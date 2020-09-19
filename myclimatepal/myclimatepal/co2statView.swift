@@ -18,6 +18,7 @@ struct co2statView: View {
     
     var body: some View {
         VStack{
+            Text("Co2 Stats").font(.largeTitle).bold()
             Spacer()
             Text(String(Int(co2progress*100)) + "% Co2 used").padding().font(.title)
             

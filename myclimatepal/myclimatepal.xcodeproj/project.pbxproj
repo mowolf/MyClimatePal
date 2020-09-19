@@ -106,13 +106,13 @@
 				12CD89A225154F7B0078261C /* ListView.swift */,
 				12CD89A6251550F90078261C /* ListItem.swift */,
 				12CD8985251525630078261C /* SearchBar.swift */,
+				CD1B026B251560D2002C1313 /* HistoryView.swift */,
 				CD3A2C2C25151486004DAF35 /* Assets.xcassets */,
 				CD3A2C3125151486004DAF35 /* LaunchScreen.storyboard */,
 				CD3A2C3425151486004DAF35 /* Info.plist */,
 				12CD899E25154AA10078261C /* data */,
 				CD3A2C2E25151486004DAF35 /* Preview Content */,
 				CD3A2C4325153F17004DAF35 /* model.swift */,
-				CD1B026B251560D2002C1313 /* HistoryView.swift */,
 			);
 			path = myclimatepal;
 			sourceTree = "<group>";

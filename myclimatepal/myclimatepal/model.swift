@@ -18,6 +18,8 @@ final class Co2State: ObservableObject {
     // MARK: Co2
     @Published var currentCo2State: Double = 0
     @Published var co2max = 100.0
+    @Published var co2HistoryData: [Double] = [8,23,54,32,12,37,7,23,43]
+    
     var co2data: [String: Any]
     var foodItems: [ListItem] = []
     

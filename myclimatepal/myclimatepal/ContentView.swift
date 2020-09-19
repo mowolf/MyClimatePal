@@ -32,7 +32,7 @@ struct ContentView: View {
                 }
             }.tag(1)
             
-            HistoryView()
+            HistoryView().environmentObject(myCo2State)
                 .font(.title)
                 .tabItem {
                     VStack {
