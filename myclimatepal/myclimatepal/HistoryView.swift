@@ -24,6 +24,10 @@ struct HistoryView: View {
                 Text("Edit Entry")
                     .font(.largeTitle)
                     .bold()
+                    .frame(width: 400, alignment: .top)
+                    .padding(.top)
+                    .padding()
+                Spacer().frame(minHeight: 20, maxHeight: 80)
                 // show item / add screen
                 Spacer()
                 VStack {
@@ -98,6 +102,10 @@ struct HistoryView: View {
                 Text("Your History")
                     .font(.largeTitle)
                     .bold()
+                    .frame(width: 400, alignment: .top)
+                    .padding(.top)
+                    .padding()
+                Spacer().frame(minHeight: 20, maxHeight: 80)
                 AddedListView(items: co2State.addedItems, selectedItem: $selectedItem, co2entered: $co2entered)
                     .environmentObject(co2State)
             }

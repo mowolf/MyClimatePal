@@ -21,9 +21,27 @@ struct AddView: View {
     
     var body: some View {
         VStack {
-            Spacer()
-            Text("Update your co2 score").font(.largeTitle).bold().animation(.easeIn)
+
+            Text("Update your co2 score").font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
             SearchBar(text: $searchText, selectedItem: $selectedItem).padding().animation(.easeIn(duration: 0.2))
+            
+            if selectedItem != nil || selectedCategory != "" || searchText != "" {
+                Button(action: {
+                    selectedCategory = ""
+                    selectedItem = nil
+                    searchText = ""
+                    co2entered = ""
+                }) {
+                    HStack {
+                        Text("< back")
+                        Spacer()
+                    }
+                }
+                .padding(.leading)
+            } else {
+                Spacer().frame(minHeight: 0, maxHeight: 80)
+            }
+
             if selectedItem != nil {
                 // show item / add screen
                 Spacer()
@@ -50,7 +68,7 @@ struct AddView: View {
                                     self.co2entered = val
                                 }
                             })
-                        Text("kg")
+                        Text(Co2State.unitForCategory(selectedItem!.topCategory))
                     }
                     Spacer()
                     Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+x %)")
@@ -77,18 +95,20 @@ struct AddView: View {
             } else if searchText != "" {
                 ListView(items: co2State.getSearchResults(query: self.searchText, category: self.selectedCategory), selectedItem: $selectedItem)
                     .environmentObject(co2State)
+            } else if selectedCategory != "" {
+                ListView(items: co2State.getSearchResults(query: nil, category: self.selectedCategory), selectedItem: $selectedItem)
+                    .environmentObject(co2State)
             } else {
                 HStack {
                     Button(action: {
-                        self.co2State.currentCo2State += 2
-                        // What to perform
+                        self.selectedCategory = "Transport"
                     }) {
                         Image("car")
                             .font(.system(size: 60))
                             .frame(width: iconSize, height: iconSize)
                     }.buttonStyle(PlainButtonStyle())
                     Button(action: {
-                        // What to perform
+                        self.selectedCategory = "Home"
                     }) {
                         Image("home")
                             .font(.system(size: 60))
@@ -97,14 +117,14 @@ struct AddView: View {
                 }
                 HStack {
                     Button(action: {
-                        // What to perform
+                        self.selectedCategory = "Food"
                     }) {
                         Image("food")
                             .font(.system(size: 60))
                             .frame(width: iconSize, height: iconSize)
                     }.buttonStyle(PlainButtonStyle())
                     Button(action: {
-                        // What to perform
+                        self.selectedCategory = "Clothing"
                     }) {
                         Image("jumper")
                             .font(.system(size: 60))

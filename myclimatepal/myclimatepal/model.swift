@@ -20,8 +20,8 @@ final class Co2State: ObservableObject {
     @Published var co2HistoryData: [Double] = [8,23,54,32,12,37,7,23,43]
     
     var co2data: [String: Any]
-    var foodItems: [ListItem] = []
-    var foodItemsDict: [String: ListItem] = [:]
+    var listItems: [ListItem] = []
+    var listItemsDict: [String: ListItem] = [:]
     @Published var addedItems: [Entry] = []
     
     init(currentCo2State: Double = 0.0) {
@@ -32,10 +32,17 @@ final class Co2State: ObservableObject {
             // i has no idea what is happening here but it works
             let category: String = (x.value as! [String: Any])["category"] as! String
             let CO2eqkg: NSNumber = (x.value as! [String: Any])["CO2eqkg"]! as! NSNumber
-            foodItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue))
+            listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food"))
         }
-        for item in foodItems {
-            foodItemsDict[item.description] = item
+        
+        listItems.append(ListItem(description: "Car", category: "Transport", CO2eqkg: 0.050, topCategory: "Transport"))
+        listItems.append(ListItem(description: "Bus", category: "Transport", CO2eqkg: 0.068, topCategory: "Transport"))
+        listItems.append(ListItem(description: "Train", category: "Transport", CO2eqkg: 0.014, topCategory: "Transport"))
+        listItems.append(ListItem(description: "Plane", category: "Transport", CO2eqkg: 0.285, topCategory: "Transport"))
+        listItems.append(ListItem(description: "Ship", category: "Transport", CO2eqkg: 0.245, topCategory: "Transport"))
+
+        for item in listItems {
+            listItemsDict[item.description] = item
         }
         
         let value = UserDefaults.standard.object(forKey: "addedItems") as? Data
@@ -56,7 +63,7 @@ final class Co2State: ObservableObject {
         for item in addedItems {
             if Calendar.current.dateComponents([.day], from: item.dateAdded, to: Date()).day == 0 {
                 print(item.type)
-                co2 += foodItemsDict[item.type]!.CO2eqkg * item.amount
+                co2 += listItemsDict[item.type]!.CO2eqkg * item.amount
             }
         }
         currentCo2State = co2
@@ -102,15 +109,22 @@ final class Co2State: ObservableObject {
         return json
     }
     
-    func getSearchResults(query: String, category: String) -> [ListItem] {
-        var items: [ListItem] = []
-        if category == "food" {
-            items = foodItems
+    func getSearchResults(query: String?, category: String) -> [ListItem] {
+        var items: [ListItem] = listItems
+
+        if category != "" {
+            items = items.filter({ (item) -> Bool in
+                item.topCategory == category
+            })
         }
-        items = foodItems
+        
+        if query == nil {
+            return items
+        }
+        
         let fuse = Fuse()
         for item in items {
-            let result = fuse.search(query, in: item.description)
+            let result = fuse.search(query!, in: item.description)
             item.searchScore = result?.score ?? 2
         }
         
@@ -121,6 +135,16 @@ final class Co2State: ObservableObject {
         return results.filter { (item) -> Bool in
             return item.searchScore <= 0.5
         }
+    }
+    
+    static func unitForCategory(_ category: String) -> String {
+        if category == "Food" {
+            return "kg"
+        }
+        if category == "Transport" {
+            return "km"
+        }
+        return ""
     }
 }
 
