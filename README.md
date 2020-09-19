@@ -1,5 +1,7 @@
 # MyClimatePal - the easiest way to track you carbon footprint (@HackZurich2020)
 
+![MyClimatePal Logo](icon2.png)
+
 ## Inspiration
 While we generally know that eating meat and flying hurts our climate, it is hard to take effective action. Is it better to stop eating meat or to take the train instead of an airplane?
 We believe that understanding the effects of your actions is key for improving them. This is why we build MyClimatePal to be the easiest way to gain a deep insight to your CO2 footprint. 
