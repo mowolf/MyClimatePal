@@ -10,13 +10,23 @@ import SwiftUI
 import SwiftUICharts
 
 struct HistoryView: View {
+    
+    @EnvironmentObject var Co2State: Co2State
+    
     var body: some View {
-        LineView(data: [8,23,54,32,12,37,7,23,43], title: "Line chart", legend: "Full screen").padding() // legend is optional, use optional .padding()
+        VStack{
+            Text("Your History")
+                .font(.largeTitle)
+                .bold()
+            LineView(data: Co2State.co2HistoryData, legend: "kg co2 ")
+                .padding()
+        }
+        
     }
 }
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView()
+        HistoryView().environmentObject(Co2State(currentCo2State: 10.0))
     }
 }
