@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct co2statView: View {
+struct DashboardView: View {
     
     @EnvironmentObject var Co2State: Co2State
     
@@ -18,10 +18,9 @@ struct co2statView: View {
     
     var body: some View {
         VStack{
+            Spacer()
             Text("Co2 Stats").font(.largeTitle).bold()
             Spacer()
-            Text(String(Int(co2progress*100)) + "% Co2 used").padding().font(.title)
-            
             ZStack{
                 Image("earth-green").resizable()
                 Image("earth-burning")
@@ -31,6 +30,8 @@ struct co2statView: View {
                     .clipped()
                     .offset(y: CGFloat(200-co2progress*100 - 100))
             }.frame(width: 200.0, height: 200.0).shadow(radius: 15)
+            
+            Text(String(Int(co2progress*100)) + "% Co2 used").padding().font(.title)
             Spacer()
         }
     }
@@ -38,7 +39,7 @@ struct co2statView: View {
 
 struct co2statView_Previews: PreviewProvider {
     static var previews: some View {
-        co2statView().environmentObject(Co2State(currentCo2State: 50))
+        DashboardView().environmentObject(Co2State(currentCo2State: 50))
     }
 }
     

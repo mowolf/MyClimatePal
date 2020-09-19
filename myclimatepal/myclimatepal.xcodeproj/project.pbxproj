@@ -21,7 +21,7 @@
 		CD3A2C2D25151486004DAF35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3A2C2C25151486004DAF35 /* Assets.xcassets */; };
 		CD3A2C3025151486004DAF35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3A2C2F25151486004DAF35 /* Preview Assets.xcassets */; };
 		CD3A2C3325151486004DAF35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3A2C3125151486004DAF35 /* LaunchScreen.storyboard */; };
-		CD3A2C4225151F9E004DAF35 /* co2statView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C4125151F9E004DAF35 /* co2statView.swift */; };
+		CD3A2C4225151F9E004DAF35 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C4125151F9E004DAF35 /* DashboardView.swift */; };
 		CD3A2C4425153F17004DAF35 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A2C4325153F17004DAF35 /* model.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,7 @@
 		CD3A2C2F25151486004DAF35 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD3A2C3225151486004DAF35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD3A2C3425151486004DAF35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD3A2C4125151F9E004DAF35 /* co2statView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = co2statView.swift; sourceTree = "<group>"; };
+		CD3A2C4125151F9E004DAF35 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		CD3A2C4325153F17004DAF35 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,21 +98,17 @@
 		CD3A2C2525151484004DAF35 /* myclimatepal */ = {
 			isa = PBXGroup;
 			children = (
-				CD3A2C4025151F83004DAF35 /* co2Views */,
+				CD71C3852516019300EFF452 /* Model */,
+				CD71C3842516017700EFF452 /* Search */,
+				CD3A2C4025151F83004DAF35 /* TabBarViews */,
 				CD3A2C2625151484004DAF35 /* AppDelegate.swift */,
 				CD3A2C2825151484004DAF35 /* SceneDelegate.swift */,
 				CD3A2C2A25151484004DAF35 /* ContentView.swift */,
-				12CD8981251523DA0078261C /* AddView.swift */,
-				12CD89A225154F7B0078261C /* ListView.swift */,
-				12CD89A6251550F90078261C /* ListItem.swift */,
-				12CD8985251525630078261C /* SearchBar.swift */,
-				CD1B026B251560D2002C1313 /* HistoryView.swift */,
 				CD3A2C2C25151486004DAF35 /* Assets.xcassets */,
 				CD3A2C3125151486004DAF35 /* LaunchScreen.storyboard */,
 				CD3A2C3425151486004DAF35 /* Info.plist */,
 				12CD899E25154AA10078261C /* data */,
 				CD3A2C2E25151486004DAF35 /* Preview Content */,
-				CD3A2C4325153F17004DAF35 /* model.swift */,
 			);
 			path = myclimatepal;
 			sourceTree = "<group>";
@@ -125,12 +121,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		CD3A2C4025151F83004DAF35 /* co2Views */ = {
+		CD3A2C4025151F83004DAF35 /* TabBarViews */ = {
 			isa = PBXGroup;
 			children = (
-				CD3A2C4125151F9E004DAF35 /* co2statView.swift */,
+				12CD8981251523DA0078261C /* AddView.swift */,
+				CD1B026B251560D2002C1313 /* HistoryView.swift */,
+				CD3A2C4125151F9E004DAF35 /* DashboardView.swift */,
 			);
-			name = co2Views;
+			name = TabBarViews;
+			sourceTree = "<group>";
+		};
+		CD71C3842516017700EFF452 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				12CD89A225154F7B0078261C /* ListView.swift */,
+				12CD89A6251550F90078261C /* ListItem.swift */,
+				12CD8985251525630078261C /* SearchBar.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		CD71C3852516019300EFF452 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD3A2C4325153F17004DAF35 /* model.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		D757E3F673EC6A62DAF567E0 /* Frameworks */ = {
@@ -268,7 +284,7 @@
 				CD3A2C2925151484004DAF35 /* SceneDelegate.swift in Sources */,
 				12CD89A7251550F90078261C /* ListItem.swift in Sources */,
 				CD3A2C2B25151484004DAF35 /* ContentView.swift in Sources */,
-				CD3A2C4225151F9E004DAF35 /* co2statView.swift in Sources */,
+				CD3A2C4225151F9E004DAF35 /* DashboardView.swift in Sources */,
 				12CD89A325154F7B0078261C /* ListView.swift in Sources */,
 				CD1B026C251560D2002C1313 /* HistoryView.swift in Sources */,
 				CD3A2C4425153F17004DAF35 /* model.swift in Sources */,

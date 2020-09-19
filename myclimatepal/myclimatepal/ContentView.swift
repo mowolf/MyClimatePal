@@ -14,7 +14,7 @@ struct ContentView: View {
  
     var body: some View {
         TabView(selection: $selection){
-            co2statView().environmentObject(myCo2State)
+            DashboardView().environmentObject(myCo2State)
                 .font(.title)
                 .tabItem {
                     VStack {
