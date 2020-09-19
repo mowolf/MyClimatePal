@@ -19,7 +19,7 @@ struct AddedListView: View {
             Button(action: {
                 self.selectedItem = item
             }) {
-                VStack {
+                VStack(alignment: .leading) {
                     Text(item.type)
                     Text(item.category)
                         .foregroundColor(Color.gray)
