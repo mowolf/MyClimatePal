@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 import Combine
 
 struct HistoryView: View {
@@ -20,8 +19,9 @@ struct HistoryView: View {
         VStack {
             if selectedItem != nil {
                 Text("Edit Entry")
-                    .font(.largeTitle).bold().frame(width: 400, alignment: .top).animation(.easeIn).padding(.top).padding()
+                    .font(.largeTitle).bold().frame(width: 400, alignment: .top).padding(.top)
                 Spacer().frame(minHeight: 20, maxHeight: 177)
+                
                 // show item / add screen
 
                 ZStack(alignment: .center) {
@@ -59,7 +59,7 @@ struct HistoryView: View {
                         Text(Co2State.unitForCategory(co2State.listItemsDict[selectedItem!.type]!.topCategory)).font(.system(size: 18))
                     }
 
-                    Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.co2max)) %)")
+                    Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.co2max * 100)) %)")
                         .font(.system(size: 15)).foregroundColor(.gray).padding()
 
                     HStack {
@@ -100,8 +100,7 @@ struct HistoryView: View {
                     .bold()
                     .frame(width: 400, alignment: .top)
                     .padding(.top)
-                    .padding()
-                Spacer().frame(minHeight: 20, maxHeight: 80)
+                Spacer().frame(minHeight: 20, maxHeight: 20)
                 AddedListView(items: co2State.addedItems.reversed(), selectedItem: $selectedItem, co2entered: $co2entered)
                     .environmentObject(co2State)
             }

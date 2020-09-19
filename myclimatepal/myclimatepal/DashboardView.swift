@@ -30,34 +30,47 @@ struct DashboardView: View {
                     .bold()
                     .frame(width: 400, alignment: .top)
                     .padding(.top)
-                    .padding()
-                Spacer().frame(minHeight: 20, maxHeight: 80)
+//                    .padding()
+                
+                
+                ZStack() {
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.white)
+                        .frame(width: 400, height: 400, alignment: .center)
+                        .shadow(radius: 8)
+                    VStack {
+                        Text("Today").bold().font(.title)
+                        ZStack {
+                            Image("earth-green").resizable()
+                            Image(co2progress >= 2 ? "death-star" : "earth-burning")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(height: CGFloat(200*cappedCo2progress), alignment: .bottomLeading)
+                                .clipped()
+                                .offset(y: CGFloat(200-cappedCo2progress*100 - 100))
+                        }.frame(width: 200.0, height: 200.0).shadow(radius: 15)
 
-                ZStack {
-                    Image("earth-green").resizable()
-                    Image(co2progress >= 2 ? "death-star" : "earth-burning")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: CGFloat(200*cappedCo2progress), alignment: .bottomLeading)
-                        .clipped()
-                        .offset(y: CGFloat(200-cappedCo2progress*100 - 100))
-                }.frame(width: 200.0, height: 200.0).shadow(radius: 15)
+//                        Spacer().frame(minHeight: 20, maxHeight: 20)
 
-                Spacer().frame(minHeight: 20, maxHeight: 80)
+                        HStack {
+                            Text(String(Int(co2progress*100)) + " %")
+                            ZStack {
+                                Image(systemName: "cloud.fill").font(.system(size: 60)).offset(y: -5)
+                                Text("Co2").colorInvert()
+                            }
+                            Text("of daily limit")
 
-                HStack {
-                    Text(String(Int(co2progress*100)) + " %")
-                    ZStack {
-                        Image(systemName: "cloud.fill").font(.system(size: 60)).offset(y: -5)
-                        Text("Co2").colorInvert()
+                        }
+                        .padding()
+                        .font(.title)
                     }
-                    Text("used")
-
                 }
-                .padding()
-                .font(.title)
+                
 
-                DayGraph().environmentObject(co2State)
+                DayGraph().environmentObject(co2State).frame(height: 600, alignment: .center).offset(x:10)
+                
+            
             }
         }
     }
