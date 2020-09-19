@@ -144,7 +144,7 @@ final class Co2State: ObservableObject {
     }
     
     func getCo2CategoryTotal() -> [String: Double] {
-        var catTotal: [String: Double] = [:]
+        var catTotal: [String: Double] = ["Food":0, "Transport": 0, "Clothing": 0, "Home": 0]
         for entry in addedItems {
             let item = listItemsDict[entry.type]!
             let cat = item.topCategory

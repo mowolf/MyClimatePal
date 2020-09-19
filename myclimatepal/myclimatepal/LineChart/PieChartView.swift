@@ -17,7 +17,7 @@ public struct PieChartView : View {
     public var formSize:CGSize
     public var dropShadow: Bool
     public var valueSpecifier:String
-    public var colors: [Color] = [Color(hexString: "F2B705"), Color(hexString: "025E73"), Color(hexString: "037F8C"), Color(hexString: "F2762E")]
+    public var colors: [String: Color] = ["Food": Color(hexString: "F2B705"), "Transport": Color(hexString: "025E73"), "Clothing": Color(hexString: "037F8C"), "Home": Color(hexString: "F2762E")]
     
     @State private var showValue = false
     @State private var currentValue: Double = 0 {
@@ -81,12 +81,14 @@ public struct PieChartView : View {
                         ForEach((0..<data.count), id: \.self) {
                             let x = $0
                             let size: CGFloat = 15
-                            HStack {
-                                Circle()
-                                    .foregroundColor(colors[x])
-                                    .frame(width: size, height: size)
-                                Text("\(labels[x]) (\(Int(round(data[x] / data.reduce(0, +) * 100)))%)")
-                                    .font(.system(size: size))
+                            if data[x] > 0 {
+                                HStack {
+                                    Circle()
+                                        .foregroundColor(colors[labels[x]])
+                                        .frame(width: size, height: size)
+                                    Text("\(labels[x]) (\(Int(round(data[x] / data.reduce(0, +) * 100)))%)")
+                                        .font(.system(size: size))
+                                }
                             }
                         }
                     }

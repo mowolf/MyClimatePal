@@ -13,7 +13,7 @@ public struct PieChartRow : View {
     var data: [Double]
     var backgroundColor: Color
     var accentColor: Color
-    var colors: [Color] = []
+    var colors: [String: Color] = [:]
     var slices: [PieSlice] {
         var tempSlices:[PieSlice] = []
         var lastEndDeg:Double = 0
@@ -25,7 +25,8 @@ public struct PieChartRow : View {
             let endDeg = lastEndDeg + (normalized * 360)
             lastEndDeg = endDeg
             let label = labels[i]
-            let color = label == "Food" ? colors[0] : label == "Transport" ? colors[1] : label == "Clothing" ? colors[2] : label == "House" ? colors[3] : self.accentColor
+            let color = colors[label] ?? self.accentColor
+            //let color = label == "Food" ? colors[0] : label == "Transport" ? colors[1] : label == "Clothing" ? colors[2] : label == "House" ? colors[3] : self.accentColor
             tempSlices.append(PieSlice(startDeg: startDeg, endDeg: endDeg, value: slice, label: labels[i], normalizedValue: normalized, color: color))
             i += 1
         }
