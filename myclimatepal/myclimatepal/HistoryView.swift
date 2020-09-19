@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 import Combine
 
 struct HistoryView: View {

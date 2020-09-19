@@ -9,6 +9,7 @@
 import Combine
 import Foundation
 import Fuse
+import SwiftUI
 
 //let co2val = 70.0
 //currentCo2State = co2val/co2max
@@ -35,7 +36,7 @@ final class Co2State: ObservableObject {
             listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food"))
         }
 
-        listItems.append(ListItem(description: "🚗 Car", category: "Transport", CO2eqkg: 0.050, topCategory: "Transport"))
+        listItems.append(ListItem(description: "🚗 Car", category: "Transport", CO2eqkg: 0.130, topCategory: "Transport"))
         listItems.append(ListItem(description: "🚌 Bus", category: "Transport", CO2eqkg: 0.068, topCategory: "Transport"))
         listItems.append(ListItem(description: "🚂 Train", category: "Transport", CO2eqkg: 0.014, topCategory: "Transport"))
         listItems.append(ListItem(description: "✈️ Plane", category: "Transport", CO2eqkg: 0.285, topCategory: "Transport"))
@@ -97,6 +98,28 @@ final class Co2State: ObservableObject {
             result.append(co2Stats[n_days - i - 1] ?? 0)
         }
         return result
+    }
+    
+    func getColorForItem(item: ListItem) -> Color {
+        let colors = [Color.green, Color.yellow, Color.orange, Color.red, Color(red: 0.7, green: 0, blue: 0)]
+        let catItems = listItems.filter { (listItem) -> Bool in
+            return listItem.topCategory == item.topCategory
+        }.map { (listItem) -> Double in
+            listItem.CO2eqkg
+        }
+        // mean calculation
+        //let catMin = catItems.min()!
+        //let catMax = catItems.max()!
+        //let score = (item.CO2eqkg - catMin) / (catMax - catMin)
+        var n_higher: Double = 0
+        for catItem in catItems {
+            if item.CO2eqkg < catItem {
+                n_higher += 1
+            }
+        }
+        let score = 1 - n_higher / Double(catItems.count)
+        let i = Int(min(score, 0.99) * Double(colors.count))
+        return colors[i]
     }
 
     func saveEntries() {

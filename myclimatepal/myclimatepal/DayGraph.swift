@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 
 let tempGradient = Gradient(colors: [
   .purple,
