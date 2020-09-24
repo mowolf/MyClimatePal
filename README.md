@@ -36,4 +36,5 @@ Further, we would like to cooperate with NGOs focussing on carbon offseting, to 
 ## Credit
 
 Icon from <a href="https://www.flaticon.com/de/autoren/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/de/" title="Flaticon"> www.flaticon.com</a>
+
 Charts adopted from SwiftUICharts https://github.com/AppPear/ChartView
