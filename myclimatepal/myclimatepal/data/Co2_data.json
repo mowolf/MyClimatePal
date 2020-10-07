@@ -63,7 +63,7 @@
         "category":"staples",
         "CO2eqkg":0.31
     },
-    "🍇 Pears":{
+    "🍐 Pears":{
         "category":"fruit",
         "CO2eqkg":0.31
     },
@@ -117,7 +117,8 @@
     },
     "🥛 Almond\/coconut milk":{
         "category":"dairy fridge",
-        "CO2eqkg":0.42
+        "CO2eqkg":0.42,
+        "unit":"l"
     },
     "🌾 Barley":{
         "category":"staples",
@@ -219,7 +220,7 @@
         "category":"fruit",
         "CO2eqkg":0.66
     },
-    "🍌Bananas":{
+    "🍌 Bananas":{
         "category":"fruit",
         "CO2eqkg":0.72
     },
@@ -233,7 +234,8 @@
     },
     "🥛 Soy-milk":{
         "category":"dairy fridge",
-        "CO2eqkg":0.75
+        "CO2eqkg":0.75,
+        "unit":"l"
     },
     "🥫 Chick peas":{
         "category":"staples",
@@ -289,7 +291,8 @@
     },
     "🥛 Milk: AU & NZ":{
         "category":"dairy fridge",
-        "CO2eqkg":1.14
+        "CO2eqkg":1.14,
+        "unit":"l"
     },
     "🌾 Quinoa":{
         "category":"staples",
@@ -301,19 +304,23 @@
     },
     "🥛 Milk: Nth America":{
         "category":"dairy fridge",
-        "CO2eqkg":1.16
+        "CO2eqkg":1.16,
+        "unit":"l"
     },
     "🥛 Milk: British Isles":{
         "category":"dairy fridge",
-        "CO2eqkg":1.23
+        "CO2eqkg":1.23,
+        "unit":"l"
     },
     "🥛 Milk: World average":{
         "category":"dairy fridge",
-        "CO2eqkg":1.29
+        "CO2eqkg":1.29,
+        "unit":"l"
     },
     "🥛 Milk: Europe":{
         "category":"dairy fridge",
-        "CO2eqkg":1.3
+        "CO2eqkg":1.3,
+        "unit":"l"
     },
     "🥑 Avocados":{
         "category":"fruit",
@@ -353,7 +360,8 @@
     },
     "🥛 Milk: Central and Sth America":{
         "category":"dairy fridge",
-        "CO2eqkg":1.55
+        "CO2eqkg":1.55,
+        "unit":"l"
     },
     "🐟 Pollock":{
         "category":"fish",
@@ -375,9 +383,10 @@
         "category":"fish",
         "CO2eqkg":1.8
     },
-    "🥛Milk: Asia":{
+    "🥛 Milk: Asia":{
         "category":"dairy fridge",
-        "CO2eqkg":2.02
+        "CO2eqkg":2.02,
+        "unit":"l"
     },
     "🌾 Rape and mustard seed":{
         "category":"staples",
@@ -397,7 +406,8 @@
     },
     "🥛 Milk: Africa":{
         "category":"dairy fridge",
-        "CO2eqkg":2.5
+        "CO2eqkg":2.5,
+        "unit":"l"
     },
     "🍚 Rice":{
         "category":"staples",
@@ -437,7 +447,8 @@
     },
     "🥛 Buffalo milk":{
         "category":"dairy fridge",
-        "CO2eqkg":3.57
+        "CO2eqkg":3.57,
+        "unit":"l"
     },
     "🐓 Chicken":{
         "category":"meat",
@@ -469,7 +480,8 @@
     },
     "🥛 Cream":{
         "category":"dairy fridge",
-        "CO2eqkg":5.64
+        "CO2eqkg":5.64,
+        "unit":"l"
     },
     "🐷 Pork world average":{
         "category":"meat",

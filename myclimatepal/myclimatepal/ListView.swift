@@ -23,7 +23,7 @@ struct ListView: View {
                     Text(item.category)
                         .foregroundColor(Color.gray)
                         .multilineTextAlignment(.trailing)
-                    Text("\(item.CO2eqkg.description) kgCo2/\(Co2State.unitForCategory(item.topCategory, item.category))")
+                    Text("\(item.CO2eqkg.description) kgCo2/\(item.unit)")
                         .foregroundColor(co2State.getColorForItem(item: item))
                         .multilineTextAlignment(.trailing)
                 }

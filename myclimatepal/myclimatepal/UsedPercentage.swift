@@ -25,7 +25,7 @@ struct UsedPercentage: View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.white)
-                .frame(width: 360, height: 400, alignment: .center)
+                .frame(width: 340, height: 400, alignment: .center)
                 .shadow(radius: 8)
             VStack {
                 Text("Todays Footprint").bold().font(.title)

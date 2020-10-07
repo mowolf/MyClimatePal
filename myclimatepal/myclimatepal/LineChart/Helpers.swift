@@ -140,8 +140,8 @@ public struct ChartForm {
     #else
     public static let small = CGSize(width: 180, height: 120)
     public static let medium = CGSize(width: 180, height: 240)
-    public static let large = CGSize(width: 360, height: 150)
-    public static let extraLarge = CGSize(width: 360, height: 240)
+    public static let large = CGSize(width: 340, height: 150)
+    public static let extraLarge = CGSize(width: 340, height: 240)
     public static let detail = CGSize(width: 180, height: 120)
     #endif
 }

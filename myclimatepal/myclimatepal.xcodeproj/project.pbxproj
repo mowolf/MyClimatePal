@@ -44,6 +44,7 @@
 		CD7004AA2516480E00D41896 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7004A62516480E00D41896 /* BarChartView.swift */; };
 		CD75FDF32516717C00C9FDCB /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75FDF22516717C00C9FDCB /* TreeView.swift */; };
 		CD75FDF6251671BF00C9FDCB /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75FDF5251671BF00C9FDCB /* CategoryView.swift */; };
+		CDA19376252DC16D008D4999 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA19375252DC16D008D4999 /* ViewExtension.swift */; };
 		DEF2BA362516052900D81833 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF2BA352516052900D81833 /* Entry.swift */; };
 		DEF2BA39251605F600D81833 /* AddedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF2BA38251605F600D81833 /* AddedListView.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		CD7004A62516480E00D41896 /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		CD75FDF22516717C00C9FDCB /* TreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
 		CD75FDF5251671BF00C9FDCB /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		CDA19375252DC16D008D4999 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		DEF2BA352516052900D81833 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		DEF2BA38251605F600D81833 /* AddedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 		CD3A2C2525151484004DAF35 /* myclimatepal */ = {
 			isa = PBXGroup;
 			children = (
+				CDA19374252DC15F008D4999 /* Extensions */,
 				CD71C3852516019300EFF452 /* Model */,
 				CD3A2C4025151F83004DAF35 /* Views */,
 				CD70047D2516461200D41896 /* Delegates */,
@@ -182,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				CD3A2C2A25151484004DAF35 /* ContentView.swift */,
+				CDA1936F252DBDA8008D4999 /* Onboarding */,
 				CD70047B251645A000D41896 /* History */,
 				CD13274925161C8A0027345A /* Dashboard */,
 				CD70047C251645B000D41896 /* AddView */,
@@ -257,6 +261,21 @@
 				CD3A2C4325153F17004DAF35 /* model.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CDA1936F252DBDA8008D4999 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		CDA19374252DC15F008D4999 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CDA19375252DC16D008D4999 /* ViewExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		D757E3F673EC6A62DAF567E0 /* Frameworks */ = {
@@ -404,6 +423,7 @@
 				CD3A2C2925151484004DAF35 /* SceneDelegate.swift in Sources */,
 				CD7004A92516480E00D41896 /* BarChartRow.swift in Sources */,
 				DEF2BA362516052900D81833 /* Entry.swift in Sources */,
+				CDA19376252DC16D008D4999 /* ViewExtension.swift in Sources */,
 				12CD89A7251550F90078261C /* ListItem.swift in Sources */,
 				CD1056F425168BD200779892 /* UsedPercentage.swift in Sources */,
 				CD700494251647C800D41896 /* Line.swift in Sources */,
@@ -559,7 +579,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"myclimatepal/Preview Content\"";
-				DEVELOPMENT_TEAM = 57MP79TMUC;
+				DEVELOPMENT_TEAM = A6XJ4R7PFK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = myclimatepal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -580,7 +600,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"myclimatepal/Preview Content\"";
-				DEVELOPMENT_TEAM = 57MP79TMUC;
+				DEVELOPMENT_TEAM = A6XJ4R7PFK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = myclimatepal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
