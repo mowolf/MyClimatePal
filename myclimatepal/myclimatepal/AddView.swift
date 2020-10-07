@@ -68,23 +68,18 @@ struct AddView: View {
                                 .shadow(radius: 8)
                             VStack {
                                 HStack{
+                                    if selectedItem!.sourceId != nil {
+                                        Button(action: {
+                                            showSource.toggle()
+                                        }, label: {
+                                                Image(systemName: "info.circle")
+                                        })
+                                    }
                                 Text(selectedItem!.description)
                                     .font(.title)
-                                    .lineLimit(2)
-                                    .frame(width: 200)
                                     .multilineTextAlignment(.center)
-                                    .padding()
-                                    .padding(.leading, 20)
-                                
-                                if let source = selectedItem!.sourceId {
-                                    Button(action: {
-                                        showSource.toggle()
-                                    }, label: {
-                                            Image(systemName: "info.circle")
-                                    })
-                                }
-                                }
-                            
+                                }.frame(width: 320, height: 100)
+
                                 HStack {
                                     TextField("Amount", text: $co2entered)
                                         .keyboardType(.decimalPad)
@@ -147,7 +142,7 @@ struct AddView: View {
                             .padding()
                         }
                         //.modifier(DismissingKeyboard())
-                        Spacer()
+                        Spacer().frame(minHeight: 20, maxHeight: 100)
                     }
                 }
             } else if searchText != "" {
