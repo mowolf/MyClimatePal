@@ -64,8 +64,8 @@ struct ContentView: View {
             Text(headline[viewIdx])
                 .font(.largeTitle)
                 .bold()
-                .frame(width: 350, alignment: .top)
-                .padding()
+                .frame(width: 340, alignment: .top)
+                
                 Spacer().frame(minHeight: 0, idealHeight: 40, maxHeight: 40)
 
                 VStack {
