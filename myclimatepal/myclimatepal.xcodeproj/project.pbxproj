@@ -45,6 +45,7 @@
 		CD75FDF32516717C00C9FDCB /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75FDF22516717C00C9FDCB /* TreeView.swift */; };
 		CD75FDF6251671BF00C9FDCB /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75FDF5251671BF00C9FDCB /* CategoryView.swift */; };
 		CDA19376252DC16D008D4999 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA19375252DC16D008D4999 /* ViewExtension.swift */; };
+		CDA1937E252E0779008D4999 /* SourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1937D252E0779008D4999 /* SourceView.swift */; };
 		DEF2BA362516052900D81833 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF2BA352516052900D81833 /* Entry.swift */; };
 		DEF2BA39251605F600D81833 /* AddedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF2BA38251605F600D81833 /* AddedListView.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,7 @@
 		CD75FDF22516717C00C9FDCB /* TreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
 		CD75FDF5251671BF00C9FDCB /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CDA19375252DC16D008D4999 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		CDA1937D252E0779008D4999 /* SourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceView.swift; sourceTree = "<group>"; };
 		DEF2BA352516052900D81833 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		DEF2BA38251605F600D81833 /* AddedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +210,7 @@
 				CD71C3842516017700EFF452 /* Search */,
 				DEF2BA352516052900D81833 /* Entry.swift */,
 				12CD8981251523DA0078261C /* AddView.swift */,
+				CDA1937D252E0779008D4999 /* SourceView.swift */,
 			);
 			name = AddView;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				CD7004A12516480000D41896 /* PieChartView.swift in Sources */,
 				12CD8982251523DA0078261C /* AddView.swift in Sources */,
 				CD70049F2516480000D41896 /* PieChartRow.swift in Sources */,
+				CDA1937E252E0779008D4999 /* SourceView.swift in Sources */,
 				CD13274725161B670027345A /* SnapCarousel.swift in Sources */,
 				CD7004A72516480E00D41896 /* BarChartCell.swift in Sources */,
 				CD75FDF6251671BF00C9FDCB /* CategoryView.swift in Sources */,
@@ -582,6 +586,7 @@
 				DEVELOPMENT_TEAM = A6XJ4R7PFK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = myclimatepal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,6 +608,7 @@
 				DEVELOPMENT_TEAM = A6XJ4R7PFK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = myclimatepal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

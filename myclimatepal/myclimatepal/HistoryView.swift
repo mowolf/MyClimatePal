@@ -32,12 +32,18 @@ struct HistoryView: View {
                         .shadow(radius: 8)
 
                 VStack {
-                    Text(selectedItem!.type)
-                        .font(.title)
-                        .lineLimit(2)
-                        .frame(width: 250)
-                        .multilineTextAlignment(.center)
-                        .padding()
+                    VStack {
+                        Text(selectedItem!.type)
+                            .font(.title)
+                            .lineLimit(2)
+                            .frame(width: 250)
+                            .multilineTextAlignment(.center)
+                            .padding()
+//                        if let source = selectedItem.sourceId {
+//                           // Do something using `xy`.
+//                        }
+                    }
+
                     HStack {
                         TextField("Amount", text: $co2entered)
                             .keyboardType(.decimalPad)

@@ -16,6 +16,7 @@ struct AddView: View {
     @State var selectedCategory: String = ""
     @State var selectedItem: ListItem?
     @State var selectedDate: Date = Date()
+    @State var showSource = false
     @EnvironmentObject var co2State: Co2State
 
     let iconSize: CGFloat = 100
@@ -62,12 +63,24 @@ struct AddView: View {
                         .frame(width: 300, height: 350, alignment: .center)
                         .shadow(radius: 8)
                     VStack {
+                        HStack{
                         Text(selectedItem!.description)
                             .font(.title)
                             .lineLimit(2)
-                            .frame(width: 250)
+                            .frame(width: 200)
                             .multilineTextAlignment(.center)
                             .padding()
+                            .padding(.leading, 20)
+                        
+                        if let source = selectedItem!.sourceId {
+                            Button(action: {
+                                showSource.toggle()
+                            }, label: {
+                                    Image(systemName: "info.circle")
+                            })
+                        }
+                        }
+                    
                         HStack {
                             TextField("Amount", text: $co2entered)
                                 .keyboardType(.decimalPad)
@@ -111,7 +124,9 @@ struct AddView: View {
                             }.frame(width: 100).padding(.all, 20)
                         }
 
-                    }
+                    }.sheet(isPresented: $showSource, content: {
+                        SourceView(sourceID: selectedItem!.sourceId!, isPresented: $showSource)
+                    })
                     .padding()
                 }
                 .modifier(DismissingKeyboard())
