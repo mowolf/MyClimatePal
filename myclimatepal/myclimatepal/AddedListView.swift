@@ -44,8 +44,8 @@ struct AddedListView: View {
                                 Text(item.type).font(.system(size: 18))
                                 Spacer()
                                 VStack(alignment: .trailing) {
-                                    Text(item.amount.getFormatted(digits: 3) + " \(co2State.listItemsDict[item.type]!.unit)")
-                                    Text((item.amount * co2State.listItemsDict[item.type]!.CO2eqkg / co2State.listItemsDict[item.type]!.unitPerKg).getFormatted(digits: 2) + " kg Co2")
+                                    Text(item.amount.getFormatted(digits: 1) + " \(co2State.listItemsDict[item.type]!.unit)")
+                                    Text((item.amount * co2State.listItemsDict[item.type]!.CO2eqkg / co2State.listItemsDict[item.type]!.unitPerKg).getFormatted(digits: 1) + " kg Co2")
                                         .foregroundColor(co2State.getColorForEntry(entry: item))
                                 }.font(.system(size: 18))
                             }

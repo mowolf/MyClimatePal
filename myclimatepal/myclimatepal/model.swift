@@ -343,7 +343,7 @@ extension Double {
     func getFormatted() -> String {
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 1
-        formatter.maximumFractionDigits = 6
+        formatter.maximumFractionDigits = 1
         
         return formatter.string(from: NSNumber(value: self) ) ?? (formatter.string(from: 0.0)!)
         
