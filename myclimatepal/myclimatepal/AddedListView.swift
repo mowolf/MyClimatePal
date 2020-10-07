@@ -34,9 +34,7 @@ struct AddedListView: View {
                             self.selectedDate = item.dateAdded
                             if item.recurrence != "1" {
                                 for entry in self.co2State.addedItems {
-                                    print(entry.recurrenceID)
                                     if entry.recurrenceID == item.recurrenceID && entry.dateAdded < self.selectedDate {
-                                        print(entry.dateAdded)
                                         self.selectedDate = entry.dateAdded
                                     }
                                 }
