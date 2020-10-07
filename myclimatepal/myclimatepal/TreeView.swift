@@ -18,7 +18,7 @@ struct TreeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Color.white)
-                    .frame(width: 340, height: 240, alignment: .center)
+                    .frame(width: 340, height: 260, alignment: .center)
                     .shadow(radius: 8)
                 VStack {
                     Text(String(co2State.treeOffsetNum) + " Trees living for one day would offset your emissions of today")
@@ -34,6 +34,9 @@ struct TreeView: View {
                             }
                         }
                     }
+                    Link("Plant Trees now!", destination: URL(string: "https://tree-nation.com/plant/myself")!)
+                        .font(.body)
+                        .foregroundColor(.green)
             }
         }.padding(.bottom)
         } else {

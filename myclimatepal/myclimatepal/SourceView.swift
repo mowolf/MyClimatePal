@@ -27,8 +27,9 @@ struct SourceView: View {
     @Binding var isPresented: Bool
     
     // MARK: Sources
-    let sources = [Source(url: "https://eprints.lancs.ac.uk/id/eprint/79432/4/1_s2.0_S0959652616303584_main.pdf", title: "Systematic review of greenhouse gas emissions for different fresh food categories", author: "Stephen Clune, Enda Crossin, Karli Verghese", year: "2016"),
-                   Source(url: "https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5#tab-googlechartid_chart_11_filters=%7B%22rowFilters%22%3A%7B%7D%3B%22columnFilters%22%3A%7B%22pre_config_ugeo%22%3A%5B%22European%20Union%20(current%20composition)%22%5D%7D%7D", title: "CO2 emission intensity", author: "European Environmental Agency", year: "2018")]
+    let sources = [
+        Source(url: "https://eprints.lancs.ac.uk/id/eprint/79432/4/1_s2.0_S0959652616303584_main.pdf", title: "Systematic review of greenhouse gas emissions for different fresh food categories", author: "Stephen Clune, Enda Crossin, Karli Verghese", year: "2016"),
+        Source(url: "https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5#tab-googlechartid_chart_11_filters=%7B%22rowFilters%22%3A%7B%7D%3B%22columnFilters%22%3A%7B%22pre_config_ugeo%22%3A%5B%22European%20Union%20(current%20composition)%22%5D%7D%7D", title: "CO2 emission intensity", author: "European Environmental Agency", year: "2018")]
     
     var body: some View {
         VStack (content: {
