@@ -14,6 +14,7 @@ struct HistoryView: View {
 
     @State var selectedItem: Entry?
     @State var selectedDate: Date = Date()
+    @State var selectedRecurrence: String = "1"
     @State var co2entered: String = ""
 
     var body: some View {
@@ -92,7 +93,7 @@ struct HistoryView: View {
                 }
 
                 }
-                .modifier(DismissingKeyboard())
+                //.modifier(DismissingKeyboard())
                 Spacer()
             } else {
                 Text("Emission History")
