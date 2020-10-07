@@ -21,9 +21,13 @@ final class Co2State: ObservableObject {
     @Published var co2max = 11.0
     @Published var co2HistoryData: [Double] = [] //[8, 23, 54, 32, 12, 37, 7, 23, 43]
     @Published var co2categoryTotal: [String: Double] = [:] //["Transport": 8, "Food" :23]
+    
+    // MARK: Sources
+    @Published var sources = ["https://eprints.lancs.ac.uk/id/eprint/79432/4/1_s2.0_S0959652616303584_main.pdf"]
 
     // MARK: History data
     @Published var addedItems: [Entry] = []
+    
 
     var co2data: [String: Any]
     var listItems: [ListItem] = []
@@ -96,36 +100,36 @@ final class Co2State: ObservableObject {
                 return item.topCategory == "Home"
             }
             let homeItem = homeItems[Int.random(in: 0..<homeItems.count)]
-            for i in 0..<15 {
-                for _ in 0..<Int.random(in: 3..<6) {
-                    let item = foodItems[Int.random(in: 0..<foodItems.count)]
-                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
-                }
-                for _ in 0..<Int.random(in: 1..<3) {
-                    let item = clothingItems[Int.random(in: 0..<clothingItems.count)]
-                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
-                }
-                for _ in 0..<Int.random(in: 1..<2) {
-                    let item = homeItem
-                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 10..<40)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
-                }
-            }
+//            for i in 0..<15 {
+//                for _ in 0..<Int.random(in: 3..<6) {
+//                    let item = foodItems[Int.random(in: 0..<foodItems.count)]
+//                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
+//                }
+//                for _ in 0..<Int.random(in: 1..<3) {
+//                    let item = clothingItems[Int.random(in: 0..<clothingItems.count)]
+//                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
+//                }
+//                for _ in 0..<Int.random(in: 1..<2) {
+//                    let item = homeItem
+//                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 10..<40)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
+//                }
+//            }
 
             // MARK: Items show up in History
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 70, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 110, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 155, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 35, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 20, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 64, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 134, dateAdded: Date().addingTimeInterval(-10*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-11*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-12*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-13*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-14*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 70, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 110, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 155, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 35, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 20, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 64, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 134, dateAdded: Date().addingTimeInterval(-10*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-11*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-12*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-13*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-14*24*60*60)))
         }
         update()
     }

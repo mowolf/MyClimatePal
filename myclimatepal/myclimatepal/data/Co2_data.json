@@ -1,630 +1,784 @@
 {
     "🧅 Onion":{
         "category":"vegetables",
-        "CO2eqkg":0.17
+        "CO2eqkg":0.17,
+        "sourceID": 0
     },
     "🥬 Celery":{
         "category":"vegetables",
-        "CO2eqkg":0.18
+        "CO2eqkg":0.18,
+        "sourceID": 0
     },
     "🥔 Potatoes":{
         "category":"vegetables",
-        "CO2eqkg":0.18
+        "CO2eqkg":0.18,
+        "sourceID": 0
     },
     "🥕 Carrots":{
         "category":"vegetables",
-        "CO2eqkg":0.2
+        "CO2eqkg":0.2,,
+        "sourceID": 0
     },
     "🍆 Zucchini\/button squash":{
         "category":"fruit",
-        "CO2eqkg":0.21
+        "CO2eqkg":0.21,
+        "sourceID": 0
     },
     "🥒 Cucumber\/gherkins":{
         "category":"fruit",
-        "CO2eqkg":0.23
+        "CO2eqkg":0.23,
+        "sourceID": 0
     },
     "🍠 Beetroot":{
         "category":"vegetables",
-        "CO2eqkg":0.24
+        "CO2eqkg":0.24,
+        "sourceID": 0
     },
     "🎃 Pumpkins":{
         "category":"fruit",
-        "CO2eqkg":0.25
+        "CO2eqkg":0.25,
+        "sourceID": 0
     },
     "🍈 Rockmelon\/cantelope":{
         "category":"fruit",
-        "CO2eqkg":0.25
+        "CO2eqkg":0.25,
+        "sourceID": 0
     },
     "🍋 Lemons and limes":{
         "category":"fruit",
-        "CO2eqkg":0.26
+        "CO2eqkg":0.26,
+        "sourceID": 0
     },
     "🥫 Beans: plake":{
         "category":"staples",
-        "CO2eqkg":0.26
+        "CO2eqkg":0.26,
+        "sourceID": 0
     },
     "🥠 Mushrooms":{
         "category":"vegetables",
-        "CO2eqkg":0.27
+        "CO2eqkg":0.27,
+        "sourceID": 0
     },
     "🍏 Guavas":{
         "category":"fruit",
-        "CO2eqkg":0.28
+        "CO2eqkg":0.28,
+        "sourceID": 0
     },
     "🍎 Apples":{
         "category":"fruit",
-        "CO2eqkg":0.29
+        "CO2eqkg":0.29,
+        "sourceID": 0
     },
     "🥬 Swedes\/rutabage":{
         "category":"vegetables",
-        "CO2eqkg":0.29
+        "CO2eqkg":0.29,
+        "sourceID": 0
     },
     "🥫 Beans: green":{
         "category":"staples",
-        "CO2eqkg":0.31
+        "CO2eqkg":0.31,
+        "sourceID": 0
     },
     "🍐 Pears":{
         "category":"fruit",
-        "CO2eqkg":0.31
+        "CO2eqkg":0.31,
+        "sourceID": 0
     },
     "🍑 Quinces":{
         "category":"fruit",
-        "CO2eqkg":0.31
+        "CO2eqkg":0.31,
+        "sourceID": 0
     },
     "🌴 Dates":{
         "category":"fruit",
-        "CO2eqkg":0.32
+        "CO2eqkg":0.32,
+        "sourceID": 0
     },
     "🍉 Watermelons":{
         "category":"fruit",
-        "CO2eqkg":0.32
+        "CO2eqkg":0.32,
+        "sourceID": 0
     },
     "🍊 Orange":{
         "category":"fruit",
-        "CO2eqkg":0.33
+        "CO2eqkg":0.33,
+        "sourceID": 0
     },
     "🥦 Cauliflowers and broccoli":{
         "category":"vegetables",
-        "CO2eqkg":0.36
+        "CO2eqkg":0.36,
+        "sourceID": 0
     },
     "🥝 Kiwi fruit":{
         "category":"fruit",
-        "CO2eqkg":0.36
+        "CO2eqkg":0.36,
+        "sourceID": 0
     },
     "🍇 Grapes":{
         "category":"fruit",
-        "CO2eqkg":0.37
+        "CO2eqkg":0.37,
+        "sourceID": 0
     },
     "🌾 Oats":{
         "category":"staples",
-        "CO2eqkg":0.38
+        "CO2eqkg":0.38,
+        "sourceID": 0
     },
     "🌾 Rye":{
         "category":"staples",
-        "CO2eqkg":0.38
+        "CO2eqkg":0.38,
+        "sourceID": 0
     },
     "🥫 Peas":{
         "category":"staples",
-        "CO2eqkg":0.38
+        "CO2eqkg":0.38,
+        "sourceID": 0
     },
     "🍒 Cherries":{
         "category":"fruit",
-        "CO2eqkg":0.39
+        "CO2eqkg":0.39,
+        "sourceID": 0
     },
     "🥫 Beans: gigante\/butter":{
         "category":"staples",
-        "CO2eqkg":0.39
+        "CO2eqkg":0.39,
+        "sourceID": 0
     },
     "🥛 Almond\/coconut milk":{
         "category":"dairy fridge",
         "CO2eqkg":0.42,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🌾 Barley":{
         "category":"staples",
-        "CO2eqkg":0.43
+        "CO2eqkg":0.43,
+        "sourceID": 0
     },
     "🍑 Apricot":{
         "category":"fruit",
-        "CO2eqkg":0.43
+        "CO2eqkg":0.43,
+        "sourceID": 0
     },
     "🍑 Peaches and Nectarines":{
         "category":"fruit",
-        "CO2eqkg":0.43
+        "CO2eqkg":0.43,
+        "sourceID": 0
     },
     "🥫 Beans":{
         "category":"staples",
-        "CO2eqkg":0.43
+        "CO2eqkg":0.43,
+        "sourceID": 0
     },
     "🌴 Figs":{
         "category":"fruit",
-        "CO2eqkg":0.43
+        "CO2eqkg":0.43,
+        "sourceID": 0
     },
     "🥜 Chestnuts":{
         "category":"staples",
-        "CO2eqkg":0.43
+        "CO2eqkg":0.43,
+        "sourceID": 0
     },
     "🍊 Mandarin":{
         "category":"fruit",
-        "CO2eqkg":0.45
+        "CO2eqkg":0.45,
+        "sourceID": 0
     },
     "🍅 Tomatoes":{
         "category":"fruit",
-        "CO2eqkg":0.45
+        "CO2eqkg":0.45,
+        "sourceID": 0
     },
     "🌽 Maize\/corn":{
         "category":"staples",
-        "CO2eqkg":0.47
+        "CO2eqkg":0.47,
+        "sourceID": 0
     },
     "🥬 Fennel":{
         "category":"vegetables",
-        "CO2eqkg":0.48
+        "CO2eqkg":0.48,
+        "sourceID": 0
     },
     "🥬 Artichokes":{
         "category":"vegetables",
-        "CO2eqkg":0.48
+        "CO2eqkg":0.48,
+        "sourceID": 0
     },
     "🥫 Cowpeas":{
         "category":"staples",
-        "CO2eqkg":0.49
+        "CO2eqkg":0.49,
+        "sourceID": 0
     },
     "🥫 Soybean":{
         "category":"staples",
-        "CO2eqkg":0.49
+        "CO2eqkg":0.49,
+        "sourceID": 0
     },
     "🍍 Pineapples":{
         "category":"fruit",
-        "CO2eqkg":0.5
+        "CO2eqkg":0.5,
+        "sourceID": 0
     },
     "🍊 Grapefruit and pomelo":{
         "category":"fruit",
-        "CO2eqkg":0.51
+        "CO2eqkg":0.51,
+        "sourceID": 0
     },
     "🍊 Tangerines\/mandarins":{
         "category":"fruit",
-        "CO2eqkg":0.51
+        "CO2eqkg":0.51,
+        "sourceID": 0
     },
     "🍉 Melons":{
         "category":"fruit",
-        "CO2eqkg":0.51
+        "CO2eqkg":0.51,
+        "sourceID": 0
     },
     "🍅 Tomatoes: passive greenhouse":{
         "category":"greenhouse",
-        "CO2eqkg":0.51
+        "CO2eqkg":0.51,
+        "sourceID": 0
     },
     "🌾 Wheat":{
         "category":"staples",
-        "CO2eqkg":0.52
+        "CO2eqkg":0.52,
+        "sourceID": 0
     },
     "🥬 Spinach":{
         "category":"vegetables",
-        "CO2eqkg":0.54
+        "CO2eqkg":0.54,
+        "sourceID": 0
     },
     "🧄 Garlic":{
         "category":"vegetables",
-        "CO2eqkg":0.57
+        "CO2eqkg":0.57,
+        "sourceID": 0
     },
     "🍓 Strawberries":{
         "category":"fruit",
-        "CO2eqkg":0.58
+        "CO2eqkg":0.58,
+        "sourceID": 0
     },
     "🥦 Broccoli":{
         "category":"vegetables",
-        "CO2eqkg":0.6
+        "CO2eqkg":0.6,
+        "sourceID": 0
     },
     "🍸 Olives":{
         "category":"fruit",
-        "CO2eqkg":0.63
+        "CO2eqkg":0.63,
+        "sourceID": 0
     },
     "🌶 Capsicums\/peppers":{
         "category":"fruit",
-        "CO2eqkg":0.66
+        "CO2eqkg":0.66,
+        "sourceID": 0
     },
     "🍌 Bananas":{
         "category":"fruit",
-        "CO2eqkg":0.72
+        "CO2eqkg":0.72,
+        "sourceID": 0
     },
     "🥫 Beans: pinto USA dried":{
         "category":"staples",
-        "CO2eqkg":0.73
+        "CO2eqkg":0.73,
+        "sourceID": 0
     },
     "🥫 Beans: french and runner":{
         "category":"staples",
-        "CO2eqkg":0.75
+        "CO2eqkg":0.75,
+        "sourceID": 0
     },
     "🥛 Soy-milk":{
         "category":"dairy fridge",
         "CO2eqkg":0.75,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🥫 Chick peas":{
         "category":"staples",
-        "CO2eqkg":0.77
+        "CO2eqkg":0.77,
+        "sourceID": 0
     },
     "🥜 Peanuts":{
         "category":"staples",
-        "CO2eqkg":0.83
+        "CO2eqkg":0.83,
+        "sourceID": 0
     },
     "🥬 Asparagus":{
         "category":"vegetables",
-        "CO2eqkg":0.83
+        "CO2eqkg":0.83,
+        "sourceID": 0
     },
     "🍓 Raspberries":{
         "category":"fruit",
-        "CO2eqkg":0.84
+        "CO2eqkg":0.84,
+        "sourceID": 0
     },
     "🍓 Currants and gooseberries":{
         "category":"fruit",
-        "CO2eqkg":0.84
+        "CO2eqkg":0.84,
+        "sourceID": 0
     },
     "🌾 Sesame seed":{
         "category":"staples",
-        "CO2eqkg":0.88
+        "CO2eqkg":0.88,
+        "sourceID": 0
     },
     "🥠 Ginger":{
         "category":"vegetables",
-        "CO2eqkg":0.88
+        "CO2eqkg":0.88,
+        "sourceID": 0
     },
     "🍓 Cranberries\/blueberries":{
         "category":"fruit",
-        "CO2eqkg":0.92
+        "CO2eqkg":0.92,
+        "sourceID": 0
     },
     "🥜 Hazelnuts":{
         "category":"staples",
-        "CO2eqkg":0.97
+        "CO2eqkg":0.97,
+        "sourceID": 0
     },
     "🥜 Ground nuts":{
         "category":"staples",
-        "CO2eqkg":0.99
+        "CO2eqkg":0.99,
+        "sourceID": 0
     },
     "🥫 Lentils":{
         "category":"staples",
-        "CO2eqkg":1.03
+        "CO2eqkg":1.03,
+        "sourceID": 0
     },
     "🐟 Pilchard":{
         "category":"fish",
-        "CO2eqkg":1.1
+        "CO2eqkg":1.1,
+        "sourceID": 0
     },
     "🌶 Peppers: passive and heated greenhouse":{
         "category":"greenhouse",
-        "CO2eqkg":1.1
+        "CO2eqkg":1.1,
+        "sourceID": 0
     },
     "🥛 Milk: AU & NZ":{
         "category":"dairy fridge",
         "CO2eqkg":1.14,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🌾 Quinoa":{
         "category":"staples",
-        "CO2eqkg":1.15
+        "CO2eqkg":1.15,
+        "sourceID": 0
     },
     "🐟 Herring":{
         "category":"fish",
-        "CO2eqkg":1.16
+        "CO2eqkg":1.16,
+        "sourceID": 0
     },
     "🥛 Milk: Nth America":{
         "category":"dairy fridge",
         "CO2eqkg":1.16,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🥛 Milk: British Isles":{
         "category":"dairy fridge",
         "CO2eqkg":1.23,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🥛 Milk: World average":{
         "category":"dairy fridge",
         "CO2eqkg":1.29,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🥛 Milk: Europe":{
         "category":"dairy fridge",
         "CO2eqkg":1.3,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🥑 Avocados":{
         "category":"fruit",
-        "CO2eqkg":1.3
+        "CO2eqkg":1.3,
+        "sourceID": 0
     },
     "🥛 Yoghurt":{
         "category":"dairy fridge",
-        "CO2eqkg":1.31
+        "CO2eqkg":1.31,
+        "sourceID": 0
     },
     "🍆 Eggplants (aubergines)":{
         "category":"fruit",
-        "CO2eqkg":1.35
+        "CO2eqkg":1.35,
+        "sourceID": 0
     },
     "🌻 Sunflower seed":{
         "category":"staples",
-        "CO2eqkg":1.41
+        "CO2eqkg":1.41,
+        "sourceID": 0
     },
     "🍈 Melons: passive greenhouse":{
         "category":"greenhouse",
-        "CO2eqkg":1.43
+        "CO2eqkg":1.43,
+        "sourceID": 0
     },
     "🥜 Cashew nut":{
         "category":"staples",
-        "CO2eqkg":1.44
+        "CO2eqkg":1.44,
+        "sourceID": 0
     },
     "🥜 Walnuts":{
         "category":"staples",
-        "CO2eqkg":1.51
+        "CO2eqkg":1.51,
+        "sourceID": 0
     },
     "🥜 Pistachios":{
         "category":"staples",
-        "CO2eqkg":1.53
+        "CO2eqkg":1.53,
+        "sourceID": 0
     },
     "🥜 Almonds":{
         "category":"staples",
-        "CO2eqkg":1.54
+        "CO2eqkg":1.54,
+        "sourceID": 0
     },
     "🥛 Milk: Central and Sth America":{
         "category":"dairy fridge",
         "CO2eqkg":1.55,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🐟 Pollock":{
         "category":"fish",
-        "CO2eqkg":1.6
+        "CO2eqkg":1.6,
+        "sourceID": 0
     },
     "🍓 Strawberries: heated greenhouse":{
         "category":"greenhouse",
-        "CO2eqkg":1.64
+        "CO2eqkg":1.64,
+        "sourceID": 0
     },
     "🐟 Carp":{
         "category":"fish",
-        "CO2eqkg":1.76
+        "CO2eqkg":1.76,
+        "sourceID": 0
     },
     "🍆 Zucchini: passive greenhouse":{
         "category":"greenhouse",
-        "CO2eqkg":1.77
+        "CO2eqkg":1.77,
+        "sourceID": 0
     },
     "🐟 Mackerel":{
         "category":"fish",
-        "CO2eqkg":1.8
+        "CO2eqkg":1.8,
+        "sourceID": 0
     },
     "🥛 Milk: Asia":{
         "category":"dairy fridge",
         "CO2eqkg":2.02,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🌾 Rape and mustard seed":{
         "category":"staples",
-        "CO2eqkg":2.09
+        "CO2eqkg":2.09,
+        "sourceID": 0
     },
     "🥒 Cucumbers and gherkins: heated greenhouse":{
         "category":"greenhouse",
-        "CO2eqkg":2.1
+        "CO2eqkg":2.1,
+        "sourceID": 0
     },
     "🐟 Tuna":{
         "category":"fish",
-        "CO2eqkg":2.15
+        "CO2eqkg":2.15,
+        "sourceID": 0
     },
     "🍅 Tomatoes: heated greenhouse":{
         "category":"staples",
-        "CO2eqkg":2.2
+        "CO2eqkg":2.2,
+        "sourceID": 0
     },
     "🥛 Milk: Africa":{
         "category":"dairy fridge",
         "CO2eqkg":2.5,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🍚 Rice":{
         "category":"staples",
-        "CO2eqkg":2.55
+        "CO2eqkg":2.55,
+        "sourceID": 0
     },
     "🐟 Whiting":{
         "category":"fish",
-        "CO2eqkg":2.66
+        "CO2eqkg":2.66,
+        "sourceID": 0
     },
     "🦆 Duck":{
         "category":"meat",
-        "CO2eqkg":3.09
+        "CO2eqkg":3.09,
+        "sourceID": 0
     },
     "🐟 Sea bass":{
         "category":"fish",
-        "CO2eqkg":3.27
+        "CO2eqkg":3.27,
+        "sourceID": 0
     },
     "🐟 Haddock":{
         "category":"fish",
-        "CO2eqkg":3.41
+        "CO2eqkg":3.41,
+        "sourceID": 0
     },
     "🥚 Eggs":{
         "category":"meat",
-        "CO2eqkg":3.46
+        "CO2eqkg":3.46,
+        "sourceID": 0
     },
     "🐟 Salmon":{
         "category":"fish",
-        "CO2eqkg":3.47
+        "CO2eqkg":3.47,
+        "sourceID": 0
     },
     "🐟 Fish: all species":{
         "category":"fish",
-        "CO2eqkg":3.49
+        "CO2eqkg":3.49,
+        "sourceID": 0
     },
     "🐟 Cod":{
         "category":"fish",
-        "CO2eqkg":3.51
+        "CO2eqkg":3.51,
+        "sourceID": 0
     },
     "🥛 Buffalo milk":{
         "category":"dairy fridge",
         "CO2eqkg":3.57,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🐓 Chicken":{
         "category":"meat",
-        "CO2eqkg":3.65
+        "CO2eqkg":3.65,
+        "sourceID": 0
     },
     "🥬 Lettuce: heated greenhouse":{
         "category":"greenhouse",
-        "CO2eqkg":3.7
+        "CO2eqkg":3.7,
+        "sourceID": 0
     },
     "🐟 Eel":{
         "category":"fish",
-        "CO2eqkg":3.88
+        "CO2eqkg":3.88,
+        "sourceID": 0
     },
     "🦘 Kangaroo":{
         "category":"meat",
-        "CO2eqkg":4.1
+        "CO2eqkg":4.1,
+        "sourceID": 0
     },
     "🐟 Trout":{
         "category":"fish",
-        "CO2eqkg":4.2
+        "CO2eqkg":4.2,
+        "sourceID": 0
     },
     "🐇Rabbit":{
         "category":"meat",
-        "CO2eqkg":4.7
+        "CO2eqkg":4.7,
+        "sourceID": 0
     },
     "🐷 Pork EU":{
         "category":"meat",
-        "CO2eqkg":5.39
+        "CO2eqkg":5.39,
+        "sourceID": 0
     },
     "🥛 Cream":{
         "category":"dairy fridge",
         "CO2eqkg":5.64,
-        "unit":"l"
+        "unit":"l",
+        "sourceID": 0
     },
     "🐷 Pork world average":{
         "category":"meat",
-        "CO2eqkg":5.74
+        "CO2eqkg":5.74,
+        "sourceID": 0
     },
     "🐷 Pork Nth America":{
         "category":"meat",
-        "CO2eqkg":6.0
+        "CO2eqkg":6.0,
+        "sourceID": 0
     },
     "🐷 Pork UK":{
         "category":"meat",
-        "CO2eqkg":6.11
+        "CO2eqkg":6.11,
+        "sourceID": 0
     },
     "🐟 Ling common":{
         "category":"fish",
-        "CO2eqkg":6.45
+        "CO2eqkg":6.45,
+        "sourceID": 0
     },
     "🐟 Pomfret":{
         "category":"fish",
-        "CO2eqkg":6.63
+        "CO2eqkg":6.63,
+        "sourceID": 0
     },
     "🐟 Rock fish":{
         "category":"fish",
-        "CO2eqkg":6.94
+        "CO2eqkg":6.94,
+        "sourceID": 0
     },
     "🐙 Octopus\/squid\/cuttlefish":{
         "category":"meat",
-        "CO2eqkg":7.13
+        "CO2eqkg":7.13,
+        "sourceID": 0
     },
     "🦃 Turkey":{
         "category":"meat",
-        "CO2eqkg":7.17
+        "CO2eqkg":7.17,
+        "sourceID": 0
     },
     "🐷 Pork AU":{
         "category":"meat",
-        "CO2eqkg":7.65
+        "CO2eqkg":7.65,
+        "sourceID": 0
     },
     "🦀 Prawns\/shrimp":{
         "category":"meat",
-        "CO2eqkg":7.8
+        "CO2eqkg":7.8,
+        "sourceID": 0
     },
     "🐟 Diamond fish":{
         "category":"fish",
-        "CO2eqkg":8.33
+        "CO2eqkg":8.33,
+        "sourceID": 0
     },
     "🐟 Rhombus":{
         "category":"fish",
-        "CO2eqkg":8.41
+        "CO2eqkg":8.41,
+        "sourceID": 0
     },
     "🧀 Cheese":{
         "category":"dairy fridge",
-        "CO2eqkg":8.55
+        "CO2eqkg":8.55,
+        "sourceID": 0
     },
     "🧈 Butter":{
         "category":"dairy fridge",
-        "CO2eqkg":9.25
+        "CO2eqkg":9.25,
+        "sourceID": 0
     },
     "🐚 Mussels":{
         "category":"meat",
-        "CO2eqkg":9.51
+        "CO2eqkg":9.51,
+        "sourceID": 0
     },
     "🐟 Hake":{
         "category":"fish",
-        "CO2eqkg":9.77
+        "CO2eqkg":9.77,
+        "sourceID": 0
     },
     "🐟 Porbeagle":{
         "category":"fish",
-        "CO2eqkg":11.44
+        "CO2eqkg":11.44,
+        "sourceID": 0
     },
     "🐟 Shark mako":{
         "category":"fish",
-        "CO2eqkg":11.5
+        "CO2eqkg":11.5,
+        "sourceID": 0
     },
     "🐟 Anglerfish":{
         "category":"fish",
-        "CO2eqkg":12.29
+        "CO2eqkg":12.29,
+        "sourceID": 0
     },
     "🐟 Swordfish":{
         "category":"fish",
-        "CO2eqkg":12.84
+        "CO2eqkg":12.84,
+        "sourceID": 0
     },
     "🐟 Megrim":{
         "category":"fish",
-        "CO2eqkg":14.15
+        "CO2eqkg":14.15,
+        "sourceID": 0
     },
     "🐟 Turbot":{
         "category":"meat",
-        "CO2eqkg":14.51
+        "CO2eqkg":14.51,
+        "sourceID": 0
     },
     "🐑 Lamb AU & NZ":{
         "category":"meat",
-        "CO2eqkg":17.63
+        "CO2eqkg":17.63,
+        "sourceID": 0
     },
     "🐟 Sole":{
         "category":"fish",
-        "CO2eqkg":20.86
+        "CO2eqkg":20.86,
+        "sourceID": 0
     },
     "🐮 Beef Australia":{
         "category":"meat",
-        "CO2eqkg":22.88
+        "CO2eqkg":22.88,
+        "sourceID": 0
     },
     "🐑 Lamb UK":{
         "category":"meat",
-        "CO2eqkg":24.48
+        "CO2eqkg":24.48,
+        "sourceID": 0
     },
     "🐮 Beef EU":{
         "category":"meat",
-        "CO2eqkg":24.96
+        "CO2eqkg":24.96,
+        "sourceID": 0
     },
     "🐑 Lamb world averagea":{
         "category":"meat",
-        "CO2eqkg":25.58
+        "CO2eqkg":25.58,
+        "sourceID": 0
     },
     "🐮 Beef UK":{
         "category":"meat",
-        "CO2eqkg":26.57
+        "CO2eqkg":26.57,
+        "sourceID": 0
     },
     "🐮 Beef: world average":{
         "category":"meat",
-        "CO2eqkg":26.61
+        "CO2eqkg":26.61,
+        "sourceID": 0
     },
     "🐮 Beef world average":{
         "category":"meat",
-        "CO2eqkg":26.61
+        "CO2eqkg":26.61,
+        "sourceID": 0
     },
     "🐮 Beef Nth America":{
         "category":"meat",
-        "CO2eqkg":26.82
+        "CO2eqkg":26.82,
+        "sourceID": 0
     },
     "🦀 Lobster":{
         "category":"meat",
-        "CO2eqkg":27.8
+        "CO2eqkg":27.8,
+        "sourceID": 0
     },
     "🐑 Lamb EU":{
         "category":"meat",
-        "CO2eqkg":32.7
+        "CO2eqkg":32.7,
+        "sourceID": 0
     },
     "🐮 Beef Sth America":{
         "category":"meat",
-        "CO2eqkg":34.1
+        "CO2eqkg":34.1,
+        "sourceID": 0
     },
     "🐃 Buffalo":{
         "category":"meat",
-        "CO2eqkg":60.43
+        "CO2eqkg":60.43,
+        "sourceID": 0
     }
 }
