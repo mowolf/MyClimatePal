@@ -13,6 +13,7 @@ struct HistoryView: View {
     @EnvironmentObject var co2State: Co2State
 
     @State var selectedItem: Entry?
+    @State var selectedDate: Date = Date()
     @State var co2entered: String = ""
 
     var body: some View {
@@ -27,7 +28,7 @@ struct HistoryView: View {
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
-                        .frame(width: 300, height: 300, alignment: .center)
+                        .frame(width: 300, height: 350, alignment: .center)
                         .shadow(radius: 8)
 
                 VStack {
@@ -61,10 +62,14 @@ struct HistoryView: View {
                     Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.co2max * 100)) %)")
                         .font(.system(size: 15)).foregroundColor(.gray).padding()
 
+                    DatePicker("Title, hidden due to labelsHidden", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
+                        .labelsHidden()
+
                     HStack {
                         Button(action: {
                             let index = co2State.addedItems.firstIndex(of: selectedItem!)
                             co2State.addedItems[index!].amount = Co2State.strToDouble(self.co2entered)
+                            co2State.addedItems[index!].dateAdded = selectedDate
                             self.selectedItem = nil
                             self.co2entered = ""
                             co2State.update()
@@ -99,7 +104,7 @@ struct HistoryView: View {
                     .frame(width: 400, alignment: .top)
                     .padding(.top)
                 Spacer().frame(minHeight: 20, maxHeight: 20)
-                AddedListView(items: co2State.addedItems.reversed(), selectedItem: $selectedItem, co2entered: $co2entered)
+                AddedListView(items: co2State.addedItems.reversed(), selectedItem: $selectedItem, selectedDate: $selectedDate, co2entered: $co2entered)
                     .environmentObject(co2State)
             }
         }

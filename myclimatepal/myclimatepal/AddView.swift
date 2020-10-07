@@ -12,9 +12,10 @@ import Combine
 struct AddView: View {
     @State var searchText = ""
     @State var searchResults: [ListItem] = []
-    @State var selectedItem: ListItem?
     @State var co2entered: String = ""
     @State var selectedCategory: String = ""
+    @State var selectedItem: ListItem?
+    @State var selectedDate: Date = Date()
     @EnvironmentObject var co2State: Co2State
 
     let iconSize: CGFloat = 100
@@ -53,7 +54,7 @@ struct AddView: View {
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
-                        .frame(width: 300, height: 300, alignment: .center)
+                        .frame(width: 300, height: 350, alignment: .center)
                         .shadow(radius: 8)
                     VStack {
                         Text(selectedItem!.description)
@@ -86,10 +87,13 @@ struct AddView: View {
 
                         Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max * 100)) %)")
                             .font(.system(size: 15)).foregroundColor(.gray).padding()
+                        
+                        DatePicker("Title, hidden due to labelsHidden", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
+                            .labelsHidden()
 
                         HStack {
                             Button(action: {
-                                self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
+                                self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered), dateAdded: selectedDate)
                                 self.selectedItem = nil
                                 self.searchText = ""
                                 self.co2entered = ""

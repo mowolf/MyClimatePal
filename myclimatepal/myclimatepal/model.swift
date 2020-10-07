@@ -172,7 +172,7 @@ final class Co2State: ObservableObject {
     func updateCurrentCo2() {
         var co2: Double = 0
         for item in addedItems {
-            if Calendar.current.dateComponents([.day], from: item.dateAdded, to: Date()).day == 0 {
+            if item.dateAdded.dayDiff(Date()) == 0 {
                 co2 += listItemsDict[item.type]!.CO2eqkg * item.amount / listItemsDict[item.type]!.unitPerKg
             }
         }
@@ -182,7 +182,7 @@ final class Co2State: ObservableObject {
     func getCo2PerDay(category: String = "", n_days: Int = 10) -> [Double] {
         var co2Stats: [Int: Double] = [:]
         for item in addedItems {
-            let daysDiff = Calendar.current.dateComponents([.day], from: item.dateAdded, to: Date()).day ?? 0
+            let daysDiff = item.dateAdded.dayDiff(Date())
             co2Stats[daysDiff] = listItemsDict[item.type]!.CO2eqkg * item.amount / listItemsDict[item.type]!.unitPerKg + (co2Stats[daysDiff] ?? 0)
         }
         var result: [Double] = []
@@ -226,8 +226,8 @@ final class Co2State: ObservableObject {
         UserDefaults.standard.set(encodedData, forKey: "addedItems")
     }
 
-    func addEntry(item: ListItem, amount: Double) {
-        let entry = Entry(category: item.category, type: item.description, amount: amount, dateAdded: Date())
+    func addEntry(item: ListItem, amount: Double, dateAdded: Date) {
+        let entry = Entry(category: item.category, type: item.description, amount: amount, dateAdded: dateAdded)
         addedItems.append(entry)
         update()
     }
@@ -290,20 +290,11 @@ final class Co2State: ObservableObject {
         }
     }
 
-    static func unitForCategory(_ category: String, _ subcategory: String?) -> String {
-        if category == "Food" {
-            return "kg"
-        }
-        if category == "Transport" {
-            return "km"
-        }
-        if category == "Clothing" {
-            return "item"
-        }
+}
 
-        if subcategory == "Power" {
-            return "kwH"
-        }
-        return ""
+
+extension Date {
+    func dayDiff(_ date: Date) -> Int {
+        return Calendar.current.dateComponents([.day], from: self, to: date).day ?? 0
     }
 }

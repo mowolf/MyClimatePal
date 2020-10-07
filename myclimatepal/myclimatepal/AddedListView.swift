@@ -11,6 +11,7 @@ import SwiftUI
 struct AddedListView: View {
     var items: [Entry]
     @Binding var selectedItem: Entry?
+    @Binding var selectedDate: Date
     @Binding var co2entered: String
 
     @EnvironmentObject var co2State: Co2State
@@ -25,6 +26,7 @@ struct AddedListView: View {
 //                        Text(item.amount.description)
                         Button(action: {
                             self.selectedItem = item
+                            self.selectedDate = item.dateAdded
                             self.co2entered = item.amount.description
                         }) {
                             HStack {
