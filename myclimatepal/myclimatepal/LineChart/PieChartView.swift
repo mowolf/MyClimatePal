@@ -16,9 +16,9 @@ public struct PieChartView: View {
     public var style: ChartStyle
     public var formSize: CGSize
     public var dropShadow: Bool
-    public var valueSpecifier:String
+    public var valueSpecifier: String
     public var colors: [String: Color] = ["Food": Color(hexString: "F2B705"), "Transport": Color(hexString: "025E73"), "Clothing": Color(hexString: "037F8C"), "Home": Color(hexString: "F2762E")]
-    
+
     @State private var showValue = false
     @State private var currentValue: Double = 0 {
         didSet {

@@ -12,17 +12,22 @@ import Fuse
 import SwiftUI
 
 final class Co2State: ObservableObject {
-    // MARK: Co2
+    // MARK: ONBOARDING
+    @Published var onboardingCompleted = false
+
+    // MARK: Gerneral Co2 model data
     @Published var treeOffsetNum: Int = 0
     @Published var currentCo2State: Double = 0.0
     @Published var co2max = 11.0
-    @Published var co2HistoryData: [Double] = []//[8, 23, 54, 32, 12, 37, 7, 23, 43]
-    @Published var co2categoryTotal: [String: Double] = [:]//["Transport": 8, "Food" :23]
+    @Published var co2HistoryData: [Double] = [] //[8, 23, 54, 32, 12, 37, 7, 23, 43]
+    @Published var co2categoryTotal: [String: Double] = [:] //["Transport": 8, "Food" :23]
+
+    // MARK: History data
+    @Published var addedItems: [Entry] = []
 
     var co2data: [String: Any]
     var listItems: [ListItem] = []
     var listItemsDict: [String: ListItem] = [:]
-    @Published var addedItems: [Entry] = []
 
     init(currentCo2State: Double = 0.0) {
         self.currentCo2State = currentCo2State
@@ -65,10 +70,19 @@ final class Co2State: ObservableObject {
             listItemsDict[item.description] = item
         }
 
+        // MARK: Load onboardingCompleted
+        let value2 = UserDefaults.standard.object(forKey: "onboardingCompleted") as? Data
+        if value2 != nil {
+            onboardingCompleted = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(value2!) as? Bool ?? false
+        }
+        print(onboardingCompleted)
+
+        // MARK: Load added items from UserDefaults
         let value = UserDefaults.standard.object(forKey: "addedItems") as? Data
         if value != nil {
             addedItems = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(value!) as? [Entry] ?? []
         } else {
+            /// Fill in random items
             let foodItems = listItems.filter { (item) -> Bool in
                 return item.topCategory == "Food"
             }
@@ -109,34 +123,7 @@ final class Co2State: ObservableObject {
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-12*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-13*24*60*60)))
             addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-14*24*60*60)))
-            /*
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 30, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 20, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 40, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 50, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "✈️ Plane", amount: 10, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 30, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 20, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 10, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
-            addedItems.append(Entry(category: "Food", type: "🧄 Garlic", amount: 40, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 10, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
-            addedItems.append(Entry(category: "Food", type: "🐷 Pork EU", amount: 50, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "✈️ Plane", amount: 10, dateAdded: Date().addingTimeInterval(-10*24*60*60)))
-
-            
-            addedItems.append(Entry(category: "Food", type: "🐷 Pork EU", amount: 0.2, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
-            addedItems.append(Entry(category: "Food", type: "🥔 Potatoes", amount: 0.5, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
-            addedItems.append(Entry(category: "Food", type: "🌾 Oats", amount: 0.12, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
-            addedItems.append(Entry(category: "Food", type: "🥛 Yoghurt", amount: 0.25, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
-
-            addedItems.append(Entry(category: "Transport", type: "✈️ Plane", amount: 10, dateAdded: Date().addingTimeInterval(-10*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 10, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 10, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
-             */
         }
-
         update()
     }
 
@@ -150,14 +137,12 @@ final class Co2State: ObservableObject {
 
     func updateTreeOffsetNum() -> Int {
         var neededTreesToday: Int = 0
-
         neededTreesToday = Int(currentCo2State / 0.0617) // 22kgCO2 is accumulated per tree per year
-
         return neededTreesToday
     }
 
     func getCo2CategoryTotal() -> [String: Double] {
-        var catTotal: [String: Double] = ["Food":0, "Transport": 0, "Clothing": 0, "Home": 0]
+        var catTotal: [String: Double] = ["Food": 0, "Transport": 0, "Clothing": 0, "Home": 0]
         for entry in addedItems {
             let item = listItemsDict[entry.type]!
             let cat = item.topCategory
@@ -221,6 +206,10 @@ final class Co2State: ObservableObject {
     func saveEntries() {
         let encodedData = try! NSKeyedArchiver.archivedData(withRootObject: addedItems, requiringSecureCoding: false)
         UserDefaults.standard.set(encodedData, forKey: "addedItems")
+
+        print(onboardingCompleted)
+        let encodedData2 = try! NSKeyedArchiver.archivedData(withRootObject: onboardingCompleted, requiringSecureCoding: false)
+        UserDefaults.standard.set(encodedData2, forKey: "onboardingCompleted")
     }
 
     func addEntry(item: ListItem, amount: Double) {
