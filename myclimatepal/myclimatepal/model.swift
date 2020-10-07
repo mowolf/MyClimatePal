@@ -35,36 +35,39 @@ final class Co2State: ObservableObject {
         co2data = Co2State.readJSONFromFile(fileName: "Co2_data") as? [String: Any] ?? [:]
         for x in co2data {
             // i has no idea what is happening here but it works
-            let category: String = (x.value as! [String: Any])["category"] as! String
-            let CO2eqkg: NSNumber = (x.value as! [String: Any])["CO2eqkg"]! as! NSNumber
-            listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food"))
+            let info = x.value as! [String: Any]
+            let category: String = info["category"] as! String
+            let CO2eqkg: NSNumber = info["CO2eqkg"]! as! NSNumber
+            let unit: String = info["unit"] as? String ?? "g"
+            let unitPerKg: NSNumber = info["unitPerKg"] as? NSNumber ?? NSNumber(1000)
+            listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food", unit: unit, unitPerKg: unitPerKg.doubleValue))
         }
 
         // MARK: New Items to add to our Data
         // MARK: TRANSPORT
-        listItems.append(ListItem(description: "🚗 Car", category: "Transport", CO2eqkg: 0.130, topCategory: "Transport"))
-        listItems.append(ListItem(description: "🚌 Bus", category: "Transport", CO2eqkg: 0.068, topCategory: "Transport"))
-        listItems.append(ListItem(description: "🚂 Train", category: "Transport", CO2eqkg: 0.014, topCategory: "Transport"))
-        listItems.append(ListItem(description: "✈️ Plane", category: "Transport", CO2eqkg: 0.285, topCategory: "Transport"))
-        listItems.append(ListItem(description: "🛳 Ship", category: "Transport", CO2eqkg: 0.245, topCategory: "Transport"))
+        listItems.append(ListItem(description: "🚗 Car", category: "Transport", CO2eqkg: 0.130, topCategory: "Transport", unit: "km"))
+        listItems.append(ListItem(description: "🚌 Bus", category: "Transport", CO2eqkg: 0.068, topCategory: "Transport", unit: "km"))
+        listItems.append(ListItem(description: "🚂 Train", category: "Transport", CO2eqkg: 0.014, topCategory: "Transport", unit: "km"))
+        listItems.append(ListItem(description: "✈️ Plane", category: "Transport", CO2eqkg: 0.285, topCategory: "Transport", unit: "km"))
+        listItems.append(ListItem(description: "🛳 Ship", category: "Transport", CO2eqkg: 0.245, topCategory: "Transport", unit: "km"))
         // MARK: HOME https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5#tab-googlechartid_chart_11_filters=%7B%22rowFilters%22%3A%7B%7D%3B%22columnFilters%22%3A%7B%22pre_config_ugeo%22%3A%5B%22European%20Union%20(current%20composition)%22%5D%7D%7D
-        listItems.append(ListItem(description: "⚡️🇪🇺 EU Electricity", category: "Power", CO2eqkg: 0.300, topCategory: "Home"))
-        listItems.append(ListItem(description: "⚡️🇨🇭 CH Electricity", category: "Power", CO2eqkg: 0.024, topCategory: "Home"))
-        listItems.append(ListItem(description: "⚡️🇩🇪 DE Electricity", category: "Power", CO2eqkg: 0.480, topCategory: "Home"))
-        listItems.append(ListItem(description: "⚡️🇳🇴 N Electricity", category: "Power", CO2eqkg: 0.008, topCategory: "Home"))
-        listItems.append(ListItem(description: "⚡️🇦🇹 Ö Electricity", category: "Power", CO2eqkg: 0.166, topCategory: "Home"))
-        listItems.append(ListItem(description: "⚡️🇫🇷 FR Electricity", category: "Power", CO2eqkg: 0.064, topCategory: "Home"))
-        listItems.append(ListItem(description: "⚡️🇮🇹 IT Electricity", category: "Power", CO2eqkg: 0.350, topCategory: "Home"))
+        listItems.append(ListItem(description: "⚡️🇪🇺 EU Electricity", category: "Power", CO2eqkg: 0.300, topCategory: "Home", unit: "kwH"))
+        listItems.append(ListItem(description: "⚡️🇨🇭 CH Electricity", category: "Power", CO2eqkg: 0.024, topCategory: "Home", unit: "kwH"))
+        listItems.append(ListItem(description: "⚡️🇩🇪 DE Electricity", category: "Power", CO2eqkg: 0.480, topCategory: "Home", unit: "kwH"))
+        listItems.append(ListItem(description: "⚡️🇳🇴 N Electricity", category: "Power", CO2eqkg: 0.008, topCategory: "Home", unit: "kwH"))
+        listItems.append(ListItem(description: "⚡️🇦🇹 Ö Electricity", category: "Power", CO2eqkg: 0.166, topCategory: "Home", unit: "kwH"))
+        listItems.append(ListItem(description: "⚡️🇫🇷 FR Electricity", category: "Power", CO2eqkg: 0.064, topCategory: "Home", unit: "kwH"))
+        listItems.append(ListItem(description: "⚡️🇮🇹 IT Electricity", category: "Power", CO2eqkg: 0.350, topCategory: "Home", unit: "kwH"))
 
         // MARK: Clothing
-        listItems.append(ListItem(description: "👕  Polyester T-shirt", category: "Clothing", CO2eqkg: 20, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "👕  Cotton T-shirt", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "👕  Organic Cotton T-shirt", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "👟  Sport Shoe", category: "Clothing", CO2eqkg: 15, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "👞  Shoe", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "🩳  Short Cotton Pants", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "🩳  Short Polyester Pants", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing"))
-        listItems.append(ListItem(description: "👖  Jeans", category: "Clothing", CO2eqkg: 34, topCategory: "Clothing"))
+        listItems.append(ListItem(description: "👕  Polyester T-shirt", category: "Clothing", CO2eqkg: 20, topCategory: "Clothing", unit: "item"))
+        listItems.append(ListItem(description: "👕  Cotton T-shirt", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing", unit: "item"))
+        listItems.append(ListItem(description: "👕  Organic Cotton T-shirt", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing", unit: "item"))
+        listItems.append(ListItem(description: "👟  Sport Shoe", category: "Clothing", CO2eqkg: 15, topCategory: "Clothing", unit: "item"))
+        listItems.append(ListItem(description: "👞  Shoe", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing", unit: "item"))
+        listItems.append(ListItem(description: "🩳  Short Cotton Pants", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing", unit: "item"))
+        listItems.append(ListItem(description: "🩳  Short Polyester Pants", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing", unit: "item"))
+        listItems.append(ListItem(description: "👖  Jeans", category: "Clothing", CO2eqkg: 34, topCategory: "Clothing", unit: "item"))
 
         for item in listItems {
             listItemsDict[item.description] = item
@@ -146,7 +149,7 @@ final class Co2State: ObservableObject {
         for entry in addedItems {
             let item = listItemsDict[entry.type]!
             let cat = item.topCategory
-            catTotal[cat] = entry.amount * item.CO2eqkg + (catTotal[cat] ?? 0)
+            catTotal[cat] = entry.amount * item.CO2eqkg / item.unitPerKg + (catTotal[cat] ?? 0)
         }
         return catTotal
     }
@@ -155,7 +158,7 @@ final class Co2State: ObservableObject {
         var co2: Double = 0
         for item in addedItems {
             if Calendar.current.dateComponents([.day], from: item.dateAdded, to: Date()).day == 0 {
-                co2 += listItemsDict[item.type]!.CO2eqkg * item.amount
+                co2 += listItemsDict[item.type]!.CO2eqkg * item.amount / listItemsDict[item.type]!.unitPerKg
             }
         }
         currentCo2State = co2
@@ -165,7 +168,7 @@ final class Co2State: ObservableObject {
         var co2Stats: [Int: Double] = [:]
         for item in addedItems {
             let daysDiff = Calendar.current.dateComponents([.day], from: item.dateAdded, to: Date()).day ?? 0
-            co2Stats[daysDiff] = listItemsDict[item.type]!.CO2eqkg * item.amount + (co2Stats[daysDiff] ?? 0)
+            co2Stats[daysDiff] = listItemsDict[item.type]!.CO2eqkg * item.amount / listItemsDict[item.type]!.unitPerKg + (co2Stats[daysDiff] ?? 0)
         }
         var result: [Double] = []
         for i in 0..<n_days {
@@ -198,7 +201,7 @@ final class Co2State: ObservableObject {
 
     func getColorForEntry(entry: Entry) -> Color {
         let colors = [Color.green, Color.yellow, Color.orange, Color.red, Color(red: 0.85, green: 0, blue: 0), Color(red: 0.7, green: 0, blue: 0)]
-        let score = min(entry.amount * listItemsDict[entry.type]!.CO2eqkg / co2max, 1)
+        let score = min(entry.amount * listItemsDict[entry.type]!.CO2eqkg / listItemsDict[entry.type]!.unitPerKg / co2max, 1)
         let i = Int(min(score, 0.99) * Double(colors.count))
         return colors[i]
     }
@@ -250,7 +253,8 @@ final class Co2State: ObservableObject {
     func getSearchResults(query: String?, category: String) -> [ListItem] {
         var items: [ListItem] = listItems
 
-        if category != "" {
+        // only filter when not searching
+        if query == nil && category != "" {
             items = items.filter({ (item) -> Bool in
                 item.topCategory == category
             })

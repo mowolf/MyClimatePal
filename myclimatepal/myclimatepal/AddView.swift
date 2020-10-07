@@ -81,7 +81,7 @@ struct AddView: View {
                                     }
                                 })
 
-                            Text(Co2State.unitForCategory(selectedItem!.topCategory, selectedItem!.category)).font(.system(size: 18))
+                            Text(selectedItem!.unit).font(.system(size: 18))
                         }
 
                         Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max * 100)) %)")
