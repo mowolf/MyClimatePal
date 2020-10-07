@@ -14,6 +14,7 @@ struct HistoryView: View {
 
     @State var selectedItem: Entry?
     @State var selectedDate: Date = Date()
+    @State var selectedRecurrence: String = "1"
     @State var co2entered: String = ""
 
     var body: some View {
@@ -65,13 +66,36 @@ struct HistoryView: View {
 
                     DatePicker("Title, hidden due to labelsHidden", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
                         .labelsHidden()
+                    
+                    if #available(iOS 14.0, *) {
+                        Picker(selection: $selectedRecurrence, label: Text("Recurrence:")) {
+                            Text("once").tag("1")
+                            Text("daily").tag("d")
+                            Text("weekly").tag("w")
+                            Text("month").tag("m")
+                            Text("yearly").tag("y")
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .frame(width: 260)
+                        .padding(.top)
+                    }
 
                     HStack {
                         Button(action: {
-                            let index = co2State.addedItems.firstIndex(of: selectedItem!)
+                            /*let index = co2State.addedItems.firstIndex(of: selectedItem!)
                             co2State.addedItems[index!].amount = self.co2entered.numericString(allowDecimalSeparator: true).parseDouble()
-                            co2State.addedItems[index!].dateAdded = selectedDate
-
+                            co2State.addedItems[index!].dateAdded = selectedDate*/
+                            if selectedItem!.recurrence == "1" {
+                                selectedItem!.amount = self.co2entered.numericString(allowDecimalSeparator: true).parseDouble()
+                                selectedItem!.dateAdded = selectedDate
+                            } else {
+                                // remove all
+                                co2State.addedItems.removeAll { (e: Entry) -> Bool in
+                                    return e.recurrenceID == selectedItem!.recurrenceID
+                                }
+                                // add again
+                                self.co2State.addEntry(item: self.co2State.listItemsDict[self.selectedItem!.type]!, amount: self.co2entered.numericString(allowDecimalSeparator: true).parseDouble(), dateAdded: selectedDate, recurrence: selectedRecurrence)
+                            }
                             self.selectedItem = nil
                             self.co2entered = ""
                             co2State.update()
@@ -83,7 +107,7 @@ struct HistoryView: View {
 
                         Button(action: {
                             co2State.addedItems.removeAll { (e: Entry) -> Bool in
-                                return selectedItem!.id == e.id
+                                return e.recurrenceID != -1 ? selectedItem!.recurrenceID == e.recurrenceID : selectedItem!.id == e.id
                             }
                             selectedItem = nil
                             self.co2entered = ""
@@ -98,7 +122,7 @@ struct HistoryView: View {
                 }
 
                 }
-                .modifier(DismissingKeyboard())
+                //.modifier(DismissingKeyboard())
                 Spacer()
             } else {
                 Text("Emission History")
@@ -107,7 +131,7 @@ struct HistoryView: View {
                     .frame(width: 400, alignment: .top)
                     .padding(.top)
                 Spacer().frame(minHeight: 20, maxHeight: 20)
-                AddedListView(items: co2State.addedItems.reversed(), selectedItem: $selectedItem, selectedDate: $selectedDate, co2entered: $co2entered)
+                AddedListView(items: co2State.addedItems.reversed(), selectedItem: $selectedItem, selectedDate: $selectedDate, selectedRecurrence: $selectedRecurrence, co2entered: $co2entered)
                     .environmentObject(co2State)
             }
         }

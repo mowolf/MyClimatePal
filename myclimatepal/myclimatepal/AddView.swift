@@ -16,6 +16,7 @@ struct AddView: View {
     @State var selectedCategory: String = ""
     @State var selectedItem: ListItem?
     @State var selectedDate: Date = Date()
+    @State var selectedRecurrence: String = "1"
     @State var showSource = false
     @EnvironmentObject var co2State: Co2State
 
@@ -60,7 +61,7 @@ struct AddView: View {
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
-                        .frame(width: 300, height: 350, alignment: .center)
+                        .frame(width: 300, height: 400, alignment: .center)
                         .shadow(radius: 8)
                     VStack {
                         HStack{
@@ -103,10 +104,23 @@ struct AddView: View {
                         
                         DatePicker("Title, hidden due to labelsHidden", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
                             .labelsHidden()
-
+                        
+                        if #available(iOS 14.0, *) {
+                            Picker(selection: $selectedRecurrence, label: Text("Recurrence:")) {
+                                Text("once").tag("1")
+                                Text("daily").tag("d")
+                                Text("weekly").tag("w")
+                                Text("month").tag("m")
+                                Text("yearly").tag("y")
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
+                            .frame(width: 260)
+                            .padding(.top)
+                        }
+                        
                         HStack {
                             Button(action: {
-                                self.co2State.addEntry(item: self.selectedItem!, amount: self.co2entered.numericString(allowDecimalSeparator: true).parseDouble(), dateAdded: selectedDate)
+                                self.co2State.addEntry(item: self.selectedItem!, amount: self.co2entered.numericString(allowDecimalSeparator: true).parseDouble(), dateAdded: selectedDate, recurrence: selectedRecurrence)
 
                                 self.selectedItem = nil
                                 self.searchText = ""
@@ -129,7 +143,7 @@ struct AddView: View {
                     })
                     .padding()
                 }
-                .modifier(DismissingKeyboard())
+                //.modifier(DismissingKeyboard())
                 Spacer()
             } else if searchText != "" {
                 ListView(items: co2State.getSearchResults(query: self.searchText, category: self.selectedCategory), selectedItem: $selectedItem)

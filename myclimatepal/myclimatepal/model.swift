@@ -139,11 +139,34 @@ final class Co2State: ObservableObject {
     }
 
     func update() {
+        updateRecurrentEntries()
         saveEntries()
         updateCurrentCo2()
         co2HistoryData = getCo2PerDay()
         co2categoryTotal = getCo2CategoryTotal()
         treeOffsetNum = updateTreeOffsetNum()
+    }
+    
+    func updateRecurrentEntries() {
+        var lastRecurrentEntries: [Int: Entry] = [:]
+        for entry in addedItems {
+            if entry.recurrence == "1" {
+                continue
+            }
+            if lastRecurrentEntries[entry.recurrenceID] == nil || lastRecurrentEntries[entry.recurrenceID]!.dateAdded < entry.dateAdded {
+                lastRecurrentEntries[entry.recurrenceID] = entry
+                continue
+            }
+        }
+        
+        for (_, entry) in lastRecurrentEntries {
+            var date = entry.dateAdded
+            while date.dayDiff(Date()) > 0 {
+                date = date.addingTimeInterval(24*60*60)
+                let newEntry = Entry(category: entry.category, type: entry.type, amount: entry.amount, dateAdded: date, recurrence: entry.recurrence, recurrenceID: entry.recurrenceID)
+                addedItems.append(newEntry)
+            }
+        }
     }
 
     func updateTreeOffsetNum() -> Int {
@@ -223,10 +246,17 @@ final class Co2State: ObservableObject {
         UserDefaults.standard.set(encodedData2, forKey: "onboardingCompleted")
     }
 
-    func addEntry(item: ListItem, amount: Double, dateAdded: Date) {
-        let entry = Entry(category: item.category, type: item.description, amount: amount, dateAdded: dateAdded)
+    func addEntry(item: ListItem, amount: Double, dateAdded: Date, recurrence: String) {
+        let recurrenceID = UserDefaults.standard.integer(forKey: "recurrenceID")
+        UserDefaults.standard.setValue(recurrenceID+1, forKey: "recurrenceID")
+        let dailyAmount = amount / Co2State.recurrenceToDays(recurrence)
+        let entry = Entry(category: item.category, type: item.description, amount: dailyAmount, dateAdded: dateAdded, recurrence: recurrence, recurrenceID: recurrenceID)
         addedItems.append(entry)
         update()
+    }
+    
+    static func recurrenceToDays(_ recurrence: String) -> Double {
+        return recurrence == "y" ? 365 : recurrence == "m" ? 30 : recurrence == "w" ? 7 : 1
     }
 
     static func strToDouble(_ s: String) -> Double {
