@@ -85,7 +85,7 @@ public struct Line: View {
 
                 .stroke(LinearGradient(gradient: Gradient(colors: [Color.green, Color.yellow, Color.orange, Color.red, Color.black]),
                                        startPoint: UnitPoint(x: 0,
-                                                             y: (minDataVal)/15),
+                                                             y: 0),
                                        endPoint: UnitPoint(x: 0, y: 15/maxDataVal)),
                         style: StrokeStyle(lineWidth: 3, lineJoin: .round))
                 .rotationEffect(.degrees(180), anchor: .center)
