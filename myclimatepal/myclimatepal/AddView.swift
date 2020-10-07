@@ -12,9 +12,10 @@ import Combine
 struct AddView: View {
     @State var searchText = ""
     @State var searchResults: [ListItem] = []
-    @State var selectedItem: ListItem?
     @State var co2entered: String = ""
     @State var selectedCategory: String = ""
+    @State var selectedItem: ListItem?
+    @State var selectedDate: Date = Date()
     @EnvironmentObject var co2State: Co2State
 
     let iconSize: CGFloat = 100

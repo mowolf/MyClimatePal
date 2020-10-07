@@ -13,6 +13,7 @@ struct HistoryView: View {
     @EnvironmentObject var co2State: Co2State
 
     @State var selectedItem: Entry?
+    @State var selectedDate: Date = Date()
     @State var co2entered: String = ""
 
     var body: some View {
@@ -27,7 +28,7 @@ struct HistoryView: View {
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
-                        .frame(width: 300, height: 300, alignment: .center)
+                        .frame(width: 300, height: 350, alignment: .center)
                         .shadow(radius: 8)
 
                 VStack {
@@ -48,7 +49,7 @@ struct HistoryView: View {
                                 self.co2entered = newVal.numericString(allowDecimalSeparator: true)
                                 
                             })
-                        Text(Co2State.unitForCategory(co2State.listItemsDict[selectedItem!.type]!.topCategory, co2State.listItemsDict[selectedItem!.type]!.category)).font(.system(size: 18))
+                        Text(co2State.listItemsDict[selectedItem!.type]!.unit).font(.system(size: 18))
                     }
                     let co2amount: Double = co2entered.numericString(allowDecimalSeparator: true).parseDouble()
                     let formattedCO2: String = (co2amount * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg).getFormatted(digits: 3)
@@ -56,10 +57,15 @@ struct HistoryView: View {
                     Text("\(formattedCO2) kg CO2 (\(formattedPercent)%)")
                         .font(.system(size: 15)).foregroundColor(.gray).padding()
 
+                    DatePicker("Title, hidden due to labelsHidden", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
+                        .labelsHidden()
+
                     HStack {
                         Button(action: {
                             let index = co2State.addedItems.firstIndex(of: selectedItem!)
                             co2State.addedItems[index!].amount = self.co2entered.numericString(allowDecimalSeparator: true).parseDouble()
+                            co2State.addedItems[index!].dateAdded = selectedDate
+
                             self.selectedItem = nil
                             self.co2entered = ""
                             co2State.update()
@@ -86,6 +92,7 @@ struct HistoryView: View {
                 }
 
                 }
+                .modifier(DismissingKeyboard())
                 Spacer()
             } else {
                 Text("Emission History")
@@ -94,7 +101,7 @@ struct HistoryView: View {
                     .frame(width: 400, alignment: .top)
                     .padding(.top)
                 Spacer().frame(minHeight: 20, maxHeight: 20)
-                AddedListView(items: co2State.addedItems.reversed(), selectedItem: $selectedItem, co2entered: $co2entered)
+                AddedListView(items: co2State.addedItems.reversed(), selectedItem: $selectedItem, selectedDate: $selectedDate, co2entered: $co2entered)
                     .environmentObject(co2State)
             }
         }
