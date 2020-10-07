@@ -9,18 +9,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    // MARK: ContentView contains TabBarView and Onboarding
+    
+    /// Onboarding related
     @State private var selection = 0
     @State private var viewIdx = 0
     @State private var onboardingCompleted = false
-    var myCo2State: Co2State = Co2State(currentCo2State: 20.0)
-
     let headline = ["Our earth is in danger", "Climate Change will set it on fire", "Learn to live more climate friendly"]
     let description = ["Increases in greenhouse gases leads to a raising average temperature. Carbon dioxide is the most important of Earth's long-lived greenhouse gases.", "We all need to fight this trend! With MyClimatePal you now can actively work against this trend and lower your Co2 emissions!", "Track your Co2 consumption and be informed what you can do to save our planet. Plant trees to offset your emissions!" ]
     let img = ["earth-green", "earth-burning", "logo" ]
+    
+    /// model
+    var myCo2State: Co2State = Co2State(currentCo2State: 20.0)
 
     var body: some View {
+        /// this is an ugly workaround as view does not update otherwise
         if myCo2State.onboardingCompleted || onboardingCompleted {
-            // MARK: Normal View
+            // MARK: Normal TAB View
             TabView(selection: $selection) {
                 DashboardView().environmentObject(myCo2State)
                     .font(.title)
@@ -51,6 +56,7 @@ struct ContentView: View {
             }
         } else {
             // MARK: Onboarding View
+            /// currently in this view, but it needs to down and up pass data
             VStack {
                 if !img[viewIdx].isEmpty {
                     Image(img[viewIdx]).resizable().frame(width: 340, height: 340, alignment: .center)
