@@ -66,7 +66,6 @@ final class Co2State: ObservableObject {
         self.currentCo2State = currentCo2State
 
         co2data = Co2State.readJSONFromFile(fileName: "Co2_data") as? [String: Any] ?? [:]
-        print(co2data)
         for x in co2data {
             
             // i has no idea what is happening here but it works
@@ -86,7 +85,6 @@ final class Co2State: ObservableObject {
         if value2 != nil {
             onboardingCompleted = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(value2!) as? Bool ?? false
         }
-        print(onboardingCompleted)
 
         // MARK: Load added items from UserDefaults
         let value = UserDefaults.standard.object(forKey: "addedItems") as? Data
@@ -241,7 +239,6 @@ final class Co2State: ObservableObject {
         let encodedData = try! NSKeyedArchiver.archivedData(withRootObject: addedItems, requiringSecureCoding: false)
         UserDefaults.standard.set(encodedData, forKey: "addedItems")
 
-        print(onboardingCompleted)
         let encodedData2 = try! NSKeyedArchiver.archivedData(withRootObject: onboardingCompleted, requiringSecureCoding: false)
         UserDefaults.standard.set(encodedData2, forKey: "onboardingCompleted")
     }
@@ -289,7 +286,6 @@ final class Co2State: ObservableObject {
                 print("ERROR")
             }
         }
-        print(json)
         return json
     }
 
