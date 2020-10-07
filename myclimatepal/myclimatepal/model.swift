@@ -222,17 +222,20 @@ final class Co2State: ObservableObject {
     }
 
     static func strToDouble(_ s: String) -> Double {
-        var str = s
-        let parts = s.split(separator: ".")
-        var val: String = ""
-        if parts.count > 2 {
-            val += parts[0] + "."
-            for i in 1..<parts.count {
-                val += parts[i]
-            }
-            str = val
-        }
-        return Double(str) ?? 0
+//        Deprecated
+        print("using deprecated strToDouble function")
+//        var str = s
+//        let parts = s.split(separator: ".")
+//        var val: String = ""
+//        if parts.count > 2 {
+//            val += parts[0] + "."
+//            for i in 1..<parts.count {
+//                val += parts[i]
+//            }
+//            str = val
+//        }
+//        return Double(str) ?? 0
+        return s.numericString(allowDecimalSeparator: true).parseDouble()
     }
 
     static func readJSONFromFile(fileName: String) -> Any? {
@@ -285,5 +288,62 @@ final class Co2State: ObservableObject {
 extension Date {
     func dayDiff(_ date: Date) -> Int {
         return Calendar.current.dateComponents([.day], from: self, to: date).day ?? 0
+    }
+}
+
+
+// utilities to input and format numbers
+extension Double {
+    func getFormatted(digits: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.minimumIntegerDigits = 1
+        formatter.minimumFractionDigits = digits
+        formatter.maximumFractionDigits = digits
+        
+        return formatter.string(from: NSNumber(value: self) ) ?? (formatter.string(from: 0.0)!)
+        
+    }
+    
+    func getFormatted() -> String {
+        let formatter = NumberFormatter()
+        formatter.minimumIntegerDigits = 1
+        formatter.maximumFractionDigits = 6
+        
+        return formatter.string(from: NSNumber(value: self) ) ?? (formatter.string(from: 0.0)!)
+        
+    }
+}
+
+extension String {
+    func numericString(allowDecimalSeparator: Bool) -> String {
+        // sanitize inputs removes non nubers and all decimal separators after the first
+        let sep: String = Locale.current.decimalSeparator ?? "."
+        var hasFoundDecimal = false
+        return self.filter {
+            if $0.isWholeNumber {
+                return true
+            } else if allowDecimalSeparator && String($0) == sep {
+                defer { hasFoundDecimal = true }
+                return !hasFoundDecimal
+            }
+            return false
+        }
+            
+    }
+    
+    func parseDouble() -> Double {
+        let formatter = NumberFormatter()
+        return Double(truncating: formatter.number(from: self) ?? 0)
+    }
+
+}
+
+// Date formating utils
+extension Date {
+    static func getFormattedDate(date: Date, formatter: String) -> String {
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = formatter
+        return dateFormatterPrint.string(from: date)
     }
 }
