@@ -55,7 +55,7 @@ struct HistoryView: View {
                                     self.co2entered = val
                                 }
                             })
-                        Text(Co2State.unitForCategory(co2State.listItemsDict[selectedItem!.type]!.topCategory, co2State.listItemsDict[selectedItem!.type]!.category)).font(.system(size: 18))
+                        Text(co2State.listItemsDict[selectedItem!.type]!.unit).font(.system(size: 18))
                     }
 
                     Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.co2max * 100)) %)")
