@@ -97,8 +97,8 @@ struct AddView: View {
                             Text(selectedItem!.unit).font(.system(size: 18))
                         }
                         let co2amount: Double = self.co2entered.parseDouble()
-                        let formattedCO2: String = (co2amount * selectedItem!.CO2eqkg).getFormatted(digits: 3)
-                        let formattedPercent: String = (co2amount * selectedItem!.CO2eqkg / co2State.co2max * 100).getFormatted(digits: 1)
+                        let formattedCO2: String = (co2amount * selectedItem!.CO2eqkg / selectedItem!.unitPerKg).getFormatted(digits: 3)
+                        let formattedPercent: String = (co2amount * selectedItem!.CO2eqkg / selectedItem!.unitPerKg / co2State.co2max * 100).getFormatted(digits: 1)
                         Text("\(formattedCO2) kg CO2 (\(formattedPercent)%)")
                             .font(.system(size: 15)).foregroundColor(.gray).padding()
                         

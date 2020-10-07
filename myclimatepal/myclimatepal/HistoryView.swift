@@ -59,8 +59,8 @@ struct HistoryView: View {
                         Text(co2State.listItemsDict[selectedItem!.type]!.unit).font(.system(size: 18))
                     }
                     let co2amount: Double = co2entered.numericString(allowDecimalSeparator: true).parseDouble()
-                    let formattedCO2: String = (co2amount * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg).getFormatted(digits: 3)
-                    let formattedPercent: String = (co2amount * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.co2max * 100).getFormatted(digits: 1)
+                    let formattedCO2: String = (co2amount * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.listItemsDict[selectedItem!.type]!.unitPerKg).getFormatted(digits: 3)
+                    let formattedPercent: String = (co2amount * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.listItemsDict[selectedItem!.type]!.unitPerKg / co2State.co2max * 100).getFormatted(digits: 1)
                     Text("\(formattedCO2) kg CO2 (\(formattedPercent)%)")
                         .font(.system(size: 15)).foregroundColor(.gray).padding()
 
