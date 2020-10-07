@@ -96,6 +96,7 @@ struct HistoryView: View {
                 }
 
                 }
+                .modifier(DismissingKeyboard())
                 Spacer()
             } else {
                 Text("Emission History")
