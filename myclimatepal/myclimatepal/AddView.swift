@@ -59,7 +59,7 @@ struct AddView: View {
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
-                        .frame(width: 300, height: 300, alignment: .center)
+                        .frame(width: 300, height: 350, alignment: .center)
                         .shadow(radius: 8)
                     VStack {
                         Text(selectedItem!.description)
@@ -80,17 +80,21 @@ struct AddView: View {
                                     
                                 })
 
-                            Text(Co2State.unitForCategory(selectedItem!.topCategory, selectedItem!.category)).font(.system(size: 18))
+                            Text(selectedItem!.unit).font(.system(size: 18))
                         }
                         let co2amount: Double = self.co2entered.parseDouble()
                         let formattedCO2: String = (co2amount * selectedItem!.CO2eqkg).getFormatted(digits: 3)
                         let formattedPercent: String = (co2amount * selectedItem!.CO2eqkg / co2State.co2max * 100).getFormatted(digits: 1)
                         Text("\(formattedCO2) kg CO2 (\(formattedPercent)%)")
                             .font(.system(size: 15)).foregroundColor(.gray).padding()
+                        
+                        DatePicker("Title, hidden due to labelsHidden", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
+                            .labelsHidden()
 
                         HStack {
                             Button(action: {
-                                self.co2State.addEntry(item: self.selectedItem!, amount: self.co2entered.numericString(allowDecimalSeparator: true).parseDouble())
+                                self.co2State.addEntry(item: self.selectedItem!, amount: self.co2entered.numericString(allowDecimalSeparator: true).parseDouble(), dateAdded: selectedDate)
+
                                 self.selectedItem = nil
                                 self.searchText = ""
                                 self.co2entered = ""

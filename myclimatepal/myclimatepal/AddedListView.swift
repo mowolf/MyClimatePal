@@ -11,6 +11,7 @@ import SwiftUI
 struct AddedListView: View {
     var items: [Entry]
     @Binding var selectedItem: Entry?
+    @Binding var selectedDate: Date
     @Binding var co2entered: String
 
     @EnvironmentObject var co2State: Co2State
