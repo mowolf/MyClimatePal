@@ -249,9 +249,14 @@ final class Co2State: ObservableObject {
     func addEntry(item: ListItem, amount: Double, dateAdded: Date, recurrence: String) {
         let recurrenceID = UserDefaults.standard.integer(forKey: "recurrenceID")
         UserDefaults.standard.setValue(recurrenceID+1, forKey: "recurrenceID")
-        let entry = Entry(category: item.category, type: item.description, amount: amount, dateAdded: dateAdded, recurrence: recurrence, recurrenceID: recurrenceID)
+        let dailyAmount = amount / Co2State.recurrenceToDays(recurrence)
+        let entry = Entry(category: item.category, type: item.description, amount: dailyAmount, dateAdded: dateAdded, recurrence: recurrence, recurrenceID: recurrenceID)
         addedItems.append(entry)
         update()
+    }
+    
+    static func recurrenceToDays(_ recurrence: String) -> Double {
+        return recurrence == "y" ? 365 : recurrence == "m" ? 30 : recurrence == "w" ? 7 : 1
     }
 
     static func strToDouble(_ s: String) -> Double {

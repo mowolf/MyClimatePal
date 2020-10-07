@@ -12,6 +12,7 @@ struct AddedListView: View {
     var items: [Entry]
     @Binding var selectedItem: Entry?
     @Binding var selectedDate: Date
+    @Binding var selectedRecurrence: String
     @Binding var co2entered: String
 
     @EnvironmentObject var co2State: Co2State
@@ -26,9 +27,20 @@ struct AddedListView: View {
 //                        Text(item.amount.description)
                         Button(action: {
                             self.selectedItem = item
-                            self.selectedDate = item.dateAdded
-                            self.co2entered = item.amount.getFormatted()
+                            self.selectedRecurrence = item.recurrence
+                            self.co2entered = (item.amount * Co2State.recurrenceToDays(item.recurrence)).getFormatted()
                             
+                            // select oldest date added
+                            self.selectedDate = item.dateAdded
+                            if item.recurrence != "1" {
+                                for entry in self.co2State.addedItems {
+                                    print(entry.recurrenceID)
+                                    if entry.recurrenceID == item.recurrenceID && entry.dateAdded < self.selectedDate {
+                                        print(entry.dateAdded)
+                                        self.selectedDate = entry.dateAdded
+                                    }
+                                }
+                            }
                         }) {
                             HStack {
                                 Text(item.type).font(.system(size: 18))
