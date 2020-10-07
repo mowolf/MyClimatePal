@@ -24,25 +24,13 @@ final class Co2State: ObservableObject {
 
     // MARK: History data
     @Published var addedItems: [Entry] = []
+    
 
     var co2data: [String: Any]
     var listItems: [ListItem] = []
     var listItemsDict: [String: ListItem] = [:]
 
-    init(currentCo2State: Double = 0.0) {
-        self.currentCo2State = currentCo2State
-
-        co2data = Co2State.readJSONFromFile(fileName: "Co2_data") as? [String: Any] ?? [:]
-        for x in co2data {
-            // i has no idea what is happening here but it works
-            let info = x.value as! [String: Any]
-            let category: String = info["category"] as! String
-            let CO2eqkg: NSNumber = info["CO2eqkg"]! as! NSNumber
-            let unit: String = info["unit"] as? String ?? "g"
-            let unitPerKg: NSNumber = info["unitPerKg"] as? NSNumber ?? NSNumber(1000)
-            listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food", unit: unit, unitPerKg: unitPerKg.doubleValue))
-        }
-
+    func loadItems() {
         // MARK: New Items to add to our Data
         // MARK: TRANSPORT
         listItems.append(ListItem(description: "🚗 Car", category: "Transport", CO2eqkg: 0.130, topCategory: "Transport", unit: "km"))
@@ -50,15 +38,15 @@ final class Co2State: ObservableObject {
         listItems.append(ListItem(description: "🚂 Train", category: "Transport", CO2eqkg: 0.014, topCategory: "Transport", unit: "km"))
         listItems.append(ListItem(description: "✈️ Plane", category: "Transport", CO2eqkg: 0.285, topCategory: "Transport", unit: "km"))
         listItems.append(ListItem(description: "🛳 Ship", category: "Transport", CO2eqkg: 0.245, topCategory: "Transport", unit: "km"))
-        // MARK: HOME https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5#tab-googlechartid_chart_11_filters=%7B%22rowFilters%22%3A%7B%7D%3B%22columnFilters%22%3A%7B%22pre_config_ugeo%22%3A%5B%22European%20Union%20(current%20composition)%22%5D%7D%7D
-        listItems.append(ListItem(description: "⚡️🇪🇺 EU Electricity", category: "Power", CO2eqkg: 0.300, topCategory: "Home", unit: "kwH"))
-        listItems.append(ListItem(description: "⚡️🇨🇭 CH Electricity", category: "Power", CO2eqkg: 0.024, topCategory: "Home", unit: "kwH"))
-        listItems.append(ListItem(description: "⚡️🇩🇪 DE Electricity", category: "Power", CO2eqkg: 0.480, topCategory: "Home", unit: "kwH"))
-        listItems.append(ListItem(description: "⚡️🇳🇴 N Electricity", category: "Power", CO2eqkg: 0.008, topCategory: "Home", unit: "kwH"))
-        listItems.append(ListItem(description: "⚡️🇦🇹 Ö Electricity", category: "Power", CO2eqkg: 0.166, topCategory: "Home", unit: "kwH"))
-        listItems.append(ListItem(description: "⚡️🇫🇷 FR Electricity", category: "Power", CO2eqkg: 0.064, topCategory: "Home", unit: "kwH"))
-        listItems.append(ListItem(description: "⚡️🇮🇹 IT Electricity", category: "Power", CO2eqkg: 0.350, topCategory: "Home", unit: "kwH"))
-
+        // MARK: HOME
+        listItems.append(ListItem(description: "⚡️🇪🇺 EU Electricity", category: "Power", CO2eqkg: 0.300, topCategory: "Home", unit: "kwH", sourceId: 1))
+        listItems.append(ListItem(description: "⚡️🇨🇭 CH Electricity", category: "Power", CO2eqkg: 0.024, topCategory: "Home", unit: "kwH", sourceId: 1))
+        listItems.append(ListItem(description: "⚡️🇩🇪 DE Electricity", category: "Power", CO2eqkg: 0.480, topCategory: "Home", unit: "kwH", sourceId: 1))
+        listItems.append(ListItem(description: "⚡️🇳🇴 N Electricity", category: "Power", CO2eqkg: 0.008, topCategory: "Home", unit: "kwH", sourceId: 1))
+        listItems.append(ListItem(description: "⚡️🇦🇹 Ö Electricity", category: "Power", CO2eqkg: 0.166, topCategory: "Home", unit: "kwH", sourceId: 1))
+        listItems.append(ListItem(description: "⚡️🇫🇷 FR Electricity", category: "Power", CO2eqkg: 0.064, topCategory: "Home", unit: "kwH", sourceId: 1))
+        listItems.append(ListItem(description: "⚡️🇮🇹 IT Electricity", category: "Power", CO2eqkg: 0.350, topCategory: "Home", unit: "kwH", sourceId: 1))
+        
         // MARK: Clothing
         listItems.append(ListItem(description: "👕  Polyester T-shirt", category: "Clothing", CO2eqkg: 20, topCategory: "Clothing", unit: "item"))
         listItems.append(ListItem(description: "👕  Cotton T-shirt", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing", unit: "item"))
@@ -68,10 +56,30 @@ final class Co2State: ObservableObject {
         listItems.append(ListItem(description: "🩳  Short Cotton Pants", category: "Clothing", CO2eqkg: 10, topCategory: "Clothing", unit: "item"))
         listItems.append(ListItem(description: "🩳  Short Polyester Pants", category: "Clothing", CO2eqkg: 4, topCategory: "Clothing", unit: "item"))
         listItems.append(ListItem(description: "👖  Jeans", category: "Clothing", CO2eqkg: 34, topCategory: "Clothing", unit: "item"))
-
+        
         for item in listItems {
             listItemsDict[item.description] = item
         }
+    }
+    
+    init(currentCo2State: Double = 0.0) {
+        self.currentCo2State = currentCo2State
+
+        co2data = Co2State.readJSONFromFile(fileName: "Co2_data") as? [String: Any] ?? [:]
+        print(co2data)
+        for x in co2data {
+            
+            // i has no idea what is happening here but it works
+            let info = x.value as! [String: Any]
+            let category: String = info["category"] as! String
+            let sourceId: Int? = info["sourceID"] as! Int?
+            let CO2eqkg: NSNumber = info["CO2eqkg"]! as! NSNumber
+            let unit: String = info["unit"] as? String ?? "g"
+            let unitPerKg: NSNumber = info["unitPerKg"] as? NSNumber ?? NSNumber(1000)
+            listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food", unit: unit, unitPerKg: unitPerKg.doubleValue, sourceId: sourceId))
+        }
+        
+        loadItems()
 
         // MARK: Load onboardingCompleted
         let value2 = UserDefaults.standard.object(forKey: "onboardingCompleted") as? Data
@@ -96,36 +104,36 @@ final class Co2State: ObservableObject {
                 return item.topCategory == "Home"
             }
             let homeItem = homeItems[Int.random(in: 0..<homeItems.count)]
-            for i in 0..<15 {
-                for _ in 0..<Int.random(in: 3..<6) {
-                    let item = foodItems[Int.random(in: 0..<foodItems.count)]
-                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
-                }
-                for _ in 0..<Int.random(in: 1..<3) {
-                    let item = clothingItems[Int.random(in: 0..<clothingItems.count)]
-                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
-                }
-                for _ in 0..<Int.random(in: 1..<2) {
-                    let item = homeItem
-                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 10..<40)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
-                }
-            }
+//            for i in 0..<15 {
+//                for _ in 0..<Int.random(in: 3..<6) {
+//                    let item = foodItems[Int.random(in: 0..<foodItems.count)]
+//                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
+//                }
+//                for _ in 0..<Int.random(in: 1..<3) {
+//                    let item = clothingItems[Int.random(in: 0..<clothingItems.count)]
+//                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 0.05..<0.3)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
+//                }
+//                for _ in 0..<Int.random(in: 1..<2) {
+//                    let item = homeItem
+//                    addedItems.append(Entry(category: item.category, type: item.description, amount: round(Double.random(in: 10..<40)*100)/100, dateAdded: Date().addingTimeInterval(-Double(i)*24*60*60)))
+//                }
+//            }
 
             // MARK: Items show up in History
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 70, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 110, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 155, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 35, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 20, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 64, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 134, dateAdded: Date().addingTimeInterval(-10*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-11*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-12*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-13*24*60*60)))
-            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-14*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-1*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 70, dateAdded: Date().addingTimeInterval(-2*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚂 Train", amount: 110, dateAdded: Date().addingTimeInterval(-3*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 74, dateAdded: Date().addingTimeInterval(-4*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 155, dateAdded: Date().addingTimeInterval(-5*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 35, dateAdded: Date().addingTimeInterval(-6*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚌 Bus", amount: 20, dateAdded: Date().addingTimeInterval(-7*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-8*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 64, dateAdded: Date().addingTimeInterval(-9*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 134, dateAdded: Date().addingTimeInterval(-10*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-11*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-12*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-13*24*60*60)))
+//            addedItems.append(Entry(category: "Transport", type: "🚗 Car", amount: 114, dateAdded: Date().addingTimeInterval(-14*24*60*60)))
         }
         update()
     }
@@ -273,8 +281,10 @@ final class Co2State: ObservableObject {
                 json = try? JSONSerialization.jsonObject(with: data)
             } catch {
                 // Handle error here
+                print("ERROR")
             }
         }
+        print(json)
         return json
     }
 
