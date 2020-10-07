@@ -45,26 +45,21 @@ struct HistoryView: View {
                             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                             .mask(RoundedRectangle(cornerRadius: 10.0))
                             .onReceive(Just(co2entered), perform: { (newVal: String) in
-                                let parts = newVal.components(separatedBy: ".")
-                                var val: String = ""
-                                if parts.count > 2 {
-                                    val += parts[0] + "."
-                                    for i in 1..<parts.count {
-                                        val += parts[i]
-                                    }
-                                    self.co2entered = val
-                                }
+                                self.co2entered = newVal.numericString(allowDecimalSeparator: true)
+                                
                             })
                         Text(Co2State.unitForCategory(co2State.listItemsDict[selectedItem!.type]!.topCategory, co2State.listItemsDict[selectedItem!.type]!.category)).font(.system(size: 18))
                     }
-
-                    Text("\(String(format: "%.3f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.co2max * 100)) %)")
+                    let co2amount: Double = co2entered.numericString(allowDecimalSeparator: true).parseDouble()
+                    let formattedCO2: String = (co2amount * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg).getFormatted(digits: 3)
+                    let formattedPercent: String = (co2amount * co2State.listItemsDict[selectedItem!.type]!.CO2eqkg / co2State.co2max * 100).getFormatted(digits: 1)
+                    Text("\(formattedCO2) kg CO2 (\(formattedPercent)%)")
                         .font(.system(size: 15)).foregroundColor(.gray).padding()
 
                     HStack {
                         Button(action: {
                             let index = co2State.addedItems.firstIndex(of: selectedItem!)
-                            co2State.addedItems[index!].amount = Co2State.strToDouble(self.co2entered)
+                            co2State.addedItems[index!].amount = self.co2entered.numericString(allowDecimalSeparator: true).parseDouble()
                             self.selectedItem = nil
                             self.co2entered = ""
                             co2State.update()

@@ -18,6 +18,10 @@ struct AddView: View {
     @EnvironmentObject var co2State: Co2State
 
     let iconSize: CGFloat = 100
+    
+    let formatter = NumberFormatter()
+//    formatter.usesSignificantDigits = true
+//    formatter.minimumSignificantDigits = 4
 
     var body: some View {
         VStack {
@@ -49,6 +53,7 @@ struct AddView: View {
 
             // MARK: show item / add screen
             if selectedItem != nil {
+                
                 Spacer().frame(minHeight: 20, maxHeight: 100)
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 20)
@@ -70,26 +75,21 @@ struct AddView: View {
                                 .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                                 .mask(RoundedRectangle(cornerRadius: 10.0))
                                 .onReceive(Just(co2entered), perform: { (newVal: String) in
-                                    let parts = newVal.components(separatedBy: ".")
-                                    var val: String = ""
-                                    if parts.count > 2 {
-                                        val += parts[0] + "."
-                                        for i in 1..<parts.count {
-                                            val += parts[i]
-                                        }
-                                        self.co2entered = val
-                                    }
+                                    self.co2entered = newVal.numericString(allowDecimalSeparator: true)
+                                    
                                 })
 
                             Text(Co2State.unitForCategory(selectedItem!.topCategory, selectedItem!.category)).font(.system(size: 18))
                         }
-
-                        Text("\(String(format: "%.2f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg)) kg CO2 (+\(String(format: "%.1f", (Double(co2entered) ?? 0) * selectedItem!.CO2eqkg / co2State.co2max * 100)) %)")
+                        let co2amount: Double = self.co2entered.parseDouble()
+                        let formattedCO2: String = (co2amount * selectedItem!.CO2eqkg).getFormatted(digits: 3)
+                        let formattedPercent: String = (co2amount * selectedItem!.CO2eqkg / co2State.co2max * 100).getFormatted(digits: 1)
+                        Text("\(formattedCO2) kg CO2 (\(formattedPercent)%)")
                             .font(.system(size: 15)).foregroundColor(.gray).padding()
 
                         HStack {
                             Button(action: {
-                                self.co2State.addEntry(item: self.selectedItem!, amount: Co2State.strToDouble(self.co2entered))
+                                self.co2State.addEntry(item: self.selectedItem!, amount: self.co2entered.numericString(allowDecimalSeparator: true).parseDouble())
                                 self.selectedItem = nil
                                 self.searchText = ""
                                 self.co2entered = ""
@@ -210,3 +210,5 @@ struct DismissingKeyboard: ViewModifier {
         }
     }
 }
+
+

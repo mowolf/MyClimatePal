@@ -25,14 +25,14 @@ struct AddedListView: View {
 //                        Text(item.amount.description)
                         Button(action: {
                             self.selectedItem = item
-                            self.co2entered = item.amount.description
+                            self.co2entered = item.amount.getFormatted()
                         }) {
                             HStack {
                                 Text(item.type).font(.system(size: 18))
                                 Spacer()
                                 VStack(alignment: .trailing) {
-                                    Text(item.amount.description + " \(Co2State.unitForCategory(co2State.listItemsDict[item.type]!.topCategory, co2State.listItemsDict[item.type]!.category))")
-                                    Text(String(format: "%.2f", item.amount * co2State.listItemsDict[item.type]!.CO2eqkg) + " kg Co2")
+                                    Text(item.amount.getFormatted(digits: 3) + " \(Co2State.unitForCategory(co2State.listItemsDict[item.type]!.topCategory, co2State.listItemsDict[item.type]!.category))")
+                                    Text((item.amount * co2State.listItemsDict[item.type]!.CO2eqkg).getFormatted(digits: 2) + " kg Co2")
                                         .foregroundColor(co2State.getColorForEntry(entry: item))
                                 }.font(.system(size: 18))
                             }
@@ -72,11 +72,4 @@ struct ListFooter: View {
     }
 }
 
-extension Date {
-    static func getFormattedDate(date: Date, formatter: String) -> String {
 
-        let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = formatter
-        return dateFormatterPrint.string(from: date)
-    }
-}
