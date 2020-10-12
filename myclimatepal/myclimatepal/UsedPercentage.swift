@@ -53,8 +53,6 @@ struct UsedPercentage: View {
                         Image(systemName: "cloud.fill").font(.system(size: 60)).offset(y: -5)
                         Text("Co2").colorInvert()
                     }
-                    Text("of daily limit")
-
                 }
                 .padding()
                 .font(.title)
