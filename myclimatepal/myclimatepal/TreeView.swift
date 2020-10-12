@@ -37,6 +37,7 @@ struct TreeView: View {
                     Link("Plant Trees now!", destination: URL(string: "https://tree-nation.com/plant/myself")!)
                         .font(.body)
                         .foregroundColor(.green)
+                        .offset(y: 20)
             }
         }.padding(.bottom)
         } else {

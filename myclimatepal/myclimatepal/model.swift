@@ -64,20 +64,25 @@ final class Co2State: ObservableObject {
     
     init(currentCo2State: Double = 0.0) {
         self.currentCo2State = currentCo2State
-
         co2data = Co2State.readJSONFromFile(fileName: "Co2_data") as? [String: Any] ?? [:]
         for x in co2data {
-            
-            // i has no idea what is happening here but it works
+            // load data
             let info = x.value as! [String: Any]
             let category: String = info["category"] as! String
             let sourceId: Int? = info["sourceID"] as! Int?
             let CO2eqkg: NSNumber = info["CO2eqkg"]! as! NSNumber
             let unit: String = info["unit"] as? String ?? "g"
-            let unitPerKg: NSNumber = info["unitPerKg"] as? NSNumber ?? NSNumber(1000)
+            
+            var unitsPerKgFromUnit = NSNumber(1000)
+            if unit == "l" {
+                unitsPerKgFromUnit = NSNumber(1)
+            }
+            
+            let unitPerKg: NSNumber = info["unitPerKg"] as? NSNumber ?? unitsPerKgFromUnit
+            
             listItems.append(ListItem(description: x.key, category: category, CO2eqkg: CO2eqkg.doubleValue, topCategory: "Food", unit: unit, unitPerKg: unitPerKg.doubleValue, sourceId: sourceId))
         }
-        
+        // load items
         loadItems()
 
         // MARK: Load onboardingCompleted
@@ -91,17 +96,17 @@ final class Co2State: ObservableObject {
         if value != nil {
             addedItems = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(value!) as? [Entry] ?? []
         } else {
-            /// Fill in random items
-            let foodItems = listItems.filter { (item) -> Bool in
-                return item.topCategory == "Food"
-            }
-            let clothingItems = listItems.filter { (item) -> Bool in
-                return item.topCategory == "Clothing"
-            }
-            let homeItems = listItems.filter { (item) -> Bool in
-                return item.topCategory == "Home"
-            }
-            let homeItem = homeItems[Int.random(in: 0..<homeItems.count)]
+//            /// Fill in random items
+//            let foodItems = listItems.filter { (item) -> Bool in
+//                return item.topCategory == "Food"
+//            }
+//            let clothingItems = listItems.filter { (item) -> Bool in
+//                return item.topCategory == "Clothing"
+//            }
+//            let homeItems = listItems.filter { (item) -> Bool in
+//                return item.topCategory == "Home"
+//            }
+//            let homeItem = homeItems[Int.random(in: 0..<homeItems.count)]
 //            for i in 0..<15 {
 //                for _ in 0..<Int.random(in: 3..<6) {
 //                    let item = foodItems[Int.random(in: 0..<foodItems.count)]
@@ -169,7 +174,7 @@ final class Co2State: ObservableObject {
 
     func updateTreeOffsetNum() -> Int {
         var neededTreesToday: Int = 0
-        neededTreesToday = Int(currentCo2State / 0.0617) // 22kgCO2 is accumulated per tree per year
+        neededTreesToday = Int(currentCo2State / 0.0617) // ~22kgCO2 is accumulated per tree per year
         return neededTreesToday
     }
 
@@ -317,7 +322,6 @@ final class Co2State: ObservableObject {
             return item.searchScore <= 0.5
         }
     }
-
 }
 
 
@@ -335,18 +339,14 @@ extension Double {
         formatter.minimumIntegerDigits = 1
         formatter.minimumFractionDigits = digits
         formatter.maximumFractionDigits = digits
-        
         return formatter.string(from: NSNumber(value: self) ) ?? (formatter.string(from: 0.0)!)
-        
     }
     
     func getFormatted() -> String {
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 1
         formatter.maximumFractionDigits = 1
-        
         return formatter.string(from: NSNumber(value: self) ) ?? (formatter.string(from: 0.0)!)
-        
     }
 }
 
@@ -377,7 +377,6 @@ extension String {
 // Date formating utils
 extension Date {
     static func getFormattedDate(date: Date, formatter: String) -> String {
-
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = formatter
         return dateFormatterPrint.string(from: date)
