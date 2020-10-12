@@ -10,6 +10,7 @@ import SwiftUI
 
 struct UsedPercentage: View {
     @EnvironmentObject var co2State: Co2State
+    @State var showSource: Bool = false
 
     var co2progress: Double {
         get {return Double(self.co2State.currentCo2State/self.co2State.co2max)}
@@ -28,7 +29,15 @@ struct UsedPercentage: View {
                 .frame(width: 340, height: 400, alignment: .center)
                 .shadow(radius: 8)
             VStack {
-                Text("Todays Footprint").bold().font(.title)
+                HStack {
+                    Text("Todays Footprint").bold().font(.title)
+                    Button(action: {
+                        showSource.toggle()
+                    }, label: {
+                        Image(systemName: "info.circle").resizable().frame(width: 20, height: 20)
+                    })
+                }
+                
                 ZStack {
                     Image("earth-green").resizable()
                     Image(co2progress >= 2 ? "death-star" : "earth-burning")
@@ -50,7 +59,9 @@ struct UsedPercentage: View {
                 .padding()
                 .font(.title)
             }
-        }
+        }.sheet(isPresented: $showSource, content: {
+            SourceView(sourceID: 2, isPresented: $showSource)
+        })
     }
 }
 

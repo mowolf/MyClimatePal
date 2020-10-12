@@ -68,6 +68,9 @@ struct AddView: View {
                                 .shadow(radius: 8)
                             VStack {
                                 HStack{
+                                    Text(selectedItem!.description)
+                                        .font(.title)
+                                        .multilineTextAlignment(.center)
                                     if selectedItem!.sourceId != nil {
                                         Button(action: {
                                             showSource.toggle()
@@ -75,9 +78,7 @@ struct AddView: View {
                                                 Image(systemName: "info.circle")
                                         })
                                     }
-                                Text(selectedItem!.description)
-                                    .font(.title)
-                                    .multilineTextAlignment(.center)
+                                
                                 }.frame(width: 320, height: 100)
 
                                 HStack {

@@ -18,7 +18,7 @@ final class Co2State: ObservableObject {
     // MARK: Gerneral Co2 model data
     @Published var treeOffsetNum: Int = 0
     @Published var currentCo2State: Double = 0.0
-    @Published var co2max = 11.0
+    @Published var co2max = 13.6
     @Published var co2HistoryData: [Double] = [] //[8, 23, 54, 32, 12, 37, 7, 23, 43]
     @Published var co2categoryTotal: [String: Double] = [:] //["Transport": 8, "Food" :23]
 
