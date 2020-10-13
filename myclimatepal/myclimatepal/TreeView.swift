@@ -10,6 +10,8 @@ import SwiftUI
 
 struct TreeView: View {
     @EnvironmentObject var co2State: Co2State
+    
+    var trees = ["🌲", "🌳", "🌴"]
 
     var body: some View {
             let treeRange = Int(100*co2State.currentCo2State/co2State.co2max+1)
@@ -29,7 +31,8 @@ struct TreeView: View {
                         ForEach((0...treeRange), id: \.self) {
                             Text(String($0)).opacity(0.0)
                             if $0 > 0 {
-                                Image("tree-" + String(Int.random(in: 0...(($0 > 3) ? 4 : 3))))
+                                Text(trees[Int.random(in: 0...trees.count-1)])
+                                    .font(.system(size: 60))
                                     .offset(x: CGFloat(Int.random(in: -130...130)), y: CGFloat(($0 > 100 ? 50 : $0/2)-15))
                             }
                         }

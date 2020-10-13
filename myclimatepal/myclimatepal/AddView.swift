@@ -163,7 +163,8 @@ struct AddView: View {
                                 .frame(width: 160, height: 160, alignment: .center)
                                 .shadow(radius: 8)
                             VStack {
-                                Image("car").frame(width: iconSize, height: iconSize)
+                                Text("🚘")
+                                    .font(.system(size: 80))
                                 Text("Transportation").bold()
                                 }
                             }
@@ -179,7 +180,8 @@ struct AddView: View {
                                 .shadow(radius: 8)
 
                             VStack {
-                                Image("home").frame(width: iconSize, height: iconSize)
+                                Text("🏡")
+                                    .font(.system(size: 80))
                                 Text("Home").bold()
                                 }
                         }
@@ -196,7 +198,8 @@ struct AddView: View {
                                 .shadow(radius: 8)
 
                             VStack {
-                                Image("food").frame(width: iconSize, height: iconSize)
+                                Text("🥙")
+                                    .font(.system(size: 80))
                                 Text("Food").bold()
                             }
                         }
@@ -212,7 +215,8 @@ struct AddView: View {
                                 .shadow(radius: 8)
 
                             VStack {
-                                Image("jumper").frame(width: iconSize, height: iconSize)
+                                Text("👕")
+                                    .font(.system(size: 80))
                                 Text("Clothing").bold()
                             }
                         }
