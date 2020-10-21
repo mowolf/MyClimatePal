@@ -163,9 +163,11 @@ final class Co2State: ObservableObject {
         }
         
         for (_, entry) in lastRecurrentEntries {
-            var date = entry.dateAdded
             // add seconds to Date() to fix timezone
-            while date.dayDiff(Date().addingTimeInterval(Double(TimeZone.current.secondsFromGMT()))) > 0 {
+            
+            var date = entry.dateAdded.addingTimeInterval(Double(TimeZone.current.secondsFromGMT()))
+            
+            while date.dayDiff(Date().addingTimeInterval(Double(TimeZone.current.secondsFromGMT()))) >= 0 {
                 date = date.addingTimeInterval(24*60*60)
                 let newEntry = Entry(category: entry.category, type: entry.type, amount: entry.amount, dateAdded: date, recurrence: entry.recurrence, recurrenceID: entry.recurrenceID)
                 addedItems.append(newEntry)
